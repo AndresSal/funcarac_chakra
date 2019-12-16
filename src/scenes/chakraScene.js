@@ -1,5 +1,6 @@
 import ToolButton from "../gameObjects/tools/toolButton.js";
 import ToolsBox from "../gameObjects/tools/toolsBox.js";
+import SeedsBox from "../gameObjects/seeds/seedsBox.js";
 
 class ChakraScene extends Phaser.Scene{
     constructor(){
@@ -7,15 +8,17 @@ class ChakraScene extends Phaser.Scene{
     }
 
     create(){
-        // // let button = new ToolButton(this,200,200);
-        // // this.add.existing(button);
-        // let toolsBox = new ToolsBox(this,400,400);
-        // this.add.existing(toolsBox);
-        this.deployGUI();
+        let toolsBox = new ToolsBox(this,175.5,325);
+        let seedsBox = new SeedsBox(this,571,784);
+        this.add.existing(seedsBox);
+        this.add.existing(toolsBox);
+        //this.deployGUI();
     }
 
     deployGUI(){
         let toolBox = this.add.image(175.5,325,'cajaHtas');
+        let seedBox = this.add.image(572,785,'cajaSemillas');
+        
     }
 }
 export default ChakraScene;
