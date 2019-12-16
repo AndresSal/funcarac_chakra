@@ -1,10 +1,11 @@
 import BootLoader from "./bootloader.js";
+import ChakraScene from "./scenes/chakraScene.js";
 
 const config = {
-    width:640,
-    height:400,
+    width:1300,
+    height:900,
     parent:'contenedor',
-    scene:[BootLoader]
+    scene:[BootLoader,ChakraScene]
 }
 
 new Phaser.Game(config);

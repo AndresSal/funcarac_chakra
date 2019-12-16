@@ -1,5 +1,3 @@
-import ToolButton from "./gameObjects/tools/toolButton.js";
-
 class BootLoader extends Phaser.Scene{
     constructor(){
         super({key:'BootLoader'});
@@ -14,9 +12,7 @@ class BootLoader extends Phaser.Scene{
     }
 
     create(){
-
-        let toolButton = new ToolButton(this,300,300);
-        this.add.existing(toolButton);
+        this.scene.launch('ChakraScene');
     }
 }
 
