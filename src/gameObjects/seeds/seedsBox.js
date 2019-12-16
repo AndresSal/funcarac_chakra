@@ -10,7 +10,11 @@ class SeedsBox extends Phaser.GameObjects.Container{
         this.plaque = scene.add.image(-395,0,'placaSemillas');
         this.innerBox = scene.add.image(160,0,'cajaIntSemillas');
         this.add([this.box, this.plaque,this.innerBox]).setSize(this.box.width,this.box.height);
-        
+
+        this.addSeedButtons(scene);
+    }
+
+    addSeedButtons(scene){
         var xPosition = -145;
         var yPosition = -50;
 
@@ -32,8 +36,6 @@ class SeedsBox extends Phaser.GameObjects.Container{
             this.add(seedOption);
             xPosition+=seedOption.board.width+5;
         }
-
-
     }
 
 
