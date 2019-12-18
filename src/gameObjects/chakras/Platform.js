@@ -20,7 +20,6 @@ class Platform extends Phaser.GameObjects.Container{
         let items = 0;
 
         while(items<5){
-            console.log(xPosition);
             let chakra = new Chakra(scene,xPosition,yPosition);
             scene.add.existing(chakra);
             this.add(chakra);
@@ -29,7 +28,7 @@ class Platform extends Phaser.GameObjects.Container{
         }
 
         xPosition = -300;
-        yPosition+=198;
+        yPosition+=265;
         items = 0;
 
         while(items<5){
