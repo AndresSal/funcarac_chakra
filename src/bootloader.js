@@ -19,6 +19,17 @@ class BootLoader extends Phaser.Scene{
         this.load.image('canasta','./assets/semillas/seed_basket.png');
         this.load.image('canastaBloqueada','./assets/semillas/unlocked_seed.png');
         this.load.image('etiquetaSemilla','./assets/semillas/seed_label.png');
+
+        //chakras
+        this.load.image('anden','./assets/anden/platform.png');
+        this.load.image('placaAnden','./assets/anden/platform_plaque.png');
+        this.load.image('bordeChakra','./assets/anden/chakra_board.png');
+        this.load.image('chakraNatural','./assets/anden/grassed_chakra.png');
+        this.load.image('chakraLimpiada','./assets/anden/cleaned_chakra.png');
+        this.load.image('chakraAbonada','./assets/anden/fertilized_chakra.png');
+        this.load.image('chakraSurcada','./assets/anden/lined_chakra.png');
+
+        
     }
 
     create(){

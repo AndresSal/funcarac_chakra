@@ -19,7 +19,6 @@ class SeedsBox extends Phaser.GameObjects.Container{
         var yPosition = -50;
 
         while(xPosition<this.innerBox.width-200){
-            console.log(xPosition);
             var seedOption = new SeedButton(scene,xPosition,yPosition);
             scene.add.existing(seedOption);
             this.add(seedOption);
