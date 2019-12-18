@@ -11,6 +11,10 @@ class ToolsBox extends Phaser.GameObjects.Container{
     antipestBttn;
     hoeBttn;
 
+    toolsList=[];
+
+    selectedButton;
+
     constructor(scene,x,y){
         super(scene,x,y);
 
@@ -31,12 +35,34 @@ class ToolsBox extends Phaser.GameObjects.Container{
         this.addButton(this.shovelBttn);
         this.addButton(this.antipestBttn);
         this.addButton(this.hoeBttn);
+
+        this.selectButton();
     }
 
     addButton(toolButton){
         this.scene.add.existing(toolButton);
         this.add(toolButton);
+        this.toolsList.push(toolButton);
     }
+
+    selectButton(){
+        this.toolsList.forEach((tool)=>{            
+            tool.on('pointerdown',()=>{
+                this.selectedButton = tool;
+                tool.body.setTint(0xae091a);
+            });
+            tool.on('pointerup',()=>{
+                console.log('herramienta escogida: ',this.selectedButton);
+                this.toolsList.forEach((t)=>{
+                    if(t!=this.selectedButton){
+                        t.body.clearTint();
+                    }
+                })
+            });
+        });        
+    }
+
+
 
 
 }

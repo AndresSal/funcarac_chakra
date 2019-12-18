@@ -18,6 +18,13 @@ class ChakraPanel extends Phaser.GameObjects.Container{
         this.clock = scene.add.image(50,-10,'icono_reloj');
         this.compost = scene.add.image(10,-10,'icono_abono');
 
+        this.status_bar_body.visible = false;
+        this.status_bar.visible = false;
+        this.plant.visible = false;
+        this.water.visible = false;
+        this.clock.visible = false;
+        this.compost.visible = false;
+
         this.add([this.box,this.status_bar_body,this.status_bar,this.plant,this.water,this.clock,this.compost]).setSize(this.box.width,this.box.height);
     }
 }

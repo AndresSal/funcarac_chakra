@@ -4,6 +4,9 @@ class SeedsBox extends Phaser.GameObjects.Container{
     box;
     plaque;
     innerBox;
+
+    seedList=[];
+
     constructor(scene,x,y){
         super(scene,x,y);
         this.box = scene.add.image(0,0,'cajaSemillas');
@@ -12,6 +15,7 @@ class SeedsBox extends Phaser.GameObjects.Container{
         this.add([this.box, this.plaque,this.innerBox]).setSize(this.box.width,this.box.height);
 
         this.addSeedButtons(scene);
+        this.selectButton();
     }
 
     addSeedButtons(scene){
@@ -22,6 +26,7 @@ class SeedsBox extends Phaser.GameObjects.Container{
             var seedOption = new SeedButton(scene,xPosition,yPosition);
             scene.add.existing(seedOption);
             this.add(seedOption);
+            this.seedList.push(seedOption);
             xPosition+=seedOption.board.width+5;
         }
 
@@ -33,8 +38,21 @@ class SeedsBox extends Phaser.GameObjects.Container{
             var seedOption = new SeedButton(scene,xPosition,yPosition);
             scene.add.existing(seedOption);
             this.add(seedOption);
+            this.seedList.push(seedOption);
             xPosition+=seedOption.board.width+5;
         }
+    }
+
+    selectButton(){
+        this.seedList.forEach(element => {
+            element.on('pointerdown',()=>{
+                element.body.setTint(0x2d2d2d);
+            });
+
+            element.on('pointerup',()=>{
+                element.body.clearTint();
+            })
+        });
     }
 
 
