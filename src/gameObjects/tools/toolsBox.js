@@ -20,11 +20,11 @@ class ToolsBox extends Phaser.GameObjects.Container{
         var yposition = 0;
 
         this.add([this.box,this.plaque]).setSize(this.box.width,this.box.height);
-        this.fertilizerBttn = new ToolButton(scene,-80,-125);
-        this.waterBttn = new ToolButton(scene,80,-125);
-        this.shovelBttn = new ToolButton(scene,-80,50);
-        this.antipestBttn = new ToolButton(scene,80,50);
-        this.hoeBttn = new ToolButton(scene,-80,225);
+        this.fertilizerBttn = new ToolButton(scene,-80,-125,1);
+        this.waterBttn = new ToolButton(scene,80,-125,2);
+        this.shovelBttn = new ToolButton(scene,-80,50,4);
+        this.antipestBttn = new ToolButton(scene,80,50,5);
+        this.hoeBttn = new ToolButton(scene,-80,225,3);
 
         this.addButton(this.fertilizerBttn);
         this.addButton(this.waterBttn);

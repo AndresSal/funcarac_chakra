@@ -4,11 +4,16 @@ class BootLoader extends Phaser.Scene{
     }
 
     preload(){
-        this.load.image('cajaHtas','./assets/tools_box.png');
-        this.load.image('placaHtas','./assets/plaque.png');
-        this.load.image('bordeHta','./assets/tool_board.png');
-        this.load.image('cuerpoHta','./assets/tool_body.png');
-        this.load.image('etiquetaHta','./assets/tool_title.png');
+        this.load.image('cajaHtas','./assets/herramientas/tools_box.png');
+        this.load.image('placaHtas','./assets/herramientas/plaque.png');
+        this.load.image('bordeHta','./assets/herramientas/tool_board.png');
+        this.load.image('cuerpoHta','./assets/herramientas/tool_body.png');
+        this.load.image('etiquetaHta','./assets/herramientas/tool_title.png');
+        this.load.image('abono','./assets/herramientas/abono.png');
+        this.load.image('agua','./assets/herramientas/agua.png');
+        this.load.image('azadon','./assets/herramientas/azadon.png');
+        this.load.image('chisguete','./assets/herramientas/chisguete.png');
+        this.load.image('pala','./assets/herramientas/pala.png');
 
         //seeds
         this.load.image('cajaSemillas','./assets/semillas/seeds_box.png');
