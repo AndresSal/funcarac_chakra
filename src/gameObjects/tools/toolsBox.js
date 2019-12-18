@@ -36,7 +36,7 @@ class ToolsBox extends Phaser.GameObjects.Container{
         this.addButton(this.antipestBttn);
         this.addButton(this.hoeBttn);
 
-        this.selectButton();
+        this.selectButton(scene);
     }
 
     addButton(toolButton){
@@ -45,13 +45,15 @@ class ToolsBox extends Phaser.GameObjects.Container{
         this.toolsList.push(toolButton);
     }
 
-    selectButton(){
-        this.toolsList.forEach((tool)=>{            
-            tool.on('pointerdown',()=>{
-                this.selectedButton = tool;
-                tool.body.setTint(0xae091a);
+    selectButton(scene){
+        this.toolsList.forEach((option)=>{            
+            option.on('pointerdown',()=>{
+                this.selectedButton = option;
+                scene.input.setDefaultCursor(option.toolData.cur);
+                // tool.input.cursor = 'url(assets/cursores/palaSeleccionada.cur),pointer';
+                option.body.setTint(0xae091a);
             });
-            tool.on('pointerup',()=>{
+            option.on('pointerup',()=>{
                 console.log('herramienta escogida: ',this.selectedButton);
                 this.toolsList.forEach((t)=>{
                     if(t!=this.selectedButton){

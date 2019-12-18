@@ -12,7 +12,6 @@ class SeedButton extends Phaser.GameObjects.Container{
         this.basket.setTint(0x000000);
         this.label = scene.add.image(0,30,'etiquetaSemilla');
         this.add([this.board,this.body,this.basket,this.label]).setSize(this.board.width,this.board.height);
-        this.setInteractive();
     }
 }
 

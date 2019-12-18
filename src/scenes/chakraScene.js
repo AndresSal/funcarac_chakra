@@ -15,6 +15,8 @@ class ChakraScene extends Phaser.Scene{
         this.add.existing(seedsBox);
         this.add.existing(toolsBox);
         this.add.existing(platform);
+
+        this.input.setDefaultCursor('url(assets/cursores/manita.cur),pointer');
         //this.deployGUI();
     }
 
