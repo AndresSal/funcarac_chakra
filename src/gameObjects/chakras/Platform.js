@@ -1,8 +1,10 @@
 import Chakra from "./chakra.js";
+import { toolsInfo } from "../../consts/chakraLib.js";
 
 class Platform extends Phaser.GameObjects.Container{
     box;
     plaque;
+    chakrasList=[];
     constructor(scene,x,y){
         super(scene,x,y);
 
@@ -23,6 +25,7 @@ class Platform extends Phaser.GameObjects.Container{
             let chakra = new Chakra(scene,xPosition,yPosition);
             scene.add.existing(chakra);
             this.add(chakra);
+            this.chakrasList.push(chakra)
             xPosition+=149;
             items++;
         }
@@ -32,18 +35,29 @@ class Platform extends Phaser.GameObjects.Container{
         items = 0;
 
         while(items<5){
-            console.log(xPosition);
             let chakra = new Chakra(scene,xPosition,yPosition);
             scene.add.existing(chakra);
             this.add(chakra);
+            this.chakrasList.push(chakra);
             xPosition+=149;
             items++;
         }
-
-
     }
 
-
+    selectAChakra(){
+        let info = JSON.parse(localStorage.getItem('selectedTool'));
+        let aux = toolsInfo.find((tool)=>{
+            return tool.name === 'PALA'
+        });
+        this.chakrasList.forEach((chakra)=>{
+            chakra.setGrassBehavior();
+            if(info.key===aux.key){
+                chakra.unblockContent();
+            }else{
+                chakra.blockContent();
+            }
+        })
+    }
 }
 
 export default Platform;

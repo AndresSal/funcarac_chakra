@@ -49,12 +49,12 @@ class ToolsBox extends Phaser.GameObjects.Container{
         this.toolsList.forEach((option)=>{            
             option.on('pointerdown',()=>{
                 this.selectedButton = option;
-                scene.input.setDefaultCursor(option.toolData.cur);
-                // tool.input.cursor = 'url(assets/cursores/palaSeleccionada.cur),pointer';
+                let toolInfo = this.selectedButton.toolData;
+                localStorage.setItem('selectedTool',JSON.stringify(toolInfo));
+                scene.input.setDefaultCursor(toolInfo.cur);
                 option.body.setTint(0xae091a);
             });
             option.on('pointerup',()=>{
-                console.log('herramienta escogida: ',this.selectedButton);
                 this.toolsList.forEach((t)=>{
                     if(t!=this.selectedButton){
                         t.body.clearTint();

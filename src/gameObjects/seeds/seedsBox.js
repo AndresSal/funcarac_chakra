@@ -16,6 +16,7 @@ class SeedsBox extends Phaser.GameObjects.Container{
 
         this.addSeedButtons(scene);
         this.selectButton();
+        this.unlockingSeeds();
     }
 
     addSeedButtons(scene){
@@ -34,7 +35,6 @@ class SeedsBox extends Phaser.GameObjects.Container{
         yPosition = 55;
 
         while(xPosition<this.innerBox.width-200){
-            console.log(xPosition);
             var seedOption = new SeedButton(scene,xPosition,yPosition);
             scene.add.existing(seedOption);
             this.add(seedOption);
@@ -53,6 +53,12 @@ class SeedsBox extends Phaser.GameObjects.Container{
                 element.body.clearTint();
             })
         });
+    }
+
+    unlockingSeeds(){
+        this.seedList.forEach((option)=>{
+            option.unlockSeed();
+        })
     }
 
 
