@@ -58,6 +58,7 @@ class BootLoader extends Phaser.Scene{
         this.load.image('azadon','./assets/herramientas/azadon.png');
         this.load.image('chisguete','./assets/herramientas/chisguete.png');
         this.load.image('pala','./assets/herramientas/pala.png');
+        this.load.image('tijeras','./assets/herramientas/tijeras.png');
 
         //seeds
         this.load.image('cajaSemillas','./assets/semillas/seeds_box.png');

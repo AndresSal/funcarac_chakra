@@ -4,14 +4,7 @@ class ToolsBox extends Phaser.GameObjects.Container{
     box;
     plaque;
     title;
-    
-    fertilizerBttn;
-    waterBttn;
-    shovelBttn;
-    antipestBttn;
-    hoeBttn;
-
-    toolsList=[];
+    toolsGroup;
 
     selectedButton;
 
@@ -20,33 +13,32 @@ class ToolsBox extends Phaser.GameObjects.Container{
 
         this.box = scene.add.image(0,0,'cajaHtas');
         this.plaque = scene.add.image(0,-265,'placaHtas');
-        var xposition = 0;
-        var yposition = 0;
-
         this.add([this.box,this.plaque]).setSize(this.box.width,this.box.height);
-        this.fertilizerBttn = new ToolButton(scene,-80,-125,1);
-        this.waterBttn = new ToolButton(scene,80,-125,2);
-        this.shovelBttn = new ToolButton(scene,-80,50,4);
-        this.antipestBttn = new ToolButton(scene,80,50,5);
-        this.hoeBttn = new ToolButton(scene,-80,225,3);
-
-        this.addButton(this.fertilizerBttn);
-        this.addButton(this.waterBttn);
-        this.addButton(this.shovelBttn);
-        this.addButton(this.antipestBttn);
-        this.addButton(this.hoeBttn);
-
+        this.addToolsGrid(scene);
         this.selectButton(scene);
     }
 
-    addButton(toolButton){
-        this.scene.add.existing(toolButton);
-        this.add(toolButton);
-        this.toolsList.push(toolButton);
+    addToolsGrid(scene){
+        this.toolsGroup = scene.add.group();
+        for(var i=1;i<7;i++){
+            var toolBtn = new ToolButton(scene,0,0,i);
+            this.scene.add.existing(toolBtn);
+            this.add(toolBtn);
+            this.toolsGroup.add(toolBtn);
+        }
+
+        Phaser.Actions.GridAlign(this.toolsGroup.getChildren(),{
+            width:2,
+            height:3,
+            cellWidth:156,
+            cellHeight:177,
+            x:-75,
+            y:-127
+        })
     }
 
     selectButton(scene){
-        this.toolsList.forEach((option)=>{            
+        this.toolsGroup.getChildren().forEach((option)=>{            
             option.on('pointerdown',()=>{
                 this.selectedButton = option;
                 let toolInfo = this.selectedButton.toolData;
@@ -55,7 +47,7 @@ class ToolsBox extends Phaser.GameObjects.Container{
                 option.body.setTint(0xae091a);
             });
             option.on('pointerup',()=>{
-                this.toolsList.forEach((t)=>{
+                this.toolsGroup.getChildren().forEach((t)=>{
                     if(t!=this.selectedButton){
                         t.body.clearTint();
                     }
@@ -63,9 +55,5 @@ class ToolsBox extends Phaser.GameObjects.Container{
             });
         });        
     }
-
-
-
-
 }
 export default ToolsBox;

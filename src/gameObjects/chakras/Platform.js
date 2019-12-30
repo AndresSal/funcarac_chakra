@@ -5,6 +5,7 @@ class Platform extends Phaser.GameObjects.Container{
     box;
     plaque;
     chakrasList=[];
+    chakrasGroup;
     constructor(scene,x,y){
         super(scene,x,y);
 
@@ -12,36 +13,25 @@ class Platform extends Phaser.GameObjects.Container{
         this.plaque = scene.add.image(0,-260,'placaAnden');
         this.add([this.box,this.plaque]).setSize(this.box.width,this.box.height);
 
-        this.addChakras(scene);
+        this.addChakrasGrid(scene);
     }
 
-    addChakras(scene){
-        let xPosition = -300;
-        let yPosition = -110;
-
-        let items = 0;
-
-        while(items<5){
-            let chakra = new Chakra(scene,xPosition,yPosition);
-            scene.add.existing(chakra);
+    addChakrasGrid(scene){
+        this.chakrasGroup = scene.add.group();
+        for (var i=0;i<10;i++){
+            var chakra = new Chakra(scene,0,0);
             this.add(chakra);
-            this.chakrasList.push(chakra)
-            xPosition+=149;
-            items++;
+            this.chakrasGroup.add(chakra);
         }
 
-        xPosition = -300;
-        yPosition+=265;
-        items = 0;
-
-        while(items<5){
-            let chakra = new Chakra(scene,xPosition,yPosition);
-            scene.add.existing(chakra);
-            this.add(chakra);
-            this.chakrasList.push(chakra);
-            xPosition+=149;
-            items++;
-        }
+        Phaser.Actions.GridAlign(this.chakrasGroup.getChildren(),{
+            width:5,
+            height:2,
+            cellWidth:149,
+            cellHeight:260,
+            x:-294,
+            y:-140
+        });
     }
 
     selectAChakra(){
@@ -49,7 +39,7 @@ class Platform extends Phaser.GameObjects.Container{
         let aux = toolsInfo.find((tool)=>{
             return tool.name === 'PALA'
         });
-        this.chakrasList.forEach((chakra)=>{
+        this.chakrasGroup.getChildren().forEach((chakra)=>{
             chakra.setGrassBehavior();
             if(info.key===aux.key){
                 chakra.unblockContent();
