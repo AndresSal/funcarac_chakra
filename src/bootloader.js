@@ -4,6 +4,50 @@ class BootLoader extends Phaser.Scene{
     }
 
     preload(){
+        var progressBar = this.add.graphics();
+        var progressBox = this.add.graphics();
+        progressBox.fillStyle(0x222222,0.8);
+        progressBox.fillRect(400,400,320,50);
+        var width = this.cameras.main.width;
+        var height = this.cameras.main.height;
+        var loadingText = this.make.text({
+            x: width/2,
+            y:height / 2 - 50,
+            text:'loading...',
+            style:{
+                font:'20px monospace',
+                fill:'#ffffff'
+            } 
+        });
+        loadingText.setOrigin(0.5,0.5);
+
+        var percentText = this.make.text({
+            x: width/2,
+            y:height / 2 - 5,
+            text:'0%',
+            style:{
+                font:'18px monospace',
+                fill:'#ffffff'
+            } 
+        });
+        percentText.setOrigin(0.5,0.5);
+
+        var assetText = this.make.text({
+            x: width/2,
+            y:height / 2 + 50,
+            text:'',
+            style:{
+                font:'18px monospace',
+                fill:'#ffffff'
+            } 
+        });
+        assetText.setOrigin(0.5,0.5);
+
+        //game-logo
+        this.load.image('logo','./assets/logo/phaser-logo.png');
+
+
+        //tools
         this.load.image('cajaHtas','./assets/herramientas/tools_box.png');
         this.load.image('placaHtas','./assets/herramientas/plaque.png');
         this.load.image('bordeHta','./assets/herramientas/tool_board.png');
@@ -49,11 +93,32 @@ class BootLoader extends Phaser.Scene{
         this.load.image('contenedor_barra','./assets/anden/status_bar_body.png');
         this.load.image('barra_estado','./assets/anden/status_bar.png');
 
+        this.load.on('progress',(value)=>{
+            progressBar.clear();
+            progressBar.fillStyle(0xffffff,1);
+            progressBar.fillRect(410,410,300*value,30);
+            percentText.setText(parseInt(value*100)+'%');
+        });
+
+        this.load.on('fileprogress',(file)=>{
+            assetText.setText('Loading asset: '+file.key);
+        });
+
+        this.load.on('complete',()=>{
+            console.log('complete');
+            progressBar.destroy();
+            progressBox.destroy();
+            loadingText.destroy();
+            percentText.destroy();
+            assetText.destroy();
+            //this.scene.launch('ChakraScene');
+        })
         
     }
 
     create(){
-        this.scene.launch('ChakraScene');
+        var logo = this.add.image(400,300,'logo');
+        this.scene.start('ChakraScene');
     }
 }
 
