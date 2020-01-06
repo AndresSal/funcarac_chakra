@@ -6,7 +6,6 @@ class Chakra extends Phaser.GameObjects.Container{
     field;
     chakraPanel;
     blocked;
-
     grassList=[];
 
     constructor(scene,x,y){
@@ -30,14 +29,24 @@ class Chakra extends Phaser.GameObjects.Container{
         let maxX = 30;
         let minY = -90;
         let maxY = 55;
-        for(var i=0;i<20;i++){
-            let xPosition = Math.floor(Math.random()* (maxX-minX))+minX;
-            let yPosition = Math.floor(Math.random()* (maxY-minY))+minY;
-            let grass = scene.add.image(xPosition,yPosition,'maleza');
+        for(var i=0;i<16;i++){
+            // let xPosition = Math.floor(Math.random()* (maxX-minX))+minX;
+            // let yPosition = Math.floor(Math.random()* (maxY-minY))+minY;
+            // let grass = scene.add.image(xPosition,yPosition,'maleza');
+            let grass = scene.add.image(0,0,'maleza');
             grass.setInteractive();
             this.add(grass);
             this.grassList.push(grass);
         }
+
+        Phaser.Actions.GridAlign(this.grassList,{
+            width:4,
+            height:4,
+            cellWidth:22,
+            cellHeight:45,
+            x:-55,
+            y:-90
+        })
     }
 
     unblockContent(){
@@ -56,13 +65,23 @@ class Chakra extends Phaser.GameObjects.Container{
                     g.setTint(0x000000);
                 });
                 g.on('pointerup',()=>{
-                    this.remove(g)
+                    this.remove(g);
+                    var index = this.grassList.indexOf(g);
+                    if(index>-1){
+                        this.grassList.splice(index,1);
+                    }
                 });
             }else{
                 g.off('pointerdown');
                 g.off('pointerup');
             }
         })
+    }
+
+    checkStatus(){
+       if(this.grassList.length===0){
+           console.log('Mi chakra esta limpia');
+       }
     }
 }
 

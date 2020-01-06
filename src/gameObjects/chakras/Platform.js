@@ -37,10 +37,11 @@ class Platform extends Phaser.GameObjects.Container{
     selectAChakra(){
         let info = JSON.parse(localStorage.getItem('selectedTool'));
         let aux = toolsInfo.find((tool)=>{
-            return tool.name === 'PALA'
+            return tool.name === 'TIJERAS'
         });
         this.chakrasGroup.getChildren().forEach((chakra)=>{
             chakra.setGrassBehavior();
+            //chakra.checkStatus();
             if(info.key===aux.key){
                 chakra.unblockContent();
             }else{
