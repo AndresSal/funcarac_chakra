@@ -94,6 +94,25 @@ class BootLoader extends Phaser.Scene{
         this.load.image('contenedor_barra','./assets/anden/status_bar_body.png');
         this.load.image('barra_estado','./assets/anden/status_bar.png');
 
+        //carac
+        this.load.image('cajaPiezas','./assets/carac/piecesBox.png');
+        this.load.image('placaPiezas','./assets/carac/piecesPlaque.png');
+        this.load.image('cajaTablero','./assets/carac/boardBox.png');
+        this.load.image('placaTablero','./assets/carac/boardPlaque.png');
+        this.load.image('flecha','./assets/carac/arrow.png');
+        this.load.image('piezaRoja','./assets/carac/pieceRed.png');
+        this.load.image('piezaAmarilla','./assets/carac/pieceYellow.png');
+        this.load.image('piezaVerde','./assets/carac/pieceGreen.png');
+        this.load.image('piezaAzul','./assets/carac/pieceBlue.png');
+        this.load.image('fondoRojo','./assets/carac/backgroundRed.png');
+        this.load.image('fondoAmarillo','./assets/carac/backgroundYellow.png');
+        this.load.image('fondoVerde','./assets/carac/backgroundGreen.png');
+        this.load.image('fondoAzul','./assets/carac/backgroundBlue.png');
+        this.load.image('ranura','./assets/carac/slotBody.png');
+        this.load.image('etiqueta_pieza','./assets/carac/pieceLabel.png');
+
+
+
         this.load.on('progress',(value)=>{
             progressBar.clear();
             progressBar.fillStyle(0xffffff,1);
@@ -119,7 +138,8 @@ class BootLoader extends Phaser.Scene{
 
     create(){
         var logo = this.add.image(400,300,'logo');
-        this.scene.start('ChakraScene');
+        // this.scene.start('ChakraScene');
+        this.scene.start('CaracScene');
     }
 }
 
