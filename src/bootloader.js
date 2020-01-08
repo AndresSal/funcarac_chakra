@@ -53,6 +53,7 @@ class BootLoader extends Phaser.Scene{
         this.load.image('listonModulo','./assets/mainUI/ribbon_module.png');
         this.load.image('listonAsistente','./assets/mainUI/ribbon_assistant.png');
         this.load.image('cajaBotones','./assets/mainUI/btn_box.png');
+        this.load.image('etiquetaBoton','./assets/mainUI/btn_label.png');
         this.load.image('flecha','./assets/mainUI/btn_arrow.png');
         this.load.image('guia','./assets/mainUI/btn_guide.png');
         this.load.image('ayuda','./assets/mainUI/btn_hint.png');

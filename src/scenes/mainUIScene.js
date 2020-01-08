@@ -1,20 +1,24 @@
 import ModuleBtn from "../gameObjects/mainUI/moduleBtn.js";
+import AssistantBtn from "../gameObjects/mainUI/assistantBtn.js";
 
 class MainUIScene extends Phaser.Scene{
     contentGroup;
     btnGroup;
+    menuBtnGroup;
 
 
     moduleBox;
     btnBox;
+    assistantBox;
     
     constructor(){
         super({key:'MainUIScene'});
     }
 
     create(){
-        this.addModuleContent();
+        this.addAsistantContent();
         this.addModuleBttn();
+        this.addModuleContent();
         this.alignUIElements();
     }
 
@@ -53,18 +57,71 @@ class MainUIScene extends Phaser.Scene{
 
     alignUIElements(){
         this.contentGroup=this.add.group();
-        this.contentGroup.add(this.btnBox);
+        this.contentGroup.add(this.assistantBox);
         this.contentGroup.add(this.moduleBox);
+        this.contentGroup.add(this.btnBox);
+        
         
         Phaser.Actions.GridAlign(this.contentGroup.getChildren(),{
             width:2,
             height:2,
             cellWidth:635,
-            cellHeight:483,
+            cellHeight:711,
             x:840,
-            y:250
+            y:360
         })
     }
+
+    addAsistantContent(){
+        this.assistantBox = this.add.container(1000,800);
+        let content = this.add.group();
+        this.menuBtnGroup = this.add.group();
+        let window = this.add.image(0,0,'ventanaAsistente');
+        let ribbon = this.add.image(0,0,'listonAsistente');
+        let btnPanel = this.add.image(0,0,'cajaBotones');
+        let asistantName = this.add.text(0,0,'MAMA DULU');
+        let ribbonBox = this.add.container(0,0);
+        let btnBox = this.add.container(0,0);
+
+        this.assistantBox.add(window).setSize(window.width,window.height);
+
+        ribbonBox.add([ribbon,asistantName]).setSize(ribbon.width,ribbon.height);
+        
+        for (let i=1;i<=5;i++){
+            let btn = new AssistantBtn(this,0,0,i);
+            this.menuBtnGroup.add(btn);
+        }
+        Phaser.Actions.GridAlign(this.menuBtnGroup.getChildren(),{
+            width:5,
+            height:1,
+            cellWidth:100,
+            cellHeight:20,
+            x:-180,
+            y:-55
+        })
+        
+        btnBox.add(btnPanel).setSize(btnPanel.width,btnPanel.height);
+        this.menuBtnGroup.getChildren().forEach((item)=>{
+            btnBox.add(item);
+        });
+
+        content.add(ribbonBox);
+        content.add(btnBox);
+
+        Phaser.Actions.GridAlign(content.getChildren(),{
+            width:1,
+            height:2,
+            cellwidth:200,
+            cellHeight:470,
+            x:-280,
+            y:-80
+        });
+
+        content.getChildren().forEach((item)=>{
+            this.assistantBox.add(item);
+        });
+    }
+
 }
 
 export default MainUIScene;
