@@ -21,7 +21,7 @@ class ModuleBtn extends Phaser.GameObjects.Container{
         this.label = scene.add.image(0,140,'etiquetaOpcion');
         this.text = scene.add.text(-50,125,this.data.title);
        
-        this.add([this.body,this.window,this.icon,this.label,this.text]).setSize(this.body.width,this.body.height);
+        this.add([this.body,this.window,this.icon,this.label,this.text]).setSize(this.body.width,this.body.height).setInteractive();
         scene.add.existing(this);
     }
 }

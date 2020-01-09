@@ -10,8 +10,10 @@ class MainUIScene extends Phaser.Scene{
     moduleBox;
     btnBox;
     assistantBox;
+
+    selectedModuleBtn;
     
-    constructor(){
+    constructor(key){
         super({key:'MainUIScene'});
     }
 
@@ -20,6 +22,13 @@ class MainUIScene extends Phaser.Scene{
         this.addModuleBttn();
         this.addModuleContent();
         this.alignUIElements();
+        this.scene.launch('ChakraScene');
+        this.scene.sleep('ChakraScene');
+        this.scene.launch('CaracScene');
+    }
+
+    update(){
+        this.setModuleBtnBehavior();
     }
 
     addModuleBttn(){
@@ -120,6 +129,31 @@ class MainUIScene extends Phaser.Scene{
         content.getChildren().forEach((item)=>{
             this.assistantBox.add(item);
         });
+    }
+
+    setModuleBtnBehavior(){
+        this.btnGroup.getChildren().forEach((btn)=>{
+            btn.on('pointerdown',()=>{
+                this.selectedModuleBtn = btn;
+                if(btn.data.id===1){
+                    this.scene.sleep('ChakraScene');
+                    this.scene.wake('CaracScene');
+                    // this.scene.launch('CaracScene');
+                }else if(btn.data.id===3){
+                    this.scene.sleep('CaracScene');
+                    this.scene.wake('ChakraScene');
+                    // this.scene.launch('ChakraScene');
+                }
+                btn.body.setTint(0xae091a);
+            });
+            btn.on('pointerup',()=>{
+                this.btnGroup.getChildren().forEach((b)=>{
+                    if(b!=this.selectedModuleBtn){
+                        b.body.clearTint();
+                    }
+                })
+            })
+        })
     }
 
 }

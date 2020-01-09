@@ -5,6 +5,7 @@ import Platform from "../gameObjects/chakras/Platform.js";
 
 class ChakraScene extends Phaser.Scene{
     platform;
+    group;
     constructor(){
         super({key:'ChakraScene'});
     }
@@ -15,12 +16,23 @@ class ChakraScene extends Phaser.Scene{
     }
 
     create(){
-        let toolsBox = new ToolsBox(this,187,335);
-        let seedsBox = new SeedsBox(this,581,804);
-        this.platform = new Platform(this,761,335);
+        let toolsBox = new ToolsBox(this,0,0);
+        let seedsBox = new SeedsBox(this,0,0);
+        this.platform = new Platform(this,0,0);
         this.add.existing(seedsBox);
         this.add.existing(toolsBox);
-        this.add.existing(this.platform);   
+        this.add.existing(this.platform);
+        
+        this.group = this.add.group([toolsBox,this.platform,seedsBox]);
+
+        Phaser.Actions.GridAlign(this.group.getChildren(),{
+            width:2,
+            height:2,
+            cellWidth:363,
+            cellHeight:650,
+            x:1384,
+            y:560
+        })
     }
 
     update(){

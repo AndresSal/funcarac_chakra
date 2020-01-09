@@ -36,8 +36,8 @@ class CaracScene extends Phaser.Scene{
             width:2,
             height:1,
             cellWidth:390,
-            x:203,
-            y:225
+            x:1400,
+            y:450
         })
     }
 
@@ -53,15 +53,15 @@ class CaracScene extends Phaser.Scene{
             slotsGroup.add(slot);
         }
         Phaser.Actions.SetRotation(slotsGroup.getChildren(),rotation,step);
-        let ringShape = new Phaser.Geom.Circle(773,535,radius);
+        let ringShape = new Phaser.Geom.Circle(1970,750,radius);
         Phaser.Actions.PlaceOnCircle(slotsGroup.getChildren(),ringShape);
     }
 
     addPieces(){
-        let piezaA = new PuzzlePiece(this,200,350,1,'INTI RAYMI');
-        let piezaB = new PuzzlePiece(this,200,470,2,'FANESCA');
-        let piezaC = new PuzzlePiece(this,200,590,3,'KATZOS');
-        let piezaD = new PuzzlePiece(this,200,710,4,'RUNA API');
+        let piezaA = new PuzzlePiece(this,1400,500,1,'INTI RAYMI');
+        let piezaB = new PuzzlePiece(this,1400,620,2,'FANESCA');
+        let piezaC = new PuzzlePiece(this,1400,740,3,'KATZOS');
+        let piezaD = new PuzzlePiece(this,1400,860,4,'RUNA API');
         
         this.piecesList.push(piezaA,piezaB,piezaC,piezaD);
 
