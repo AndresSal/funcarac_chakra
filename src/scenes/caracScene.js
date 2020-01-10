@@ -93,7 +93,6 @@ class CaracScene extends Phaser.Scene{
                 if(pieceSlot.input.dropZone===true){
                     piece.x = pieceSlot.x;
                     piece.y = pieceSlot.y;
-                    console.log(pieceSlot);
                     piece.setScale(pieceSlot._scaleX-0.05,pieceSlot._scaleY-0.02)
                     piece.rotation = pieceSlot.rotation;
                     piece.input.enabled = false;

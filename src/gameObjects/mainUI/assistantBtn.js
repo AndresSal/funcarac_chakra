@@ -13,7 +13,6 @@ class AssistantBtn extends Phaser.GameObjects.Container{
         this.data = assistantButtonsInfo.find((item)=>{
             return item.id === id;
         });
-        console.log(this.data);
 
         this.group = scene.add.group();
         this.icon = scene.add.image(0,0,this.data.icon);

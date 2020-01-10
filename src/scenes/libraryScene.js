@@ -21,10 +21,10 @@ class LibraryScene extends Phaser.Scene{
         Phaser.Actions.GridAlign(this.talesGroup.getChildren(),{
             width:4,
             height:3,
-            cellWidth: 180,
-            cellHeight:260,
-            x:1540,
-            y:450
+            cellWidth: 190,
+            cellHeight:271,
+            x:1530,
+            y:463
         });
     }
 

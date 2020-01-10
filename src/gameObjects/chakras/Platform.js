@@ -12,6 +12,7 @@ class Platform extends Phaser.GameObjects.Container{
         this.box = scene.add.image(0,0,'anden');
         this.plaque = scene.add.image(0,-260,'placaAnden');
         this.add([this.box,this.plaque]).setSize(this.box.width,this.box.height);
+        scene.add.existing(this);
 
         this.addChakrasGrid(scene);
     }

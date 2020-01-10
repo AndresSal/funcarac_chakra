@@ -18,11 +18,7 @@ class ChakraScene extends Phaser.Scene{
     create(){
         let toolsBox = new ToolsBox(this,0,0);
         let seedsBox = new SeedsBox(this,0,0);
-        this.platform = new Platform(this,0,0);
-        this.add.existing(seedsBox);
-        this.add.existing(toolsBox);
-        this.add.existing(this.platform);
-        
+        this.platform = new Platform(this,0,0);        
         this.group = this.add.group([toolsBox,this.platform,seedsBox]);
 
         Phaser.Actions.GridAlign(this.group.getChildren(),{

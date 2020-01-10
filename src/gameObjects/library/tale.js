@@ -10,16 +10,30 @@ class Tale extends Phaser.GameObjects.Container{
         super(scene,x,y);
 
         this.body = scene.add.image(0,0,'cuerpoRelato');
-        this.book = scene.add.image(0,0,'libro');
         this.window = scene.add.image(0,0,'ventanaRelato');
-        this.label = scene.add.image(0,0,'etiquetaLibrero');
-        this.state = scene.add.image(0,0,'nuevo');
-        this.product_label = scene.add.image(0,0,'productoRelato');
+        this.book = scene.add.image(0,0,'libro');
+        let windowContent = scene.add.container(0,0,[this.window,this.book]);
+        windowContent.setSize(this.window.width,this.window.height);
+        scene.add.existing(windowContent);
 
-        let labelContent = scene.add.container(0,0);
-        labelContent.add([this.label,this.product_label]).setSize(this.label.width,this.label.height);
+        this.label = scene.add.image(0,0,'etiquetaRelato');
+        this.product_label = scene.add.image(0,0,'productoRelato');
+        let labelContent = scene.add.container(0,0,[this.label,this.product_label]);
+        labelContent.setSize(this.label.width,this.label.height);
         scene.add.existing(labelContent);
-        this.add([this.body,this.window,this.book,labelContent,this.state]).setSize(this.body.width,this.body.height);
+
+        this.state = scene.add.image(0,0,'nuevo');
+
+        let elementsGroup=scene.add.group([windowContent,this.state,labelContent]);
+        Phaser.Actions.GridAlign(elementsGroup.getChildren(),{
+            width:2,
+            height:2,
+            cellWidth:90,
+            cellHeight:150,
+            x:-25,
+            y:-15
+        }) 
+        this.add([this.body,windowContent,labelContent,this.state]).setSize(this.body.width,this.body.height);
         scene.add.existing(this);
     }
 }

@@ -14,6 +14,7 @@ class ToolsBox extends Phaser.GameObjects.Container{
         this.box = scene.add.image(0,0,'cajaHtas');
         this.plaque = scene.add.image(0,-265,'placaHtas');
         this.add([this.box,this.plaque]).setSize(this.box.width,this.box.height);
+        scene.add.existing(this);
         this.addToolsGrid(scene);
         this.selectButton(scene);
     }

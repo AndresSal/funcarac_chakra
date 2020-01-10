@@ -15,6 +15,7 @@ class SeedsBox extends Phaser.GameObjects.Container{
         this.plaque = scene.add.image(-395,0,'placaSemillas');
         this.innerBox = scene.add.image(160,0,'cajaIntSemillas');
         this.add([this.box, this.plaque,this.innerBox]).setSize(this.box.width,this.box.height);
+        scene.add.existing(this);
         this.buildSeedsGrid(scene);
         this.selectButton();
         this.unlockingSeeds();
