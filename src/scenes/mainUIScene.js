@@ -24,6 +24,8 @@ class MainUIScene extends Phaser.Scene{
         this.alignUIElements();
         this.scene.launch('ChakraScene');
         this.scene.sleep('ChakraScene');
+        this.scene.launch('LibraryScene');
+        this.scene.sleep('LibraryScene');
         this.scene.launch('CaracScene');
     }
 
@@ -137,10 +139,19 @@ class MainUIScene extends Phaser.Scene{
                 this.selectedModuleBtn = btn;
                 if(btn.data.id===1){
                     this.scene.sleep('ChakraScene');
+                    this.scene.sleep('LibraryScene');
                     this.scene.wake('CaracScene');
                     // this.scene.launch('CaracScene');
-                }else if(btn.data.id===3){
+                }
+                if(btn.data.id===2){
                     this.scene.sleep('CaracScene');
+                    this.scene.sleep('ChakraScene');
+                    this.scene.wake('LibraryScene');
+                    // this.scene.launch('CaracScene');
+                }
+                if(btn.data.id===3){
+                    this.scene.sleep('CaracScene');
+                    this.scene.sleep('LibraryScene');
                     this.scene.wake('ChakraScene');
                     // this.scene.launch('ChakraScene');
                 }

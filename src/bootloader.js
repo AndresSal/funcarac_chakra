@@ -133,6 +133,19 @@ class BootLoader extends Phaser.Scene{
         this.load.image('ranura','./assets/carac/slotBody.png');
         this.load.image('etiqueta_pieza','./assets/carac/pieceLabel.png');
 
+        //library
+        this.load.image('libreria','./assets/library/library.png');
+        this.load.image('placaLibreria','./assets/library/library_plaque.png');
+        this.load.image('libro','./assets/library/book.png');
+        this.load.image('cuerpoRelato','./assets/library/tale_body.png');
+        this.load.image('ventanaRelato','./assets/library/tale_window.png');
+        this.load.image('etiquetaRelato','./assets/library/tale_label.png');
+        this.load.image('cuerpoRelato','./assets/library/tale_body.png');
+        this.load.image('productoRelato','./assets/library/tale_food_view.png');
+        this.load.image('nuevo','./assets/library/icon_new.png');
+        this.load.image('liston','./assets/library/icon_complete.png');
+        this.load.image('candado','./assets/library/icon_blocked.png');
+
 
 
         this.load.on('progress',(value)=>{
