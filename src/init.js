@@ -3,13 +3,22 @@ import ChakraScene from "./scenes/chakraScene.js";
 import CaracScene from "./scenes/caracScene.js";
 import MainUIScene from "./scenes/mainUIScene.js";
 import LibraryScene from "./scenes/libraryScene.js";
+import { DEFAULT_WIDTH, DEFAULT_HEIGHT } from "./consts/mainuiLib.js";
+
+
 
 const config = {
-    // width:1160,
-    // height:950,
-    width:2400,
-    height:1200,
-    parent:'contenedor',
+    scale:{
+        mode:Phaser.Scale.FIT,
+        parent:'contenedor',
+        autocenter:Phaser.Scale.CENTER_BOTH,
+        width:DEFAULT_WIDTH,
+        height:DEFAULT_HEIGHT,
+        // width:window.innerWidth,
+        // height:window.innerHeight
+
+    },
+
     scene:[BootLoader,MainUIScene,CaracScene,ChakraScene,LibraryScene]
 }
 

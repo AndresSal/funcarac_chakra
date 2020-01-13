@@ -1,6 +1,8 @@
 import ModuleBtn from "../gameObjects/mainUI/moduleBtn.js";
 import AssistantBtn from "../gameObjects/mainUI/assistantBtn.js";
+import { DEFAULT_WIDTH, DEFAULT_HEIGHT } from "../consts/mainuiLib.js";
 
+const SCALE_RATIO = window.devicePixelRatio/2;
 class MainUIScene extends Phaser.Scene{
     contentGroup;
     btnGroup;
@@ -68,6 +70,10 @@ class MainUIScene extends Phaser.Scene{
 
     alignUIElements(){
         this.contentGroup=this.add.group();
+        // this.assistantBox.setScale(SCALE_RATIO);
+        // this.moduleBox.setScale(SCALE_RATIO);
+        // this.btnBox.setScale(SCALE_RATIO);
+
         this.contentGroup.add(this.assistantBox);
         this.contentGroup.add(this.moduleBox);
         this.contentGroup.add(this.btnBox);
@@ -78,13 +84,13 @@ class MainUIScene extends Phaser.Scene{
             height:2,
             cellWidth:635,
             cellHeight:711,
-            x:840,
-            y:360
+            x:DEFAULT_WIDTH/6+DEFAULT_WIDTH/100,
+            y:DEFAULT_HEIGHT/4+DEFAULT_HEIGHT/20,
         })
     }
 
     addAsistantContent(){
-        this.assistantBox = this.add.container(1000,800);
+        this.assistantBox = this.add.container(0,0);
         let content = this.add.group();
         this.menuBtnGroup = this.add.group();
         let window = this.add.image(0,0,'ventanaAsistente');

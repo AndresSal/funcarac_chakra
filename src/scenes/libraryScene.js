@@ -1,4 +1,5 @@
 import Tale from "../gameObjects/library/tale.js";
+import { DEFAULT_WIDTH, DEFAULT_HEIGHT } from "../consts/mainuiLib.js";
 
 class LibraryScene extends Phaser.Scene{
     talesGroup;
@@ -12,7 +13,7 @@ class LibraryScene extends Phaser.Scene{
 
     displayContent(){
         this.talesGroup = this.add.group();
-        let library = this.add.image(1800,700,'libreria');
+        let library = this.add.image(DEFAULT_WIDTH/2+DEFAULT_WIDTH/6,DEFAULT_HEIGHT/2+DEFAULT_HEIGHT/10,'libreria');
         for(let i=1;i<=12;i++){
             let tale = new Tale(this,0,0);
             this.talesGroup.add(tale);
@@ -23,8 +24,8 @@ class LibraryScene extends Phaser.Scene{
             height:3,
             cellWidth: 190,
             cellHeight:271,
-            x:1530,
-            y:463
+            x:DEFAULT_WIDTH/2+DEFAULT_WIDTH/40,
+            y:DEFAULT_HEIGHT/2-DEFAULT_HEIGHT/10+5
         });
     }
 

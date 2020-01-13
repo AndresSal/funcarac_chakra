@@ -1,5 +1,6 @@
 import PuzzlePiece from "../gameObjects/carac/puzzlePiece.js";
 import PieceSlot from "../gameObjects/carac/pieceSlot.js";
+import { DEFAULT_WIDTH, DEFAULT_HEIGHT } from "../consts/mainuiLib.js";
 
 class CaracScene extends Phaser.Scene{
     piecesList=[];
@@ -36,7 +37,7 @@ class CaracScene extends Phaser.Scene{
             width:2,
             height:1,
             cellWidth:390,
-            x:1400,
+            x:DEFAULT_WIDTH/2-50,
             y:450
         })
     }
@@ -53,15 +54,15 @@ class CaracScene extends Phaser.Scene{
             slotsGroup.add(slot);
         }
         Phaser.Actions.SetRotation(slotsGroup.getChildren(),rotation,step);
-        let ringShape = new Phaser.Geom.Circle(1970,750,radius);
+        let ringShape = new Phaser.Geom.Circle(DEFAULT_WIDTH/2+DEFAULT_WIDTH/6+DEFAULT_WIDTH/9-10,DEFAULT_HEIGHT/2+DEFAULT_HEIGHT/8,radius);
         Phaser.Actions.PlaceOnCircle(slotsGroup.getChildren(),ringShape);
     }
 
     addPieces(){
-        let piezaA = new PuzzlePiece(this,1400,500,1,'INTI RAYMI');
-        let piezaB = new PuzzlePiece(this,1400,620,2,'FANESCA');
-        let piezaC = new PuzzlePiece(this,1400,740,3,'KATZOS');
-        let piezaD = new PuzzlePiece(this,1400,860,4,'RUNA API');
+        let piezaA = new PuzzlePiece(this,DEFAULT_WIDTH/2-DEFAULT_WIDTH/40,500,1,'INTI RAYMI');
+        let piezaB = new PuzzlePiece(this,DEFAULT_WIDTH/2-DEFAULT_WIDTH/40,620,2,'FANESCA');
+        let piezaC = new PuzzlePiece(this,DEFAULT_WIDTH/2-DEFAULT_WIDTH/40,740,3,'KATZOS');
+        let piezaD = new PuzzlePiece(this,DEFAULT_WIDTH/2-DEFAULT_WIDTH/40,860,4,'RUNA API');
         
         this.piecesList.push(piezaA,piezaB,piezaC,piezaD);
 

@@ -13,3 +13,6 @@ export const assistantButtonsInfo=[
     {id:6,title:'SILENCIO',icon:'silencio'},
     {id:7,title:'SALTAR',icon:'saltar'}
 ]
+
+export const DEFAULT_WIDTH = 1900;
+export const DEFAULT_HEIGHT = 1200;

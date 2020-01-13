@@ -2,6 +2,7 @@ import ToolButton from "../gameObjects/tools/toolButton.js";
 import ToolsBox from "../gameObjects/tools/toolsBox.js";
 import SeedsBox from "../gameObjects/seeds/seedsBox.js";
 import Platform from "../gameObjects/chakras/Platform.js";
+import { DEFAULT_WIDTH, DEFAULT_HEIGHT } from "../consts/mainuiLib.js";
 
 class ChakraScene extends Phaser.Scene{
     platform;
@@ -26,8 +27,8 @@ class ChakraScene extends Phaser.Scene{
             height:2,
             cellWidth:363,
             cellHeight:650,
-            x:1384,
-            y:560
+            x:DEFAULT_WIDTH/2-DEFAULT_WIDTH/27,
+            y:DEFAULT_HEIGHT/2-DEFAULT_HEIGHT/30
         })
     }
 
