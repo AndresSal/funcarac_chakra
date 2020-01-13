@@ -14,6 +14,7 @@ class MainUIScene extends Phaser.Scene{
     assistantBox;
 
     selectedModuleBtn;
+    moduleTitle;
     
     constructor(key){
         super({key:'MainUIScene'});
@@ -67,18 +68,26 @@ class MainUIScene extends Phaser.Scene{
 
     addModuleContent(){
         let moduleWindow = this.add.image(0,0,'ventanaModulo');
-        let moduleRibbon = this.add.image(5,-460,'listonModulo');
+        let moduleRibbon = this.add.image(0,0,'listonModulo');
+        this.moduleTitle = this.add.text(-moduleRibbon.width/4+moduleRibbon.width/10,-moduleRibbon.height/3-moduleRibbon.height/20,'Bienvenido',
+        {fontFamily:'Helvetica',
+         fontSize:'60px',
+         color:'#000',
+         stroke:'#000',
+         strokeThickness:1,
+         align:'center'
+        });
+
+        let titleContent = this.add.container(0,-DEFAULT_HEIGHT/2+DEFAULT_HEIGHT/10,[moduleRibbon,this.moduleTitle]);
+        titleContent.setSize(moduleRibbon.width, moduleRibbon.height);
+
         this.moduleBox = this.add.container(0,0);
-        this.moduleBox.add([moduleWindow,moduleRibbon]).setSize(moduleWindow.width,moduleWindow.height);
+        this.moduleBox.add([moduleWindow,titleContent]).setSize(moduleWindow.width,moduleWindow.height);
         this.add.existing(this.moduleBox);
     }
 
     alignUIElements(){
         this.contentGroup=this.add.group();
-        // this.assistantBox.setScale(SCALE_RATIO);
-        // this.moduleBox.setScale(SCALE_RATIO);
-        // this.btnBox.setScale(SCALE_RATIO);
-
         this.contentGroup.add(this.assistantBox);
         this.contentGroup.add(this.moduleBox);
         this.contentGroup.add(this.btnBox);
@@ -100,8 +109,17 @@ class MainUIScene extends Phaser.Scene{
         this.menuBtnGroup = this.add.group();
         let window = this.add.image(0,0,'ventanaAsistente');
         let ribbon = this.add.image(0,0,'listonAsistente');
+        let asistantName = this.add.text(-ribbon.width/4+ribbon.width/40,-ribbon.height/4,'MAMA DULU',
+            {fontFamily:'Helvetica',
+            fontSize:'40px',
+            color:'#000',
+            stroke:'#000',
+            strokeThickness:1,
+            align:'center'
+            });
+
         let btnPanel = this.add.image(0,0,'cajaBotones');
-        let asistantName = this.add.text(0,0,'MAMA DULU');
+        
         let ribbonBox = this.add.container(0,0);
         let btnBox = this.add.container(0,0);
 
@@ -148,6 +166,7 @@ class MainUIScene extends Phaser.Scene{
         this.btnGroup.getChildren().forEach((btn)=>{
             btn.on('pointerdown',()=>{
                 this.selectedModuleBtn = btn;
+                this.moduleTitle.setText(this.selectedModuleBtn.data.title).setFontSize(40);
                 if(btn.data.id===1){
                     this.scene.sleep('ChakraScene');
                     this.scene.sleep('LibraryScene');
@@ -167,7 +186,7 @@ class MainUIScene extends Phaser.Scene{
                     // this.scene.launch('ChakraScene');
                 }
                 btn.body.setTint(0xae091a);
-                btn.selectButton();
+                // btn.selectButton();
 
             });
             btn.on('pointerup',()=>{

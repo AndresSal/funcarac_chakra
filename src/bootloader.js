@@ -1,3 +1,5 @@
+import { DEFAULT_WIDTH, DEFAULT_HEIGHT } from "./consts/mainuiLib.js";
+
 class BootLoader extends Phaser.Scene{
     constructor(){
         super({key:'BootLoader'});
@@ -7,7 +9,7 @@ class BootLoader extends Phaser.Scene{
         var progressBar = this.add.graphics();
         var progressBox = this.add.graphics();
         progressBox.fillStyle(0x222222,0.8);
-        progressBox.fillRect(400,400,320,50);
+        progressBox.fillRect(DEFAULT_WIDTH/2-DEFAULT_WIDTH/11,DEFAULT_HEIGHT/2-DEFAULT_HEIGHT/10,320,50);
         var width = this.cameras.main.width;
         var height = this.cameras.main.height;
         var loadingText = this.make.text({
@@ -151,7 +153,7 @@ class BootLoader extends Phaser.Scene{
         this.load.on('progress',(value)=>{
             progressBar.clear();
             progressBar.fillStyle(0xffffff,1);
-            progressBar.fillRect(410,410,300*value,30);
+            progressBar.fillRect(DEFAULT_WIDTH/2-DEFAULT_WIDTH/11+10,DEFAULT_HEIGHT/2-DEFAULT_HEIGHT/10+10,300*value,30);
             percentText.setText(parseInt(value*100)+'%');
         });
 
