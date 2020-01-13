@@ -3,12 +3,16 @@ import { slotsInfo } from "../../consts/caracLib.js";
 class PieceSlot extends Phaser.GameObjects.Container{
     body;
     background;
+    key;
+
     slotData;
     constructor(scene,x,y,id){
         super(scene,x,y);
         this.slotData=slotsInfo.find((item)=>{
             return item.id===id;
         });
+        this.key = this.slotData.key;
+
         this.body = scene.add.image(0,0,'ranura');
         this.background = scene.add.image(0,0,this.slotData.background);
         this.background.setScale(0.88);

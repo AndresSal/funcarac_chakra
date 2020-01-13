@@ -19,6 +19,11 @@ class MainUIScene extends Phaser.Scene{
         super({key:'MainUIScene'});
     }
 
+    init(){
+        this.input.setDefaultCursor('url(assets/cursores/manita.cur),pointer');
+        localStorage.setItem('currentCursor','url(assets/cursores/manita.cur),pointer');
+    }
+
     create(){
         this.addAsistantContent();
         this.addModuleBttn();
@@ -162,11 +167,15 @@ class MainUIScene extends Phaser.Scene{
                     // this.scene.launch('ChakraScene');
                 }
                 btn.body.setTint(0xae091a);
+                btn.selectButton();
+
             });
             btn.on('pointerup',()=>{
                 this.btnGroup.getChildren().forEach((b)=>{
                     if(b!=this.selectedModuleBtn){
                         b.body.clearTint();
+                        // b.text.setColor('#000000');
+                        // b.text.setStroke('#000000',1);
                     }
                 })
             })

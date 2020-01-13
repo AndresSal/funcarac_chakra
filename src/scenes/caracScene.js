@@ -1,6 +1,8 @@
 import PuzzlePiece from "../gameObjects/carac/puzzlePiece.js";
 import PieceSlot from "../gameObjects/carac/pieceSlot.js";
 import { DEFAULT_WIDTH, DEFAULT_HEIGHT } from "../consts/mainuiLib.js";
+import { STEP_VALUE, valuesInfo, ROTATION_VALUE } from "../consts/caracLib.js";
+
 
 class CaracScene extends Phaser.Scene{
     piecesList=[];
@@ -20,15 +22,38 @@ class CaracScene extends Phaser.Scene{
 
     addContent(){
         let boxesGroup = this.add.group();
-        let piecesContent = this.add.container(100,100);
+        let piecesContent = this.add.container(0,0);
         let piecesBox = this.add.image(0,0,'cajaPiezas');
-        let piecesPlaque = this.add.image(0,-345,'placaPiezas');
-        piecesContent.add([piecesBox,piecesPlaque]).setSize(piecesBox.width,piecesBox.height);
+        
+        
+        let piecesPlaque = this.add.image(0,0,'placaPiezas');
+        let pbTitle = this.add.text(-piecesPlaque.width/3-piecesPlaque.width/15,-piecesPlaque.height/4+piecesPlaque.height/8,'PIEZAS DE ROMPECABEZAS\nDISPONIBLES',
+                                    {fontFamily:'Helvetica',
+                                     fontSize: '18px',
+                                     color:'#000',
+                                     align:'center'
+                                    });
+        let pbTextContent = this.add.container(0,-345,[piecesPlaque,pbTitle]);
+        pbTextContent.setSize(piecesPlaque.width,piecesPlaque.height);
 
-        let boardContent = this.add.container(100,100);
+        piecesContent.add([piecesBox,pbTextContent]).setSize(piecesBox.width,piecesBox.height);
+
+        let boardContent = this.add.container(0,0);
         let boardBox = this.add.image(0,0,'cajaTablero');
-        let boardPlaque = this.add.image(0,-345,'placaTablero');
-        boardContent.add([boardBox,boardPlaque]).setSize(boardBox.width,boardBox.height);
+        
+
+        let boardPlaque = this.add.image(0,0,'placaTablero');
+        let bbTitle = this.add.text(-boardPlaque.width/2+boardPlaque.width/60,-boardPlaque.height/2+boardPlaque.height/3,'TABLERO PRINCIPAL DEL CALENDARIO AGROFESTIVO',
+                                    {fontFamily:'Helvetica',
+                                     fontSize: '22px',
+                                     color:'#000',
+                                     align:'center'
+                                    });
+
+        let bbTextContent = this.add.container(0,-345,[boardPlaque,bbTitle]);
+        bbTextContent.setSize(boardPlaque.width, boardPlaque.height);                            
+
+        boardContent.add([boardBox,bbTextContent]).setSize(boardBox.width,boardBox.height);
 
         boxesGroup.add(piecesContent);
         boxesGroup.add(boardContent);
@@ -45,15 +70,13 @@ class CaracScene extends Phaser.Scene{
     addSlotsRing(id){
         let slotsGroup=this.add.group();
         let radius;
-        let rotation =26.72;
-        let step =0.52;
         for (let i=0;i<12;i++){
             let slot = new PieceSlot(this,0,0,id);
             this.add.existing(slot);
             radius = slot.slotData.radius;
             slotsGroup.add(slot);
         }
-        Phaser.Actions.SetRotation(slotsGroup.getChildren(),rotation,step);
+        Phaser.Actions.SetRotation(slotsGroup.getChildren(),ROTATION_VALUE,STEP_VALUE);
         let ringShape = new Phaser.Geom.Circle(DEFAULT_WIDTH/2+DEFAULT_WIDTH/6+DEFAULT_WIDTH/9-10,DEFAULT_HEIGHT/2+DEFAULT_HEIGHT/8,radius);
         Phaser.Actions.PlaceOnCircle(slotsGroup.getChildren(),ringShape);
     }
@@ -92,15 +115,22 @@ class CaracScene extends Phaser.Scene{
 
             piece.on('drop',(pointer,pieceSlot)=>{
                 if(pieceSlot.input.dropZone===true){
-                    piece.x = pieceSlot.x;
-                    piece.y = pieceSlot.y;
-                    piece.setScale(pieceSlot._scaleX-0.05,pieceSlot._scaleY-0.02)
-                    piece.rotation = pieceSlot.rotation;
-                    piece.input.enabled = false;
-                    pieceSlot.input.dropZone = false;
-                }else{
-                    piece.x = piece.input.dragStartX;
-                    piece.y = piece.input.dragStartY;
+                    if(valuesInfo.find((element)=>{
+                        return element.key === pieceSlot.key && element.value === piece.value;
+                    })!=null){
+                        piece.x = pieceSlot.x;
+                        piece.y = pieceSlot.y;
+                        piece.setScale(pieceSlot._scaleX-0.05,pieceSlot._scaleY-0.02)
+                        piece.rotation = pieceSlot.rotation;
+                        piece.input.enabled = false;
+                        pieceSlot.input.dropZone = false;
+                        piece.setPlaced();
+                    }else{
+                        pieceSlot.background.clearTint();
+                        piece.x = piece.input.dragStartX;
+                        piece.y = piece.input.dragStartY;
+                        
+                    }
                 }
             });
 
