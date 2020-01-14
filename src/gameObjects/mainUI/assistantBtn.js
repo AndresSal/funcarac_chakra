@@ -20,7 +20,7 @@ class AssistantBtn extends Phaser.GameObjects.Container{
             this.icon.angle=180;
         };
         this.label = scene.add.image(0,0,'etiquetaBoton');
-        this.text = scene.add.text(-20,-5,this.data.title);
+        this.text = scene.add.text(this.data.position.x,this.data.position.y,this.data.title,this.data.style);
         let titleContainer = scene.add.container();
         titleContainer.add([this.label,this.text]).setSize(this.label.width,this.label.height);
         this.group.add(this.icon);

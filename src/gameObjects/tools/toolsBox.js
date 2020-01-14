@@ -12,8 +12,18 @@ class ToolsBox extends Phaser.GameObjects.Container{
         super(scene,x,y);
 
         this.box = scene.add.image(0,0,'cajaHtas');
-        this.plaque = scene.add.image(0,-265,'placaHtas');
-        this.add([this.box,this.plaque]).setSize(this.box.width,this.box.height);
+        this.plaque = scene.add.image(0,0,'placaHtas');
+        let title = scene.add.text(-this.plaque.width/2+this.plaque.width/40,-this.plaque.height/10,'CAJA DE HERRAMIENTAS',
+            {fontFamily:'Helvetica',
+             fontSize:'24px',
+             color:'#000',
+             stroke:'#000',
+             strokeThickness:1,
+             align:'center'});
+
+        let titleContent = scene.add.container(0,-this.box.height/3-this.box.height/14,[this.plaque,title]);
+        titleContent.setSize(this.plaque.width,this.plaque.height);
+        this.add([this.box,titleContent]).setSize(this.box.width,this.box.height);
         scene.add.existing(this);
         this.addToolsGrid(scene);
         this.selectButton(scene);

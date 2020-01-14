@@ -12,9 +12,20 @@ class SeedsBox extends Phaser.GameObjects.Container{
     constructor(scene,x,y){
         super(scene,x,y);
         this.box = scene.add.image(0,0,'cajaSemillas');
-        this.plaque = scene.add.image(-395,0,'placaSemillas');
+        this.plaque = scene.add.image(0,0,'placaSemillas');
+        let title = scene.add.text(-this.plaque.width/2+this.plaque.width/14,-this.plaque.height/4-this.plaque.height/20,'COLECCIÓN\nDE SEMILLAS',
+        {fontFamily:'Helvetica',
+        fontSize:'40px',
+        color:'#000',
+        stroke:'#000',
+        strokeThickness:1,
+        align:'center'});
+
+        let titleContent = scene.add.container(-this.box.width/3-this.box.width/80,0,[this.plaque,title]);
+        titleContent.setSize(this.plaque.width,this.plaque.height);
+
         this.innerBox = scene.add.image(160,0,'cajaIntSemillas');
-        this.add([this.box, this.plaque,this.innerBox]).setSize(this.box.width,this.box.height);
+        this.add([this.box, titleContent,this.innerBox]).setSize(this.box.width,this.box.height);
         scene.add.existing(this);
         this.buildSeedsGrid(scene);
         this.selectButton();

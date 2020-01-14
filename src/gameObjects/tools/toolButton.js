@@ -19,7 +19,7 @@ class ToolButton extends Phaser.GameObjects.Container{
         this.photo = scene.add.image(0,-30,this.toolData.key);
         
         this.label = scene.add.image(0,0,'etiquetaHta');
-        this.title = scene.add.text(-50,-5,this.toolData.name);
+        this.title = scene.add.text(this.toolData.position.x,this.toolData.position.y,this.toolData.name,this.toolData.style);
         let titleContainer = scene.add.container(0,45,[this.label,this.title]);
         titleContainer.setSize(this.label.width,this.label.height);
         scene.add.existing(titleContainer);
