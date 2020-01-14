@@ -3,9 +3,14 @@ import PieceSlot from "../gameObjects/carac/pieceSlot.js";
 import { DEFAULT_WIDTH, DEFAULT_HEIGHT } from "../consts/mainuiLib.js";
 import { STEP_VALUE, valuesInfo, ROTATION_VALUE } from "../consts/caracLib.js";
 
+const YTOP = 0;
+const YPRIME = 0;
+const YDOWN = 0;
 
 class CaracScene extends Phaser.Scene{
     piecesList=[];
+    piecesGroup;
+    gameContainer;
     constructor(){
         super({key:'CaracScene'});
     }
@@ -18,6 +23,8 @@ class CaracScene extends Phaser.Scene{
         this.addSlotsRing(4);
 
         this.addPieces();
+        this.setPiecesBehavior();
+        this.addAnimation(1);
     }
 
     addContent(){
@@ -64,7 +71,12 @@ class CaracScene extends Phaser.Scene{
             cellWidth:390,
             x:DEFAULT_WIDTH/2-50,
             y:450
-        })
+        });
+
+        this.gameContainer = this.add.container(DEFAULT_WIDTH/2+DEFAULT_WIDTH/4+DEFAULT_WIDTH/40,DEFAULT_HEIGHT/2+DEFAULT_HEIGHT/8);
+        this.gameContainer.setSize(10,10);
+
+        console.log(this.gameContainer.p)
     }
 
     addSlotsRing(id){
@@ -77,26 +89,39 @@ class CaracScene extends Phaser.Scene{
             slotsGroup.add(slot);
         }
         Phaser.Actions.SetRotation(slotsGroup.getChildren(),ROTATION_VALUE,STEP_VALUE);
-        let ringShape = new Phaser.Geom.Circle(DEFAULT_WIDTH/2+DEFAULT_WIDTH/6+DEFAULT_WIDTH/9-10,DEFAULT_HEIGHT/2+DEFAULT_HEIGHT/8,radius);
+        // let ringShape = new Phaser.Geom.Circle(DEFAULT_WIDTH/2+DEFAULT_WIDTH/6+DEFAULT_WIDTH/9-10,DEFAULT_HEIGHT/2+DEFAULT_HEIGHT/8,radius);
+        let ringShape = new Phaser.Geom.Circle(0,0,radius);
         Phaser.Actions.PlaceOnCircle(slotsGroup.getChildren(),ringShape);
+
+        slotsGroup.getChildren().forEach((el)=>{
+            this.gameContainer.add(el);
+        });
     }
 
     addPieces(){
-        let piezaA = new PuzzlePiece(this,DEFAULT_WIDTH/2-DEFAULT_WIDTH/40,500,1,'INTI RAYMI');
-        let piezaB = new PuzzlePiece(this,DEFAULT_WIDTH/2-DEFAULT_WIDTH/40,620,2,'FANESCA');
-        let piezaC = new PuzzlePiece(this,DEFAULT_WIDTH/2-DEFAULT_WIDTH/40,740,3,'KATZOS');
-        let piezaD = new PuzzlePiece(this,DEFAULT_WIDTH/2-DEFAULT_WIDTH/40,860,4,'RUNA API');
-        
-        this.piecesList.push(piezaA,piezaB,piezaC,piezaD);
+        this.piecesGroup = this.add.group();
+        for(let i=1;i<=4;i++){
+            let piece = new PuzzlePiece(this,   -DEFAULT_WIDTH/3+DEFAULT_WIDTH/35,-DEFAULT_HEIGHT/2,i,'TITULO');
+            this.piecesGroup.add(piece);
+            this.piecesList.push(piece);
+        }
 
-        this.add.existing(piezaA);
-        this.add.existing(piezaB);
-        this.add.existing(piezaC);
-        this.add.existing(piezaD);
+        // Phaser.Actions.GridAlign(this.piecesGroup.getChildren(),{
+        //     width:1,
+        //     height:4,
+        //     cellWidth:100,
+        //     cellHeight:120,
+        //     x:-610,
+        //     y:-150
+        // });
 
-        this.piecesList.forEach((piece)=>{
-            piece.setInteractive();
-            this.input.setDraggable(piece);
+        this.piecesGroup.getChildren().forEach((el)=>{
+            this.gameContainer.add(el);
+        })
+    }
+
+    setPiecesBehavior(){
+        this.piecesGroup.getChildren().forEach((piece)=>{
 
             piece.on('drag',(pointer,dragX,dragY)=>{
                 piece.x = dragX;
@@ -140,10 +165,24 @@ class CaracScene extends Phaser.Scene{
                     piece.y = piece.input.dragStartY;
                 }
             })
-
-
-
         })
+    }
+
+    addAnimation(item){
+        let totalItems = this.piecesList.length;
+        let prime = 0;
+        let speed=200;
+
+        this.piecesList[item].y = 0;
+
+        if(item<(totalItems-1)){
+            this.piecesList[item + 1].y = 150; 
+        }
+
+        if(item>0){
+            this.piecesList[item - 1].y = -150;
+        }
+
     }
 }
 

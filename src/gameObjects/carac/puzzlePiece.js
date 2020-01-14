@@ -26,7 +26,9 @@ class PuzzlePiece extends Phaser.GameObjects.Container{
         this.title = scene.add.text(15,5,name);
         this.textArea=scene.add.container(-56,15);
         this.textArea.add([this.label,this.title]).setSize(this.label.width,this.label.height);
-        this.add([this.type,this.textArea]).setSize(this.type.width,this.type.height);
+        this.add([this.type,this.textArea]).setSize(this.type.width,this.type.height).setInteractive();
+        scene.add.existing(this);
+        scene.input.setDraggable(this);
         // this.setScale(pieceInfo.xScale,pieceInfo.yScale);
     }
 
