@@ -4,13 +4,17 @@ import { DEFAULT_WIDTH, DEFAULT_HEIGHT } from "../consts/mainuiLib.js";
 import { STEP_VALUE, valuesInfo, ROTATION_VALUE } from "../consts/caracLib.js";
 
 const YTOP = -150;
+const YHTOP= YTOP-150;
 const YPRIME = 0;
 const YDOWN = 150;
+const YHDOWN = YDOWN+150;
 
 class CaracScene extends Phaser.Scene{
     piecesList=[];
     piecesGroup;
     gameContainer;
+
+    selectedPiece;
 
     primePiece;
     previousPiece;
@@ -125,8 +129,9 @@ class CaracScene extends Phaser.Scene{
 
     addPieces(){
         this.piecesGroup = this.add.group();
-        for(let i=1;i<=4;i++){
-            let piece = new PuzzlePiece(this,   -DEFAULT_WIDTH/3+DEFAULT_WIDTH/35,-DEFAULT_HEIGHT/2,i,'TITULO');
+        for(let i=1;i<=12;i++){
+            let id = Math.floor(Math.random()*4)+1;
+            let piece = new PuzzlePiece(this,   -DEFAULT_WIDTH/3+DEFAULT_WIDTH/35,YHTOP,id,'TITULO');
             this.piecesGroup.add(piece);
             this.piecesList.push(piece);
             piece.visible=false;
@@ -169,6 +174,8 @@ class CaracScene extends Phaser.Scene{
                     if(valuesInfo.find((element)=>{
                         return element.key === pieceSlot.key && element.value === piece.value;
                     })!=null){
+                        this.selectAPiece(piece);
+
                         piece.x = pieceSlot.x;
                         piece.y = pieceSlot.y;
                         piece.setScale(pieceSlot._scaleX-0.05,pieceSlot._scaleY-0.02)
@@ -288,6 +295,51 @@ class CaracScene extends Phaser.Scene{
 
         
         console.log('Final\n prev: ',this.previousPiece.value, '\n prime: ',this.primePiece.value,'\n next: ',this.nextPiece.value); 
+    }
+
+    selectAPiece(piece){
+        let speed = 200;
+        console.log('Final\n prev: ',this.previousPiece.value, '\n prime: ',this.primePiece.value,'\n next: ',this.nextPiece.value); 
+        this.selectedPiece = piece;
+        let index = this.piecesList.indexOf(this.selectedPiece);
+
+        if(this.selectedPiece===this.primePiece){
+            this.primePiece = this.previousPiece;
+            this.tweens.add({
+                targets:this.previousPiece,
+                y:{from:YTOP, to:YPRIME},
+                duration:speed});
+        }
+        
+        if(this.selectedPiece===this.previousPiece){
+            console.log('escogio al prev');
+            this.previousPiece = this.piecesList[index-1];
+            this.tweens.add({
+                targets:this.previousPiece,
+                y:{from:YHTOP, to:YTOP},
+                duration:speed});
+        }
+
+        if(this.selectedPiece===this.nextPiece){
+            console.log('escogio al next');
+            this.nextPiece = this.piecesList[index+1];
+            this.tweens.add({
+                targets:this.nextPiece,
+                y:{from:YHDOWN, to:YDOWN},
+                duration:speed});
+        }
+        
+        if(index>-1){
+            this.piecesList.splice(index,1);
+        }
+
+        index = this.piecesList.indexOf(this.primePiece);
+        this.setInitialPosition(index);
+
+        console.log('Final\n prev: ',this.previousPiece.value, '\n prime: ',this.primePiece.value,'\n next: ',this.nextPiece.value); 
+
+
+
     }
 
 }
