@@ -20,6 +20,10 @@ class CaracScene extends Phaser.Scene{
     previousPiece;
     nextPiece;
 
+    downArrow;
+    upArrow;
+
+
     constructor(){
         super({key:'CaracScene'});
     }
@@ -41,25 +45,25 @@ class CaracScene extends Phaser.Scene{
         let piecesContent = this.add.container(0,0);
         let piecesBox = this.add.image(0,0,'cajaPiezas');
         
-        let upArrow = this.add.image(0,-230,'flechaPiezas');
-        upArrow.setInteractive();
-        upArrow.on('pointerdown',(event,index)=>{
-            upArrow.setTint(0x2d2d2d);
+        this.upArrow = this.add.image(0,-230,'flechaPiezas');
+        this.upArrow.setInteractive();
+        this.upArrow.on('pointerdown',(event,index)=>{
+            this.upArrow.setTint(0x2d2d2d);
             this.getPreviousPiece(index);
         })
-        upArrow.on('pointerup',()=>{
-            upArrow.clearTint();
+        this.upArrow.on('pointerup',()=>{
+            this.upArrow.clearTint();
         })
 
-        let downArrow = this.add.image(0,330,'flechaPiezas');
-        downArrow.angle = -180;
-        downArrow.setInteractive();
-        downArrow.on('pointerdown',(event, index)=>{
-            downArrow.setTint(0x2d2d2d);
+        this.downArrow = this.add.image(0,330,'flechaPiezas');
+        this.downArrow.angle = -180;
+        this.downArrow.setInteractive();
+        this.downArrow.on('pointerdown',(event, index)=>{
+            this.downArrow.setTint(0x2d2d2d);
             this.getNextPiece(index);
         });
-        downArrow.on('pointerup',()=>{
-            downArrow.clearTint();
+        this.downArrow.on('pointerup',()=>{
+            this.downArrow.clearTint();
         })
         
         let piecesPlaque = this.add.image(0,0,'placaPiezas');
@@ -72,7 +76,7 @@ class CaracScene extends Phaser.Scene{
         let pbTextContent = this.add.container(0,-345,[piecesPlaque,pbTitle]);
         pbTextContent.setSize(piecesPlaque.width,piecesPlaque.height);
 
-        piecesContent.add([piecesBox,pbTextContent,upArrow,downArrow]).setSize(piecesBox.width,piecesBox.height);
+        piecesContent.add([piecesBox,pbTextContent,this.upArrow,this.downArrow]).setSize(piecesBox.width,piecesBox.height);
 
         let boardContent = this.add.container(0,0);
         let boardBox = this.add.image(0,0,'cajaTablero');
@@ -104,8 +108,6 @@ class CaracScene extends Phaser.Scene{
 
         this.gameContainer = this.add.container(DEFAULT_WIDTH/2+DEFAULT_WIDTH/4+DEFAULT_WIDTH/40,DEFAULT_HEIGHT/2+DEFAULT_HEIGHT/8);
         this.gameContainer.setSize(10,10);
-
-        console.log(this.gameContainer.p)
     }
 
     addSlotsRing(id){
