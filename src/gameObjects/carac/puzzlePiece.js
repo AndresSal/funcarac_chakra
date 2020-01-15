@@ -9,16 +9,18 @@ class PuzzlePiece extends Phaser.GameObjects.Container{
     value;
     placed;
 
+    pieceInfo;
+
 
     constructor(scene,x,y,id,name){
         super(scene,x,y);
-        let pieceInfo = piecesInfo.find((item)=>{
+        this.pieceInfo = piecesInfo.find((item)=>{
             return item.id===id;
         });
-        this.value = pieceInfo.value;
+        this.value = this.pieceInfo.value;
         this.placed = false;
 
-        this.type = scene.add.image(0,0,pieceInfo.type);
+        this.type = scene.add.image(0,0,this.pieceInfo.type);
         this.label = scene.add.graphics();
         this.label.lineStyle(2,0x000000,1).fillStyle(0x1D978E,1);
         this.label.strokeRoundedRect(0,0,114,25,10)

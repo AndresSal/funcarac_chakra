@@ -3,14 +3,19 @@ import PieceSlot from "../gameObjects/carac/pieceSlot.js";
 import { DEFAULT_WIDTH, DEFAULT_HEIGHT } from "../consts/mainuiLib.js";
 import { STEP_VALUE, valuesInfo, ROTATION_VALUE } from "../consts/caracLib.js";
 
-const YTOP = 0;
+const YTOP = -150;
 const YPRIME = 0;
-const YDOWN = 0;
+const YDOWN = 150;
 
 class CaracScene extends Phaser.Scene{
     piecesList=[];
     piecesGroup;
     gameContainer;
+
+    primePiece;
+    previousPiece;
+    nextPiece;
+
     constructor(){
         super({key:'CaracScene'});
     }
@@ -24,7 +29,7 @@ class CaracScene extends Phaser.Scene{
 
         this.addPieces();
         this.setPiecesBehavior();
-        this.addAnimation(1);
+        this.setInitialPosition(0);
     }
 
     addContent(){
@@ -32,6 +37,26 @@ class CaracScene extends Phaser.Scene{
         let piecesContent = this.add.container(0,0);
         let piecesBox = this.add.image(0,0,'cajaPiezas');
         
+        let upArrow = this.add.image(0,-230,'flechaPiezas');
+        upArrow.setInteractive();
+        upArrow.on('pointerdown',(event,index)=>{
+            upArrow.setTint(0x2d2d2d);
+            this.getPreviousPiece(index);
+        })
+        upArrow.on('pointerup',()=>{
+            upArrow.clearTint();
+        })
+
+        let downArrow = this.add.image(0,330,'flechaPiezas');
+        downArrow.angle = -180;
+        downArrow.setInteractive();
+        downArrow.on('pointerdown',(event, index)=>{
+            downArrow.setTint(0x2d2d2d);
+            this.getNextPiece(index);
+        });
+        downArrow.on('pointerup',()=>{
+            downArrow.clearTint();
+        })
         
         let piecesPlaque = this.add.image(0,0,'placaPiezas');
         let pbTitle = this.add.text(-piecesPlaque.width/3-piecesPlaque.width/15,-piecesPlaque.height/4+piecesPlaque.height/8,'PIEZAS DE ROMPECABEZAS\nDISPONIBLES',
@@ -43,7 +68,7 @@ class CaracScene extends Phaser.Scene{
         let pbTextContent = this.add.container(0,-345,[piecesPlaque,pbTitle]);
         pbTextContent.setSize(piecesPlaque.width,piecesPlaque.height);
 
-        piecesContent.add([piecesBox,pbTextContent]).setSize(piecesBox.width,piecesBox.height);
+        piecesContent.add([piecesBox,pbTextContent,upArrow,downArrow]).setSize(piecesBox.width,piecesBox.height);
 
         let boardContent = this.add.container(0,0);
         let boardBox = this.add.image(0,0,'cajaTablero');
@@ -104,6 +129,7 @@ class CaracScene extends Phaser.Scene{
             let piece = new PuzzlePiece(this,   -DEFAULT_WIDTH/3+DEFAULT_WIDTH/35,-DEFAULT_HEIGHT/2,i,'TITULO');
             this.piecesGroup.add(piece);
             this.piecesList.push(piece);
+            piece.visible=false;
         }
 
         // Phaser.Actions.GridAlign(this.piecesGroup.getChildren(),{
@@ -168,22 +194,102 @@ class CaracScene extends Phaser.Scene{
         })
     }
 
-    addAnimation(item){
+    setInitialPosition(item){
         let totalItems = this.piecesList.length;
-        let prime = 0;
-        let speed=200;
-
-        this.piecesList[item].y = 0;
-
+        this.primePiece = this.piecesList[item];
+        this.primePiece.visible=true;
+        this.piecesList[item].y = YPRIME;
         if(item<(totalItems-1)){
-            this.piecesList[item + 1].y = 150; 
+            this.nextPiece=this.piecesList[item + 1];
+            this.nextPiece.visible=true;
+            this.piecesList[item + 1].y = YDOWN; 
         }
-
         if(item>0){
-            this.piecesList[item - 1].y = -150;
+            this.previousPiece = this.piecesList[item - 1];
+            this.previousPiece.visible=true;
+            this.piecesList[item - 1].y = YTOP;
+        }
+        if(item===0){
+            this.previousPiece = this.piecesList[totalItems-1];
+            this.previousPiece.visible=true;
+            this.piecesList[totalItems-1].y = YTOP;
+        }
+        if(item===totalItems-1){
+            this.nextPiece = this.piecesList[0];
+            this.nextPiece.visible=true;
+            this.piecesList[0].y = YDOWN;
+        }
+    }
+
+    getNextPiece(){
+        console.log('Initial\n prev: ',this.previousPiece.value, '\n prime: ',this.primePiece.value,'\n next: ',this.nextPiece.value);
+        let speed=100;
+
+        this.tweens.add({
+            targets:this.primePiece,
+            y:{from:YPRIME, to:YDOWN},
+            duration:speed});
+
+        this.tweens.add({
+            targets:this.previousPiece,
+            y:{from:YTOP, to:YPRIME},
+            duration:speed});
+        
+        this.nextPiece.visible=false;
+
+        this.tweens.add({
+            targets:this.nextPiece,
+            y:{from:YDOWN, to:YDOWN+200},
+            duration:speed});
+    
+        let aux = this.piecesList.indexOf(this.primePiece);
+        let index = aux--;
+        if(index<=0){
+            this.setInitialPosition(this.piecesList.length-1);
+        }else{
+            this.setInitialPosition(index-1);
         }
 
+        console.log('actual index',index);
+        console.log('Final\n prev: ',this.previousPiece.value, '\n prime: ',this.primePiece.value,'\n next: ',this.nextPiece.value); 
     }
+
+    getPreviousPiece(){
+        console.log('Initial\n prev: ',this.previousPiece.value, '\n prime: ',this.primePiece.value,'\n next: ',this.nextPiece.value);
+        let speed=100;
+
+        this.tweens.add({
+            targets:this.primePiece,
+            y:{from:YPRIME, to:YTOP},
+            duration:speed});
+
+        this.tweens.add({
+            targets:this.nextPiece,
+            y:{from:YDOWN, to:YPRIME},
+            duration:speed});    
+
+        this.tweens.add({
+            targets:this.previousPiece,
+            y:{from:YTOP, to:YTOP-200},
+            duration:speed});
+        
+        this.previousPiece.visible=false;
+
+        let aux = this.piecesList.indexOf(this.primePiece);
+        console.log('el aux es: ',aux);
+        let index = aux+1;
+        console.log('el index es: ',index);
+        if(index>=this.piecesList.length){
+            index = 0;
+            this.setInitialPosition(index);
+        }else{
+            this.setInitialPosition(index++);
+        }
+
+        
+        console.log('Final\n prev: ',this.previousPiece.value, '\n prime: ',this.primePiece.value,'\n next: ',this.nextPiece.value); 
+    }
+
 }
 
 export default CaracScene;

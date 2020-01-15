@@ -123,7 +123,7 @@ class BootLoader extends Phaser.Scene{
         this.load.image('placaPiezas','./assets/carac/piecesPlaque.png');
         this.load.image('cajaTablero','./assets/carac/boardBox.png');
         this.load.image('placaTablero','./assets/carac/boardPlaque.png');
-        this.load.image('flecha','./assets/carac/arrow.png');
+        this.load.image('flechaPiezas','./assets/carac/arrow.png');
         this.load.image('piezaRoja','./assets/carac/pieceRed.png');
         this.load.image('piezaAmarilla','./assets/carac/pieceYellow.png');
         this.load.image('piezaVerde','./assets/carac/pieceGreen.png');
