@@ -27,13 +27,14 @@ class Tale extends Phaser.GameObjects.Container{
         labelContent.setSize(this.label.width,this.label.height);
         scene.add.existing(labelContent);
 
-        this.state = scene.add.image(0,0,this.data.value);
+        this.state = scene.add.image(this.data.props.x,this.data.props.y,this.data.value);
+        this.state.setScale(this.data.props.scale)
 
         this.checkStateValue(scene);
 
-        let elementsGroup=scene.add.group([windowContent,this.state,labelContent]);
+        let elementsGroup=scene.add.group([windowContent,labelContent]);
         Phaser.Actions.GridAlign(elementsGroup.getChildren(),{
-            width:2,
+            width:1,
             height:2,
             cellWidth:90,
             cellHeight:150,
@@ -50,8 +51,8 @@ class Tale extends Phaser.GameObjects.Container{
                 scene.tweens.add({
                     targets:this.state,
                     props:{
-                        scaleX:{from:0.8, to:1.1},
-                        scaleY:{from:0.8, to:1.1},
+                        scaleX:{from:0.8, to:1},
+                        scaleY:{from:0.8, to:1},
                         duration:200,
                     },
                     yoyo:true,
