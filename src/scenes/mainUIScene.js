@@ -167,6 +167,7 @@ class MainUIScene extends Phaser.Scene{
             btn.on('pointerdown',()=>{
                 this.selectedModuleBtn = btn;
                 this.moduleTitle.setText(this.selectedModuleBtn.data.title).setFontSize(40);
+                this.input.setDefaultCursor('url(assets/cursores/manita.cur),pointer');
                 if(btn.data.id===1){
                     this.scene.sleep('ChakraScene');
                     this.scene.sleep('LibraryScene');

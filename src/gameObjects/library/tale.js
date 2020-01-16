@@ -1,3 +1,5 @@
+import { talesStates } from "../../consts/talesLib.js";
+
 class Tale extends Phaser.GameObjects.Container{
     body;
     label;
@@ -6,9 +8,12 @@ class Tale extends Phaser.GameObjects.Container{
     product_label;
     state;
 
-    constructor(scene,x,y){
+    data;
+    constructor(scene,x,y,stateKey){
         super(scene,x,y);
-
+        this.data = talesStates.find((obj=>{
+            return obj.key === stateKey;
+        }));
         this.body = scene.add.image(0,0,'cuerpoRelato');
         this.window = scene.add.image(0,0,'ventanaRelato');
         this.book = scene.add.image(0,0,'libro');
@@ -22,7 +27,9 @@ class Tale extends Phaser.GameObjects.Container{
         labelContent.setSize(this.label.width,this.label.height);
         scene.add.existing(labelContent);
 
-        this.state = scene.add.image(0,0,'nuevo');
+        this.state = scene.add.image(0,0,this.data.value);
+
+        this.checkStateValue(scene);
 
         let elementsGroup=scene.add.group([windowContent,this.state,labelContent]);
         Phaser.Actions.GridAlign(elementsGroup.getChildren(),{
@@ -35,6 +42,23 @@ class Tale extends Phaser.GameObjects.Container{
         }) 
         this.add([this.body,windowContent,labelContent,this.state]).setSize(this.body.width,this.body.height);
         scene.add.existing(this);
+    }
+
+    checkStateValue(scene){
+        switch(this.data.key){
+            case 'new':
+                scene.tweens.add({
+                    targets:this.state,
+                    props:{
+                        scaleX:{from:0.8, to:1.1},
+                        scaleY:{from:0.8, to:1.1},
+                        duration:200,
+                    },
+                    yoyo:true,
+                    repeat:-1
+                })
+                break;
+        }
     }
 }
 

@@ -9,13 +9,16 @@ class LibraryScene extends Phaser.Scene{
 
     create(){
         this.displayContent();
+        // this.checkStateValue();
     }
 
     displayContent(){
         this.talesGroup = this.add.group();
         let library = this.add.image(DEFAULT_WIDTH/2+DEFAULT_WIDTH/6,DEFAULT_HEIGHT/2+DEFAULT_HEIGHT/10,'libreria');
+        let statesList=['new','complete','blocked'];
         for(let i=1;i<=12;i++){
-            let tale = new Tale(this,0,0);
+            let randomItem = statesList[Math.floor(Math.random()*3)];
+            let tale = new Tale(this,0,0,randomItem);
             this.talesGroup.add(tale);
         }
 
@@ -28,7 +31,5 @@ class LibraryScene extends Phaser.Scene{
             y:DEFAULT_HEIGHT/2-DEFAULT_HEIGHT/10+5
         });
     }
-
-
 }
 export default LibraryScene;
