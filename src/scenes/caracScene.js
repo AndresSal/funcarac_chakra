@@ -37,7 +37,11 @@ class CaracScene extends Phaser.Scene{
 
         this.addPieces();
         this.setPiecesBehavior();
-        this.setInitialPosition(0);
+        this.setMainPosition(0);
+    }
+
+    update(){
+        this.checkListStatus();
     }
 
     addContent(){
@@ -131,9 +135,9 @@ class CaracScene extends Phaser.Scene{
 
     addPieces(){
         this.piecesGroup = this.add.group();
-        for(let i=1;i<=12;i++){
+        for(let i=1;i<=10;i++){
             let id = Math.floor(Math.random()*4)+1;
-            let piece = new PuzzlePiece(this,   -DEFAULT_WIDTH/3+DEFAULT_WIDTH/35,YHTOP,id,'TITULO');
+            let piece = new PuzzlePiece(this,   -DEFAULT_WIDTH/3+DEFAULT_WIDTH/35,YHTOP,id,`${i}`);
             this.piecesGroup.add(piece);
             this.piecesList.push(piece);
             piece.visible=false;
@@ -177,7 +181,6 @@ class CaracScene extends Phaser.Scene{
                         return element.key === pieceSlot.key && element.value === piece.value;
                     })!=null){
                         this.selectAPiece(piece);
-
                         piece.x = pieceSlot.x;
                         piece.y = pieceSlot.y;
                         piece.setScale(pieceSlot._scaleX-0.05,pieceSlot._scaleY-0.02)
@@ -188,13 +191,12 @@ class CaracScene extends Phaser.Scene{
                     }else{
                         pieceSlot.background.clearTint();
                         piece.x = piece.input.dragStartX;
-                        piece.y = piece.input.dragStartY;
-                        
+                        piece.y = piece.input.dragStartY;           
                     }
                 }
             });
 
-            piece.on('dragend',(pointer,piece,dropped)=>{
+            this.input.on('dragend',(pointer,piece,dropped)=>{
                 if(!dropped){
                     piece.x = piece.input.dragStartX;
                     piece.y = piece.input.dragStartY;
@@ -203,7 +205,7 @@ class CaracScene extends Phaser.Scene{
         })
     }
 
-    setInitialPosition(item){
+    setMainPosition(item){
         let totalItems = this.piecesList.length;
         this.primePiece = this.piecesList[item];
         this.primePiece.visible=true;
@@ -231,116 +233,130 @@ class CaracScene extends Phaser.Scene{
     }
 
     getNextPiece(){
-        console.log('Initial\n prev: ',this.previousPiece.value, '\n prime: ',this.primePiece.value,'\n next: ',this.nextPiece.value);
-        let speed=100;
+        let duration=100;
 
         this.tweens.add({
             targets:this.primePiece,
             y:{from:YPRIME, to:YDOWN},
-            duration:speed});
+            duration});
 
         this.tweens.add({
             targets:this.previousPiece,
             y:{from:YTOP, to:YPRIME},
-            duration:speed});
+            duration});
         
         this.nextPiece.visible=false;
 
         this.tweens.add({
             targets:this.nextPiece,
             y:{from:YDOWN, to:YDOWN+200},
-            duration:speed});
+            duration});
     
         let aux = this.piecesList.indexOf(this.primePiece);
         let index = aux--;
         if(index<=0){
-            this.setInitialPosition(this.piecesList.length-1);
+            this.setMainPosition(this.piecesList.length-1);
         }else{
-            this.setInitialPosition(index-1);
+            this.setMainPosition(index-1);
         }
-
-        console.log('actual index',index);
-        console.log('Final\n prev: ',this.previousPiece.value, '\n prime: ',this.primePiece.value,'\n next: ',this.nextPiece.value); 
     }
 
     getPreviousPiece(){
-        console.log('Initial\n prev: ',this.previousPiece.value, '\n prime: ',this.primePiece.value,'\n next: ',this.nextPiece.value);
-        let speed=100;
+        let duration=100;
 
         this.tweens.add({
             targets:this.primePiece,
             y:{from:YPRIME, to:YTOP},
-            duration:speed});
+            duration});
 
         this.tweens.add({
             targets:this.nextPiece,
             y:{from:YDOWN, to:YPRIME},
-            duration:speed});    
+            duration});    
 
         this.tweens.add({
             targets:this.previousPiece,
             y:{from:YTOP, to:YTOP-200},
-            duration:speed});
+            duration});
         
         this.previousPiece.visible=false;
 
         let aux = this.piecesList.indexOf(this.primePiece);
-        console.log('el aux es: ',aux);
         let index = aux+1;
-        console.log('el index es: ',index);
         if(index>=this.piecesList.length){
             index = 0;
-            this.setInitialPosition(index);
+            this.setMainPosition(index);
         }else{
-            this.setInitialPosition(index++);
+            this.setMainPosition(index++);
         }
-
-        
-        console.log('Final\n prev: ',this.previousPiece.value, '\n prime: ',this.primePiece.value,'\n next: ',this.nextPiece.value); 
     }
 
     selectAPiece(piece){
-        let speed = 200;
-        console.log('Final\n prev: ',this.previousPiece.value, '\n prime: ',this.primePiece.value,'\n next: ',this.nextPiece.value); 
+        let duration = 100;
         this.selectedPiece = piece;
         let index = this.piecesList.indexOf(this.selectedPiece);
 
-        if(this.selectedPiece===this.primePiece){
-            this.primePiece = this.previousPiece;
-            this.tweens.add({
-                targets:this.previousPiece,
-                y:{from:YTOP, to:YPRIME},
-                duration:speed});
+        if(this.piecesList.length>0&&this.piecesList.length<=3){
+            switch(this.selectedPiece){
+                case this.primePiece:
+                    this.primePiece = '';
+                    break;
+                case this.previousPiece:
+                    this.previousPiece = '';
+                    break;
+                case this.nextPiece:
+                    this.nextPiece = '';
+                    break;
+            }
+            if(index>-1){
+                this.piecesList.splice(index,1);
+            }
+        }else{
+            switch(this.selectedPiece){
+                case this.primePiece:
+                    this.primePiece = this.previousPiece;
+                    this.tweens.add({
+                        targets:this.previousPiece,
+                        y:{from:YTOP, to:YPRIME},
+                        duration});
+                    break;
+                
+                case this.previousPiece:
+                    this.previousPiece = this.piecesList[index-1];
+                    this.tweens.add({
+                        targets:this.previousPiece,
+                        y:{from:YHTOP, to:YTOP},
+                        duration});
+                    break;
+                
+                case this.nextPiece:
+                    this.nextPiece = this.piecesList[index+1];
+                    this.tweens.add({
+                    targets:this.nextPiece,
+                    y:{from:YHDOWN, to:YDOWN},
+                    duration});
+                    break;
+            }
+            if(index>-1){
+                this.piecesList.splice(index,1);
+            }    
+            index = this.piecesList.indexOf(this.primePiece);
+            this.setMainPosition(index);
         }
         
-        if(this.selectedPiece===this.previousPiece){
-            console.log('escogio al prev');
-            this.previousPiece = this.piecesList[index-1];
-            this.tweens.add({
-                targets:this.previousPiece,
-                y:{from:YHTOP, to:YTOP},
-                duration:speed});
+    }
+
+    checkListStatus(){
+        if(this.piecesList.length<=3){
+            this.upArrow.off('pointerdown');
+            this.upArrow.visible=false;
+
+            this.downArrow.off('pointerdown');
+            this.downArrow.visible=false;
         }
+    }
 
-        if(this.selectedPiece===this.nextPiece){
-            console.log('escogio al next');
-            this.nextPiece = this.piecesList[index+1];
-            this.tweens.add({
-                targets:this.nextPiece,
-                y:{from:YHDOWN, to:YDOWN},
-                duration:speed});
-        }
-        
-        if(index>-1){
-            this.piecesList.splice(index,1);
-        }
-
-        index = this.piecesList.indexOf(this.primePiece);
-        this.setInitialPosition(index);
-
-        console.log('Final\n prev: ',this.previousPiece.value, '\n prime: ',this.primePiece.value,'\n next: ',this.nextPiece.value); 
-
-
+    checkPrimePieces(piece){
 
     }
 
