@@ -1,4 +1,5 @@
 import BasePage from "../gameObjects/library/pages/base-page/basePage.js";
+import CoverPage from "../gameObjects/library/pages/base-page/coverPage.js";
 
 class TaleScene extends Phaser.Scene{
     constructor(){
@@ -6,7 +7,7 @@ class TaleScene extends Phaser.Scene{
     }
 
     create(){
-        let basePage = new BasePage(this,700,700);
+        let coverPage = new CoverPage(this,700,700,'TUKTU PALLAY PACHA');
     }
 }
 

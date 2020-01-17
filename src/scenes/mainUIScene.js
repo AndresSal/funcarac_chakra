@@ -1,6 +1,7 @@
 import ModuleBtn from "../gameObjects/mainUI/moduleBtn.js";
 import AssistantBtn from "../gameObjects/mainUI/assistantBtn.js";
 import { DEFAULT_WIDTH, DEFAULT_HEIGHT } from "../consts/mainuiLib.js";
+import FpsText from "../gameObjects/fpsText.js";
 
 const SCALE_RATIO = window.devicePixelRatio/2;
 class MainUIScene extends Phaser.Scene{
@@ -15,6 +16,8 @@ class MainUIScene extends Phaser.Scene{
 
     selectedModuleBtn;
     moduleTitle;
+
+    fps;
     
     constructor(key){
         super({key:'MainUIScene'});
@@ -26,6 +29,8 @@ class MainUIScene extends Phaser.Scene{
     }
 
     create(){
+        this.fps = new FpsText(this);
+        this.fps.setDepth(1000); 
         this.addAsistantContent();
         this.addModuleBttn();
         this.addModuleContent();
@@ -39,6 +44,7 @@ class MainUIScene extends Phaser.Scene{
 
     update(){
         this.setModuleBtnBehavior();
+        this.fps.update();
     }
 
     addModuleBttn(){
