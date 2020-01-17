@@ -3,13 +3,13 @@ import { piecesInfo } from "../../../consts/caracLib.js";
 
 export default class PiecesPage extends BasePage{
     constructor(scene,x,y){
-        super(scene,x,y,'PIEZAS\nCONSEGUIDAS');
+        super(scene,x,y,'LISTA DE\n PIEZAS CONSEGUIDAS');
         this.buildPage(scene);
         this.nextPage();
         this.prevPage();
 
         
-        this.buildTheContent(scene);
+        this.buildThePage(scene);
 
 
 
@@ -59,8 +59,7 @@ export default class PiecesPage extends BasePage{
         //  });
     }
 
-    buildTheContent(scene){
-        this.contentGroup = scene.add.group();
+    buildThePage(scene){
         for (let i=1;i<4;i++){
             let row = this.createPieceContent(scene,i,0,0);
             this.contentGroup.add(row);

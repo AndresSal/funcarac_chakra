@@ -12,6 +12,7 @@ class BasePage extends Phaser.GameObjects.Container{
     constructor(scene,x,y,title){
         super(scene,x,y);
         this.titlePage = title;
+        this.contentGroup = scene.add.group();
     }
 
     buildPage(scene){

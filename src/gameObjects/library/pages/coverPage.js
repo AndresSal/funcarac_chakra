@@ -37,7 +37,6 @@ class CoverPage extends BasePage{
         priceContent.setSize(this.price_box.width,this.price_box.height);
 
 
-        this.contentGroup =  scene.add.group();
         this.contentGroup.add(titleContent);
         this.contentGroup.add(priceContent);
 
