@@ -1,4 +1,5 @@
-import BasePage from "./basePage.js";
+import BasePage from "./base-page/basePage.js";
+
 
 class CoverPage extends BasePage{
     
