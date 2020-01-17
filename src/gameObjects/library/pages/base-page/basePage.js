@@ -49,8 +49,6 @@ class BasePage extends Phaser.GameObjects.Container{
     addGroupContent(scene){
         this.contentGroup.getChildren().forEach((el)=>{
             this.add(el);
-            scene.add.existing(el);
-
         })
     }
 

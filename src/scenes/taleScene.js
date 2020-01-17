@@ -7,7 +7,7 @@ class TaleScene extends Phaser.Scene{
     }
 
     create(){
-        let coverPage = new CoverPage(this,700,700,'TUKTU PALLAY PACHA');
+        let coverPage = new CoverPage(this,800,700,'TUKTU PALLAY PACHA');
     }
 }
 
