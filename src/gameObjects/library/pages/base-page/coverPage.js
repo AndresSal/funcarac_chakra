@@ -8,10 +8,11 @@ class CoverPage extends BasePage{
     title;
     
     constructor(scene,x,y,title){
-        super(scene,x,y,'Portada');
+        super(scene,x,y,'PORTADA\nDEL RELATO VIVENCIAL');
         this.buildPage(scene);
-        this.nextPage();
-        this.prevPage();
+        this.leftCorner.visible=false;
+        this.rightCorner.visible=false;
+
 
         this.initialStep(title);
         console.log(this.title);

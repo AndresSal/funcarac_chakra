@@ -5,16 +5,25 @@ class BasePage extends Phaser.GameObjects.Container{
     leftCorner;
     name;
 
+    titlePage;
+
     contentGroup;
 
-    constructor(scene,x,y,name){
+    constructor(scene,x,y,title){
         super(scene,x,y);
+        this.titlePage = title;
     }
 
     buildPage(scene){
         this.page = scene.add.image(0,0,'pagBase');
-        this.ribbon = scene.add.image(0,-this.page.height/2+70,'lazoPag');
-        this.name = scene.add.text(0,0,name);
+        this.ribbon = scene.add.image(0,0,'lazoPag');
+        this.name = scene.add.text(-this.ribbon.width/2+this.ribbon.width/8,-this.ribbon.height/2+this.ribbon.height/10,this.titlePage,{fontFamily:'Helvetica',
+        fontSize:'30px',
+        color:'#000',
+        align:'center'});
+        let titlePageContainer = scene.add.container(0,-this.page.height/3-this.page.height/15,[this.ribbon,this.name]);
+        titlePageContainer.setSize(this.ribbon.width,this.ribbon.height);
+        scene.add.existing(titlePageContainer);
 
         
         let cornersGroup= scene.add.group();
@@ -32,7 +41,7 @@ class BasePage extends Phaser.GameObjects.Container{
             y:this.page.height/2-45
         }),
 
-        this.add([this.page,this.ribbon,this.name,this.rightCorner,this.leftCorner])
+        this.add([this.page,titlePageContainer,this.rightCorner,this.leftCorner])
         .setSize(this.page.width,this.page.height);
         scene.add.existing(this);
     }
