@@ -4,6 +4,7 @@ import CaracScene from "./scenes/caracScene.js";
 import MainUIScene from "./scenes/mainUIScene.js";
 import LibraryScene from "./scenes/libraryScene.js";
 import { DEFAULT_WIDTH, DEFAULT_HEIGHT } from "./consts/mainuiLib.js";
+import TaleScene from "./scenes/taleScene.js";
 
 
 
@@ -19,7 +20,7 @@ const config = {
 
     },
 
-    scene:[BootLoader,MainUIScene,CaracScene,ChakraScene,LibraryScene]
+    scene:[BootLoader,MainUIScene,CaracScene,ChakraScene,LibraryScene,TaleScene]
 }
 
 new Phaser.Game(config);

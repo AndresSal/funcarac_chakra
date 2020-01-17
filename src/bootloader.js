@@ -148,6 +148,11 @@ class BootLoader extends Phaser.Scene{
         this.load.image('liston','./assets/library/icon_complete.png');
         this.load.image('candado','./assets/library/icon_blocked.png');
 
+        //base-page
+        this.load.image('pagBase','./assets/relatos/base_page/blank_page.png');
+        this.load.image('lazoPag','./assets/relatos/base_page/page_ribbon.png');
+        this.load.image('esquinaPag','./assets/relatos/base_page/corner.png');
+
 
 
         this.load.on('progress',(value)=>{

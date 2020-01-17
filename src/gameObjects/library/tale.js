@@ -43,6 +43,7 @@ class Tale extends Phaser.GameObjects.Container{
         }) 
         this.add([this.body,windowContent,labelContent,this.state]).setSize(this.body.width,this.body.height);
         scene.add.existing(this);
+        this.setInteractive();
     }
 
     checkStateValue(scene){

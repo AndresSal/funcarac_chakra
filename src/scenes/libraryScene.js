@@ -9,7 +9,7 @@ class LibraryScene extends Phaser.Scene{
 
     create(){
         this.displayContent();
-        // this.checkStateValue();
+        this.selectATale();
     }
 
     displayContent(){
@@ -29,6 +29,19 @@ class LibraryScene extends Phaser.Scene{
             cellHeight:271,
             x:DEFAULT_WIDTH/2+DEFAULT_WIDTH/40,
             y:DEFAULT_HEIGHT/2-DEFAULT_HEIGHT/10+5
+        });
+    }
+
+
+
+    selectATale(){
+        this.talesGroup.getChildren().forEach((t)=>{
+            if(t.data.key==='new'){
+                t.on('pointerdown',()=>{
+                    this.scene.sleep('LibraryScene');
+                    this.scene.launch('TaleScene');
+                })
+            }
         });
     }
 }
