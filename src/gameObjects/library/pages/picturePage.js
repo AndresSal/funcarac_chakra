@@ -11,55 +11,26 @@ export default class PicturePage extends BasePage{
         this.buildPage(scene);
         this.indexPage = 1;
         this.totalPage = 10;
-
-        //let taleStoryBox = new TaleStoryBox(this,100,100,1,10);
-
         this.setContent(scene);
 
         
     }
 
     setContent(scene){
-        let label = scene.add.image(0,0,'etiquetaIndice');
         this.picture = scene.add.image(0,0,'ejemploCuento');
-
-        let indexPagePart =this.createContainer(scene,'PÁGINA',this.indexPage,150,10);
-        let totalPagePart =this.createContainer(scene,'DE',this.totalPage,60,10);
-
-        let labelGroup = scene.add.group();
-        labelGroup.add(indexPagePart);
-        labelGroup.add(totalPagePart);
-
-        Phaser.Actions.GridAlign(labelGroup.getChildren(),{
-            width:2,
-            height:1,
-            cellWidth:270,
-            cellHeight:0,
-            x:-120,
-            y:110
-        });
-
-        let labelContent = scene.add.container(0,250);
-        labelContent.add(label).setSize(label.width,label.height);
-
-        labelGroup.getChildren().forEach((el)=>{
-            labelContent.add(el);
-        });
-
+        let taleStoryBox = new TaleStoryBox(scene,0,0,1,10);
         this.contentGroup.add(this.picture);
-        this.contentGroup.add(labelContent);
+        this.contentGroup.add(taleStoryBox);
 
-        Phaser.Actions.GridAlign(labelGroup.getChildren(),{
+        Phaser.Actions.GridAlign(this.contentGroup.getChildren(),{
             width:1,
             height:2,
             cellWidth:0,
-            cellHeight:200,
-            x:-120,
-            y:110
+            cellHeight:405,
+            x:this.page.width/24-this.page.width/2,
+            y:this.page.height/6-this.page.height/7
         });
-
         this.addGroupContent(scene);
-
     }
 
     createContainer(scene,phrase,innerText,cellW,cellH){
