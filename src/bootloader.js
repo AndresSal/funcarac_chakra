@@ -164,6 +164,8 @@ class BootLoader extends Phaser.Scene{
         //picture-page
         this.load.image('etiquetaIndice','./assets/relatos/picture_page/index_label.png');
         this.load.image('ventanaIndice','./assets/relatos/picture_page/index_window.png');
+        this.load.image('etiquetaParrafo','./assets/relatos/picture_page/paragraph_label.png');
+
 
         
         

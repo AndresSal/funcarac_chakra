@@ -88,12 +88,26 @@ export const talesTitleConfig=[
                 }
             }
         ]
-    }
+    },
+    {
+        id:4,
+        type:'paragraph-text',
+        x:-200,
+        y:-55,
+        style:{
+            fontFamily:'Helvetica',
+            fontSize:'26px',
+            color:'#000',
+            align:'center'}
+    },
+
 ]
 
 export const pagesInfo=[
     {id:1,name:'PORTADA\n DEL RELATO VIVENCIAL'},
     {id:2,name:'LISTA DE\n PIEZAS CONSEGUIDAS'},
     {id:3,name:'ILUSTRACIÓN\n GRÁFICA'},
-    {id:4,name:'SABER TRADICIONAL'}
+    {id:4,name:'SABER TRADICIONAL'},
+    {id:5,name:'LECTURA DEL RELATO'},
+
 ]
