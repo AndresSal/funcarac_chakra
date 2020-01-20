@@ -1,7 +1,9 @@
 import BasePage from "./base-page/basePage.js";
+import TaleStoryBox from "../components/taleStoryBox.js";
 
 export default class PicturePage extends BasePage{
     indexPage;
+    picture;
     totalPage;
     
     constructor(scene,x,y){
@@ -10,11 +12,16 @@ export default class PicturePage extends BasePage{
         this.indexPage = 1;
         this.totalPage = 10;
 
+        //let taleStoryBox = new TaleStoryBox(this,100,100,1,10);
+
         this.setContent(scene);
+
+        
     }
 
     setContent(scene){
         let label = scene.add.image(0,0,'etiquetaIndice');
+        this.picture = scene.add.image(0,0,'ejemploCuento');
 
         let indexPagePart =this.createContainer(scene,'PÁGINA',this.indexPage,150,10);
         let totalPagePart =this.createContainer(scene,'DE',this.totalPage,60,10);
@@ -27,7 +34,7 @@ export default class PicturePage extends BasePage{
             width:2,
             height:1,
             cellWidth:270,
-            cellHeight:300,
+            cellHeight:0,
             x:-120,
             y:110
         });
@@ -39,7 +46,18 @@ export default class PicturePage extends BasePage{
             labelContent.add(el);
         });
 
+        this.contentGroup.add(this.picture);
         this.contentGroup.add(labelContent);
+
+        Phaser.Actions.GridAlign(labelGroup.getChildren(),{
+            width:1,
+            height:2,
+            cellWidth:0,
+            cellHeight:200,
+            x:-120,
+            y:110
+        });
+
         this.addGroupContent(scene);
 
     }

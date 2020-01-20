@@ -53,6 +53,42 @@ export const talesTitleConfig=[
             fontSize:'40px',
             color:'#000'}
     },
+
+    {
+        id:3,
+        type:'index-info',
+        index_props:{
+            x:-20,
+            y:-20,
+            style:{
+                fontFamily:'Helvetica',
+                fontSize:'40px',
+                color:'#000'
+            }
+        },
+        info_elements:[
+            {
+                key:'PAGINA',
+                x:150,
+                y:10,
+                style:{
+                    fontFamily:'Helvetica',
+                    fontSize:'36px',
+                    color:'#f5ec2f'
+                }
+            },
+            {
+                key:'DE',
+                x:60,
+                y:10,
+                style:{
+                    fontFamily:'Helvetica',
+                    fontSize:'36px',
+                    color:'#f5ec2f'
+                }
+            }
+        ]
+    }
 ]
 
 export const pagesInfo=[
