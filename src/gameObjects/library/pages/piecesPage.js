@@ -3,7 +3,7 @@ import { piecesInfo } from "../../../consts/caracLib.js";
 
 export default class PiecesPage extends BasePage{
     constructor(scene,x,y){
-        super(scene,x,y,'LISTA DE\n PIEZAS CONSEGUIDAS');
+        super(scene,x,y,2);
         this.buildPage(scene);
         this.nextPage();
         this.prevPage();

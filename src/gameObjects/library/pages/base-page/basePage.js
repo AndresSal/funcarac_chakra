@@ -1,3 +1,5 @@
+import { pagesInfo } from "../../../../consts/talesLib.js";
+
 class BasePage extends Phaser.GameObjects.Container{
     ribbon;
     page;
@@ -6,12 +8,18 @@ class BasePage extends Phaser.GameObjects.Container{
     name;
 
     titlePage;
+    pageInfo;
+
 
     contentGroup;
 
-    constructor(scene,x,y,title){
+    constructor(scene,x,y,titleID){
         super(scene,x,y);
-        this.titlePage = title;
+        this.pageInfo = pagesInfo.find((obj)=>{
+            return obj.id===titleID;
+        });
+
+        this.titlePage = this.pageInfo.name;
         this.contentGroup = scene.add.group();
     }
 
@@ -22,7 +30,7 @@ class BasePage extends Phaser.GameObjects.Container{
         fontSize:'30px',
         color:'#000',
         align:'center'});
-        let titlePageContainer = scene.add.container(0,-this.page.height/3-this.page.height/15,[this.ribbon,this.name]);
+        let titlePageContainer = scene.add.container(0,-this.page.height/3,[this.ribbon,this.name]);
         titlePageContainer.setSize(this.ribbon.width,this.ribbon.height);
         scene.add.existing(titlePageContainer);
 
@@ -36,10 +44,10 @@ class BasePage extends Phaser.GameObjects.Container{
         Phaser.Actions.GridAlign(cornersGroup.getChildren(),{
             width:2,
             height:1,
-            cellWidth:this.page.width-45,
+            cellWidth:this.page.width-43,
             cellHeight:30,
-            x:-20,
-            y:this.page.height/2-45
+            x:-22,
+            y:this.page.height/2-48
         }),
 
         this.add([this.page,titlePageContainer,this.rightCorner,this.leftCorner])

@@ -5,7 +5,7 @@ export default class PicturePage extends BasePage{
     totalPage;
     
     constructor(scene,x,y){
-        super(scene,x,y,'ILUSTRACIÓN\n GRÁFICA');
+        super(scene,x,y,3);
         this.buildPage(scene);
         this.indexPage = 1;
         this.totalPage = 10;

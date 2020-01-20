@@ -30,3 +30,34 @@ export const talesStates= [
         }
     }
 ]
+
+export const talesTitleConfig=[
+    {
+        id:1,
+        type:'cover-tale',
+        x:-220,
+        y:-20,
+        style:{
+            fontFamily:'Helvetica',
+            fontSize:'40px',
+            color:'#000'}
+    },
+
+    {
+        id:2,
+        type:'ancient-knowledge',
+        x:-90,
+        y:-20,
+        style:{
+            fontFamily:'Helvetica',
+            fontSize:'40px',
+            color:'#000'}
+    },
+]
+
+export const pagesInfo=[
+    {id:1,name:'PORTADA\n DEL RELATO VIVENCIAL'},
+    {id:2,name:'LISTA DE\n PIEZAS CONSEGUIDAS'},
+    {id:3,name:'ILUSTRACIÓN\n GRÁFICA'},
+    {id:4,name:'SABER TRADICIONAL'}
+]
