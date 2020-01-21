@@ -142,6 +142,9 @@ class BootLoader extends Phaser.Scene{
 
 
         //carnet
+        //id-card
+        this.load.image('cuerpoIDCard','./assets/carnet/id-card/id-card-body.png');
+
         //photo-box
         this.load.image('cajaRetrato','./assets/carnet/photo-box/photo_box.png');
         this.load.image('retrato','./assets/carnet/photo-box/portrait.png');
