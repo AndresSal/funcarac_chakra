@@ -11,6 +11,7 @@ import PhotoBox from "../gameObjects/library/components/id-card-components/photo
 import MapBox from "../gameObjects/library/components/id-card-components/map-box.js";
 import DataBox from "../gameObjects/library/components/id-card-components/data-box.js";
 import IdCard from "../gameObjects/library/components/id-card-components/id-card.js";
+import IdCardPage from "../gameObjects/library/pages/idCardPage.js";
 
 class TaleScene extends Phaser.Scene{
     constructor(){
@@ -29,7 +30,7 @@ class TaleScene extends Phaser.Scene{
 
         //let modalWindow = new ModalWindow(this,1400,700);
 
-        let idcard = new IdCard(this,1000,800);
+        let idCardPage = new IdCardPage(this,1000,800);
     }
 }
 
