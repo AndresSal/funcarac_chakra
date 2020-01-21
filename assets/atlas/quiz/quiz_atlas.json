@@ -1,0 +1,138 @@
+{
+    "frames": [
+        {
+            "filename": "quiz_icon_foods",
+            "frame": {
+                "x": 1,
+                "y": 1,
+                "w": 80,
+                "h": 80
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "quiz_icon_language",
+            "frame": {
+                "x": 1,
+                "y": 83,
+                "w": 80,
+                "h": 80
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "quiz_icon_ritual",
+            "frame": {
+                "x": 1,
+                "y": 165,
+                "w": 80,
+                "h": 80
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "quiz_icon_signs",
+            "frame": {
+                "x": 1,
+                "y": 247,
+                "w": 80,
+                "h": 80
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "quiz_mark_correct",
+            "frame": {
+                "x": 1,
+                "y": 329,
+                "w": 280,
+                "h": 280
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "quiz_mark_fail",
+            "frame": {
+                "x": 1,
+                "y": 611,
+                "w": 280,
+                "h": 280
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "quiz_option_body",
+            "frame": {
+                "x": 1,
+                "y": 893,
+                "w": 725,
+                "h": 90
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "quiz_question_body",
+            "frame": {
+                "x": 1,
+                "y": 985,
+                "w": 729,
+                "h": 105
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "quiz_ribbon",
+            "frame": {
+                "x": 1,
+                "y": 1092,
+                "w": 738,
+                "h": 105
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "quiz_window",
+            "frame": {
+                "x": 1,
+                "y": 1199,
+                "w": 911,
+                "h": 911
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        }
+    ],
+    "meta": {
+        "description": "Atlas generado con Atlas Packer Phaser3",
+        "web": "https://gammafp.github.io/atlas-packer-phaser/"
+    }
+}

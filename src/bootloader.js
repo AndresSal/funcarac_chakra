@@ -167,6 +167,8 @@ class BootLoader extends Phaser.Scene{
         this.load.image('etiquetaParrafo','./assets/relatos/picture_page/paragraph_label.png');
 
 
+        //quiz atlas
+        this.load.atlas('quiz','./assets/atlas/quiz/quiz.png','./assets/atlas/quiz/quiz_atlas.json');
         
         
         
