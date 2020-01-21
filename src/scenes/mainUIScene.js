@@ -3,7 +3,6 @@ import AssistantBtn from "../gameObjects/mainUI/assistantBtn.js";
 import { DEFAULT_WIDTH, DEFAULT_HEIGHT, MAIN_UI_ATLAS } from "../consts/mainuiLib.js";
 import FpsText from "../gameObjects/fpsText.js";
 
-const SCALE_RATIO = window.devicePixelRatio/2;
 class MainUIScene extends Phaser.Scene{
     contentGroup;
     btnGroup;

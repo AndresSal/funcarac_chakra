@@ -49,17 +49,17 @@ class BootLoader extends Phaser.Scene{
         this.load.image('logo','./assets/logo/phaser-logo.png');
 
         //tools
-        this.load.image('cajaHtas','./assets/herramientas/tools_box.png');
-        this.load.image('placaHtas','./assets/herramientas/plaque.png');
-        this.load.image('bordeHta','./assets/herramientas/tool_board.png');
-        this.load.image('cuerpoHta','./assets/herramientas/tool_body.png');
-        this.load.image('etiquetaHta','./assets/herramientas/tool_title.png');
-        this.load.image('abono','./assets/herramientas/abono.png');
-        this.load.image('agua','./assets/herramientas/agua.png');
-        this.load.image('azadon','./assets/herramientas/azadon.png');
-        this.load.image('chisguete','./assets/herramientas/chisguete.png');
-        this.load.image('pala','./assets/herramientas/pala.png');
-        this.load.image('tijeras','./assets/herramientas/tijeras.png');
+        // this.load.image('cajaHtas','./assets/herramientas/tools_box.png');
+        // this.load.image('placaHtas','./assets/herramientas/plaque.png');
+        // this.load.image('bordeHta','./assets/herramientas/tool_board.png');
+        // this.load.image('cuerpoHta','./assets/herramientas/tool_body.png');
+        // this.load.image('etiquetaHta','./assets/herramientas/tool_title.png');
+        // this.load.image('abono','./assets/herramientas/abono.png');
+        // this.load.image('agua','./assets/herramientas/agua.png');
+        // this.load.image('azadon','./assets/herramientas/azadon.png');
+        // this.load.image('chisguete','./assets/herramientas/chisguete.png');
+        // this.load.image('pala','./assets/herramientas/pala.png');
+        // this.load.image('tijeras','./assets/herramientas/tijeras.png');
 
         //seeds
         this.load.image('cajaSemillas','./assets/semillas/seeds_box.png');

@@ -1,101 +1,10 @@
 {
     "frames": [
         {
-            "filename": "abono",
-            "frame": {
-                "x": 1,
-                "y": 1,
-                "w": 71,
-                "h": 78
-            },
-            "anchor": {
-                "x": 0.5,
-                "y": 0.5
-            }
-        },
-        {
-            "filename": "agua",
-            "frame": {
-                "x": 1,
-                "y": 81,
-                "w": 86,
-                "h": 65
-            },
-            "anchor": {
-                "x": 0.5,
-                "y": 0.5
-            }
-        },
-        {
-            "filename": "azadon",
-            "frame": {
-                "x": 1,
-                "y": 148,
-                "w": 79,
-                "h": 58
-            },
-            "anchor": {
-                "x": 0.5,
-                "y": 0.5
-            }
-        },
-        {
-            "filename": "chisguete",
-            "frame": {
-                "x": 1,
-                "y": 208,
-                "w": 33,
-                "h": 77
-            },
-            "anchor": {
-                "x": 0.5,
-                "y": 0.5
-            }
-        },
-        {
-            "filename": "pala",
-            "frame": {
-                "x": 1,
-                "y": 287,
-                "w": 17,
-                "h": 80
-            },
-            "anchor": {
-                "x": 0.5,
-                "y": 0.5
-            }
-        },
-        {
-            "filename": "plaque",
-            "frame": {
-                "x": 1,
-                "y": 369,
-                "w": 313,
-                "h": 87
-            },
-            "anchor": {
-                "x": 0.5,
-                "y": 0.5
-            }
-        },
-        {
-            "filename": "tijeras",
-            "frame": {
-                "x": 1,
-                "y": 458,
-                "w": 71,
-                "h": 78
-            },
-            "anchor": {
-                "x": 0.5,
-                "y": 0.5
-            }
-        },
-        {
             "filename": "tool_board",
             "frame": {
                 "x": 1,
-                "y": 538,
+                "y": 1,
                 "w": 151,
                 "h": 173
             },
@@ -108,7 +17,7 @@
             "filename": "tool_body",
             "frame": {
                 "x": 1,
-                "y": 713,
+                "y": 176,
                 "w": 141,
                 "h": 162
             },
@@ -118,12 +27,12 @@
             }
         },
         {
-            "filename": "tool_title",
+            "filename": "plaque",
             "frame": {
                 "x": 1,
-                "y": 877,
-                "w": 131,
-                "h": 57
+                "y": 340,
+                "w": 313,
+                "h": 87
             },
             "anchor": {
                 "x": 0.5,
@@ -134,9 +43,100 @@
             "filename": "tools_box",
             "frame": {
                 "x": 1,
-                "y": 936,
+                "y": 429,
                 "w": 353,
                 "h": 652
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "tool_title",
+            "frame": {
+                "x": 1,
+                "y": 1083,
+                "w": 131,
+                "h": 57
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "compost",
+            "frame": {
+                "x": 1,
+                "y": 1142,
+                "w": 71,
+                "h": 78
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "hoe",
+            "frame": {
+                "x": 1,
+                "y": 1222,
+                "w": 79,
+                "h": 58
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "scissors",
+            "frame": {
+                "x": 1,
+                "y": 1282,
+                "w": 71,
+                "h": 78
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "shovel",
+            "frame": {
+                "x": 1,
+                "y": 1362,
+                "w": 17,
+                "h": 80
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "spray",
+            "frame": {
+                "x": 1,
+                "y": 1444,
+                "w": 33,
+                "h": 77
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "water",
+            "frame": {
+                "x": 1,
+                "y": 1523,
+                "w": 86,
+                "h": 65
             },
             "anchor": {
                 "x": 0.5,

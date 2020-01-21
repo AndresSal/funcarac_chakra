@@ -2,7 +2,7 @@ export const toolsInfo =[
     {
         id:1,
         name:'ABONO',
-        key:'abono',
+        key:'compost',
         cur:'url(assets/cursores/chakra_cursor.cur),pointer',
         position:{
             x:-45,
@@ -20,7 +20,7 @@ export const toolsInfo =[
     {
         id:2,
         name:'AGUA',
-        key:'agua',
+        key:'water',
         cur:'url(assets/cursores/agua_cursor.cur),pointer',
         position:{
             x:-35,
@@ -38,7 +38,7 @@ export const toolsInfo =[
     {
         id:3,
         name:'AZADÓN',
-        key:'azadon',
+        key:'hoe',
         cur:'url(assets/cursores/azadon_cursor.cur),pointer',
         position:{
             x:-50,
@@ -56,7 +56,7 @@ export const toolsInfo =[
     {
         id:4,
         name:'PALA',
-        key:'pala',
+        key:'shovel',
         cur:'url(assets/cursores/palaSeleccionada.cur),pointer',
         position:{
             x:-30,
@@ -74,7 +74,7 @@ export const toolsInfo =[
     {
         id:5,
         name:'INSECTICIDA',
-        key:'chisguete',
+        key:'spray',
         cur:'url(assets/cursores/chisguete_cursor.cur),pointer',
         position:{
             x:-64,
@@ -92,7 +92,7 @@ export const toolsInfo =[
     {
         id:6,
         name:'TIJERAS',
-        key:'tijeras',
+        key:'scissors',
         cur:'url(assets/cursores/tijeras_cursor.cur),pointer',
         position:{
             x:-45,
@@ -108,3 +108,5 @@ export const toolsInfo =[
         }
     },
 ]
+
+export const TOOLS_ATLAS = 'tools';

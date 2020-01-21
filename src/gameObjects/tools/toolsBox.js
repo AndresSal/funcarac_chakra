@@ -1,4 +1,5 @@
 import ToolButton from "./toolButton.js";
+import { TOOLS_ATLAS } from "../../consts/chakraLib.js";
 
 class ToolsBox extends Phaser.GameObjects.Container{
     box;
@@ -11,8 +12,8 @@ class ToolsBox extends Phaser.GameObjects.Container{
     constructor(scene,x,y){
         super(scene,x,y);
 
-        this.box = scene.add.image(0,0,'cajaHtas');
-        this.plaque = scene.add.image(0,0,'placaHtas');
+        this.box = scene.add.image(0,0,TOOLS_ATLAS,'tools_box');
+        this.plaque = scene.add.image(0,0,TOOLS_ATLAS,'plaque');
         let title = scene.add.text(-this.plaque.width/2+this.plaque.width/40,-this.plaque.height/10,'CAJA DE HERRAMIENTAS',
             {fontFamily:'Helvetica',
              fontSize:'24px',

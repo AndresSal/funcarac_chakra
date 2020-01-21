@@ -10,12 +10,7 @@ class ChakraScene extends Phaser.Scene{
     constructor(){
         super({key:'ChakraScene'});
     }
-
-    // init(){
-    //     this.input.setDefaultCursor('url(assets/cursores/manita.cur),pointer');
-    //     localStorage.setItem('currentCursor','url(assets/cursores/manita.cur),pointer');
-    // }
-
+    
     create(){
         let toolsBox = new ToolsBox(this,0,0);
         let seedsBox = new SeedsBox(this,0,0);
