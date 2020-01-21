@@ -48,29 +48,6 @@ class BootLoader extends Phaser.Scene{
         //game-logo
         this.load.image('logo','./assets/logo/phaser-logo.png');
 
-        //main-ui
-        this.load.image('ventanaModulo','./assets/mainUI/window_module.png');
-        this.load.image('ventanaOpciones','./assets/mainUI/window_options.png');
-        this.load.image('ventanaAsistente','./assets/mainUI/window_assistant.png');
-        this.load.image('listonModulo','./assets/mainUI/ribbon_module.png');
-        this.load.image('listonAsistente','./assets/mainUI/ribbon_assistant.png');
-        this.load.image('cajaBotones','./assets/mainUI/btn_box.png');
-        this.load.image('etiquetaBoton','./assets/mainUI/btn_label.png');
-        this.load.image('flecha','./assets/mainUI/btn_arrow.png');
-        this.load.image('guia','./assets/mainUI/btn_guide.png');
-        this.load.image('ayuda','./assets/mainUI/btn_hint.png');
-        this.load.image('silencio','./assets/mainUI/btn_mute.png');
-        this.load.image('sonido','./assets/mainUI/btn_sound.png');
-        this.load.image('saltar','./assets/mainUI/btn_omit.png');
-        this.load.image('cuerpoOpcion','./assets/mainUI/opt_body.png');
-        this.load.image('etiquetaOpcion','./assets/mainUI/opt_label.png');
-        this.load.image('ventanaOpcion','./assets/mainUI/opt_window.png');
-        this.load.image('iconoCarac','./assets/mainUI/carac.png');
-        this.load.image('iconoRelatos','./assets/mainUI/tales.png');
-        this.load.image('iconoChakra','./assets/mainUI/chakra.png');
-
-
-
         //tools
         this.load.image('cajaHtas','./assets/herramientas/tools_box.png');
         this.load.image('placaHtas','./assets/herramientas/plaque.png');

@@ -1,4 +1,4 @@
-import { assistantButtonsInfo } from "../../consts/mainuiLib.js";
+import { assistantButtonsInfo, MAIN_UI_ATLAS } from "../../consts/mainuiLib.js";
 
 class AssistantBtn extends Phaser.GameObjects.Container{
     icon;
@@ -15,11 +15,11 @@ class AssistantBtn extends Phaser.GameObjects.Container{
         });
 
         this.group = scene.add.group();
-        this.icon = scene.add.image(0,0,this.data.icon);
+        this.icon = scene.add.image(0,0,MAIN_UI_ATLAS,this.data.icon);
         if(this.data.title==='ADELANTE'){
-            this.icon.angle=180;
+            this.icon.flipX = true;
         };
-        this.label = scene.add.image(0,0,'etiquetaBoton');
+        this.label = scene.add.image(0,0,MAIN_UI_ATLAS,'btn_label');
         this.text = scene.add.text(this.data.position.x,this.data.position.y,this.data.title,this.data.style);
         let titleContainer = scene.add.container();
         titleContainer.add([this.label,this.text]).setSize(this.label.width,this.label.height);

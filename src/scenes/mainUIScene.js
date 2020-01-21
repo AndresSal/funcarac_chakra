@@ -1,6 +1,6 @@
 import ModuleBtn from "../gameObjects/mainUI/moduleBtn.js";
 import AssistantBtn from "../gameObjects/mainUI/assistantBtn.js";
-import { DEFAULT_WIDTH, DEFAULT_HEIGHT } from "../consts/mainuiLib.js";
+import { DEFAULT_WIDTH, DEFAULT_HEIGHT, MAIN_UI_ATLAS } from "../consts/mainuiLib.js";
 import FpsText from "../gameObjects/fpsText.js";
 
 const SCALE_RATIO = window.devicePixelRatio/2;
@@ -48,7 +48,7 @@ class MainUIScene extends Phaser.Scene{
     }
 
     addModuleBttn(){
-        let btnWindow = this.add.image(0,0,'ventanaOpciones');
+        let btnWindow = this.add.image(0,0,MAIN_UI_ATLAS,'window_options');
         this.btnBox = this.add.container(0,0);
         this.btnGroup = this.add.group();
         for(let i=1;i<=3;i++){
@@ -73,8 +73,10 @@ class MainUIScene extends Phaser.Scene{
     }
 
     addModuleContent(){
-        let moduleWindow = this.add.image(0,0,'ventanaModulo');
-        let moduleRibbon = this.add.image(0,0,'listonModulo');
+        let moduleWindow = this.add.image(0,0, MAIN_UI_ATLAS,'window_module');
+        let moduleRibbon = this.add.image(0,0,MAIN_UI_ATLAS,'ribbon_module');
+        
+        //TODO migrar a un archivo json el estilo
         this.moduleTitle = this.add.text(-moduleRibbon.width/4+moduleRibbon.width/10,-moduleRibbon.height/3-moduleRibbon.height/20,'Bienvenido',
         {fontFamily:'Helvetica',
          fontSize:'60px',
@@ -113,8 +115,10 @@ class MainUIScene extends Phaser.Scene{
         this.assistantBox = this.add.container(0,0);
         let content = this.add.group();
         this.menuBtnGroup = this.add.group();
-        let window = this.add.image(0,0,'ventanaAsistente');
-        let ribbon = this.add.image(0,0,'listonAsistente');
+        let window = this.add.image(0,0,MAIN_UI_ATLAS,'window_assistant');
+        let ribbon = this.add.image(0,0,MAIN_UI_ATLAS,'ribbon_assistant');
+        
+        //TODO migrar el estilo a archivo JSON
         let asistantName = this.add.text(-ribbon.width/4+ribbon.width/40,-ribbon.height/4,'MAMA DULU',
             {fontFamily:'Helvetica',
             fontSize:'40px',
@@ -124,7 +128,7 @@ class MainUIScene extends Phaser.Scene{
             align:'center'
             });
 
-        let btnPanel = this.add.image(0,0,'cajaBotones');
+        let btnPanel = this.add.image(0,0,MAIN_UI_ATLAS,'btn_box');
         
         let ribbonBox = this.add.container(0,0);
         let btnBox = this.add.container(0,0);

@@ -1,4 +1,4 @@
-import { moduleOptionsInfo } from "../../consts/mainuiLib.js";
+import { moduleOptionsInfo, MAIN_UI_ATLAS } from "../../consts/mainuiLib.js";
 
 class ModuleBtn extends Phaser.GameObjects.Container{
     body;
@@ -16,10 +16,10 @@ class ModuleBtn extends Phaser.GameObjects.Container{
             return option.id === id;
         })
 
-        this.body = scene.add.image(0,0,'main_ui','opt_body');
-        this.window = scene.add.image(0,0,'main_ui','opt_window');
-        this.icon = scene.add.image(0,0,'main_ui',this.data.icon);
-        this.label = scene.add.image(0,0,'main_ui','opt_label');
+        this.body = scene.add.image(0,0,MAIN_UI_ATLAS,'opt_body');
+        this.window = scene.add.image(0,0,MAIN_UI_ATLAS,'opt_window');
+        this.icon = scene.add.image(0,0,MAIN_UI_ATLAS,this.data.icon);
+        this.label = scene.add.image(0,0,MAIN_UI_ATLAS,'opt_label');
         this.text = scene.add.text(0,0,this.data.title,this.data.style);
         
         let windowContainer = scene.add.container(0,0,[this.window,this.icon]);

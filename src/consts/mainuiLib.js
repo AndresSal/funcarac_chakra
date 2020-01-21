@@ -44,7 +44,7 @@ export const assistantButtonsInfo=[
     {
         id:1,
         title:'ATRAS',
-        icon:'flecha',
+        icon:'btn_arrow',
         position:{
             x:-22,
             y:-8
@@ -61,7 +61,7 @@ export const assistantButtonsInfo=[
     {
         id:2,
         title:'ADELANTE',
-        icon:'flecha',
+        icon:'btn_arrow',
         position:{
             x:-36,
             y:-8
@@ -78,7 +78,7 @@ export const assistantButtonsInfo=[
     {
         id:3,
         title:'AYUDA',
-        icon:'ayuda',
+        icon:'btn_hint',
         position:{
             x:-22,
             y:-8
@@ -95,7 +95,7 @@ export const assistantButtonsInfo=[
     {
         id:4,
         title:'GUIA',
-        icon:'guia',
+        icon:'btn_guide',
         position:{
             x:-18,
             y:-8
@@ -112,7 +112,7 @@ export const assistantButtonsInfo=[
     {
         id:5,
         title:'SONIDO',
-        icon:'sonido',
+        icon:'btn_sound',
         position:{
             x:-26,
             y:-8
@@ -129,7 +129,7 @@ export const assistantButtonsInfo=[
     {
         id:6,
         title:'SILENCIO',
-        icon:'silencio',
+        icon:'btn_mute',
         position:{
             x:0,
             y:0
@@ -146,7 +146,7 @@ export const assistantButtonsInfo=[
     {
         id:7,
         title:'SALTAR',
-        icon:'saltar',
+        icon:'btn_omit',
         position:{
             x:0,
             y:0
@@ -164,6 +164,8 @@ export const assistantButtonsInfo=[
 
 export const DEFAULT_WIDTH = 1900;
 export const DEFAULT_HEIGHT = 1200;
+
+export const MAIN_UI_ATLAS = 'main_ui';
 
 export const AtlasInfo=[
     {
