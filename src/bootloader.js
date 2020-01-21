@@ -152,6 +152,10 @@ class BootLoader extends Phaser.Scene{
         this.load.image('cajaInternaMapa','./assets/carnet/map-box/map-inner-body.png');
         this.load.image('etiquetaMapa','./assets/carnet/map-box/map-label.png');
 
+        //data-box
+        this.load.image('cajaDatos','./assets/carnet/data-box/data-box.png');
+        this.load.image('campoDatos','./assets/carnet/data-box/field-data.png');
+
 
        //contenido principal
         this.load.image('ejemplo','./assets/contenido_principal/saberes/ejemplo.png');

@@ -9,6 +9,7 @@ import TaleStoryPage from "../gameObjects/library/pages/taleStoryPage.js";
 import ModalWindow from "../gameObjects/mainUI/window/modalWindow.js";
 import PhotoBox from "../gameObjects/library/components/id-card-components/photo-box.js";
 import MapBox from "../gameObjects/library/components/id-card-components/map-box.js";
+import DataBox from "../gameObjects/library/components/id-card-components/data-box.js";
 
 class TaleScene extends Phaser.Scene{
     constructor(){
@@ -27,7 +28,7 @@ class TaleScene extends Phaser.Scene{
 
         //let modalWindow = new ModalWindow(this,1400,700);
 
-        let mapBox = new MapBox(this,1000,800,'SALACHE');
+        let dataBox = new DataBox(this,1000,800,'ROSA MARIA GUADALUPE ROSAS','SALACHE','COTOPAXI');
 
     }
 }
