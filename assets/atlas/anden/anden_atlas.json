@@ -1,140 +1,10 @@
 {
     "frames": [
         {
-            "filename": "chakra_board",
-            "frame": {
-                "x": 1,
-                "y": 1,
-                "w": 139,
-                "h": 188
-            },
-            "anchor": {
-                "x": 0.5,
-                "y": 0.5
-            }
-        },
-        {
-            "filename": "chakra_panel",
-            "frame": {
-                "x": 1,
-                "y": 191,
-                "w": 139,
-                "h": 51
-            },
-            "anchor": {
-                "x": 0.5,
-                "y": 0.5
-            }
-        },
-        {
-            "filename": "icon_chakra",
-            "frame": {
-                "x": 1,
-                "y": 244,
-                "w": 14,
-                "h": 21
-            },
-            "anchor": {
-                "x": 0.5,
-                "y": 0.5
-            }
-        },
-        {
-            "filename": "icon_check",
-            "frame": {
-                "x": 1,
-                "y": 267,
-                "w": 20,
-                "h": 20
-            },
-            "anchor": {
-                "x": 0.5,
-                "y": 0.5
-            }
-        },
-        {
-            "filename": "icon_clock",
-            "frame": {
-                "x": 1,
-                "y": 289,
-                "w": 18,
-                "h": 18
-            },
-            "anchor": {
-                "x": 0.5,
-                "y": 0.5
-            }
-        },
-        {
-            "filename": "icon_compost",
-            "frame": {
-                "x": 1,
-                "y": 309,
-                "w": 20,
-                "h": 19
-            },
-            "anchor": {
-                "x": 0.5,
-                "y": 0.5
-            }
-        },
-        {
-            "filename": "icon_water",
-            "frame": {
-                "x": 1,
-                "y": 330,
-                "w": 20,
-                "h": 19
-            },
-            "anchor": {
-                "x": 0.5,
-                "y": 0.5
-            }
-        },
-        {
-            "filename": "platform",
-            "frame": {
-                "x": 1,
-                "y": 351,
-                "w": 780,
-                "h": 652
-            },
-            "anchor": {
-                "x": 0.5,
-                "y": 0.5
-            }
-        },
-        {
-            "filename": "platform_inner_box",
-            "frame": {
-                "x": 1,
-                "y": 1005,
-                "w": 740,
-                "h": 516
-            },
-            "anchor": {
-                "x": 0.5,
-                "y": 0.5
-            }
-        },
-        {
-            "filename": "platform_plaque",
-            "frame": {
-                "x": 1,
-                "y": 1523,
-                "w": 740,
-                "h": 87
-            },
-            "anchor": {
-                "x": 0.5,
-                "y": 0.5
-            }
-        },
-        {
             "filename": "status_bar",
             "frame": {
                 "x": 1,
-                "y": 1612,
+                "y": 1,
                 "w": 119,
                 "h": 9
             },
@@ -147,9 +17,139 @@
             "filename": "status_bar_body",
             "frame": {
                 "x": 1,
-                "y": 1623,
+                "y": 12,
                 "w": 119,
                 "h": 11
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "icon_check",
+            "frame": {
+                "x": 1,
+                "y": 25,
+                "w": 20,
+                "h": 20
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "icon_water",
+            "frame": {
+                "x": 1,
+                "y": 47,
+                "w": 20,
+                "h": 19
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "icon_chakra",
+            "frame": {
+                "x": 1,
+                "y": 68,
+                "w": 14,
+                "h": 21
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "icon_compost",
+            "frame": {
+                "x": 1,
+                "y": 91,
+                "w": 20,
+                "h": 19
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "chakra_panel",
+            "frame": {
+                "x": 1,
+                "y": 112,
+                "w": 139,
+                "h": 51
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "icon_clock",
+            "frame": {
+                "x": 1,
+                "y": 165,
+                "w": 18,
+                "h": 18
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "platform_plaque",
+            "frame": {
+                "x": 1,
+                "y": 185,
+                "w": 740,
+                "h": 87
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "platform_inner_box",
+            "frame": {
+                "x": 1,
+                "y": 274,
+                "w": 740,
+                "h": 516
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "platform",
+            "frame": {
+                "x": 1,
+                "y": 792,
+                "w": 780,
+                "h": 652
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "chakra_board",
+            "frame": {
+                "x": 1,
+                "y": 1446,
+                "w": 139,
+                "h": 188
             },
             "anchor": {
                 "x": 0.5,

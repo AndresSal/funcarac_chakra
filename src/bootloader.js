@@ -44,10 +44,7 @@ class BootLoader extends Phaser.Scene{
             } 
         });
         assetText.setOrigin(0.5,0.5);
-
-        //game-logo
-        this.load.image('logo','./assets/logo/phaser-logo.png');
-
+        
         //tools
         // this.load.image('cajaHtas','./assets/herramientas/tools_box.png');
         // this.load.image('placaHtas','./assets/herramientas/plaque.png');

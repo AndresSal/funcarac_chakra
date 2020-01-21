@@ -1,5 +1,5 @@
 import Chakra from "./chakra.js";
-import { toolsInfo } from "../../consts/chakraLib.js";
+import { toolsInfo, ANDEN_ATLAS } from "../../consts/chakraLib.js";
 
 class Platform extends Phaser.GameObjects.Container{
     box;
@@ -11,6 +11,8 @@ class Platform extends Phaser.GameObjects.Container{
 
         this.box = scene.add.image(0,0,'anden');
         this.plaque = scene.add.image(0,0,'placaAnden');
+        
+        //TODO MIGRAR EL ESTILO A ARCHIVO JSON
         let title = scene.add.text(-this.plaque.width/4-this.plaque.width/30,-this.plaque.height/5,'ANDÉN TRADICIONAL',
         {fontFamily:'Helvetica',
         fontSize:'40px',
