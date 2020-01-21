@@ -128,3 +128,61 @@ export const assistantButtonsInfo=[
 
 export const DEFAULT_WIDTH = 1900;
 export const DEFAULT_HEIGHT = 1200;
+
+export const AtlasInfo=[
+    {
+        key:'anden',
+        path:'./assets/atlas/anden/',
+        texture:'anden.png',
+        atlas:'anden_atlas.json'
+    },
+    
+    {
+        key:'carac',
+        path:'./assets/atlas/carac/',
+        texture:'carac.png',
+        atlas:'carac_atlas.json'
+    },
+
+    {
+        key:'chakras',
+        path:'./assets/atlas/chakras/',
+        texture:'chakras.png',
+        atlas:'chakras_atlas.json'
+    },
+
+    {
+        key:'library',
+        path:'./assets/atlas/library/',
+        texture:'library.png',
+        atlas:'library_atlas.json'
+    },
+
+    {
+        key:'main_ui',
+        path:'./assets/atlas/main_ui/',
+        texture:'main_ui.png',
+        atlas:'main_ui_atlas.json'
+    },
+
+    {
+        key:'quiz',
+        path:'./assets/atlas/quiz/',
+        texture:'quiz.png',
+        atlas:'quiz_atlas.json'
+    },
+
+    {
+        key:'seeds',
+        path:'./assets/atlas/seeds/',
+        texture:'seeds.png',
+        atlas:'seeds_atlas.json'
+    },
+
+    {
+        key:'tools',
+        path:'./assets/atlas/tools/',
+        texture:'tools.png',
+        atlas:'tools_atlas.json'
+    },
+]

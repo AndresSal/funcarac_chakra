@@ -1,0 +1,255 @@
+{
+    "frames": [
+        {
+            "filename": "btn_arrow",
+            "frame": {
+                "x": 1,
+                "y": 1,
+                "w": 80,
+                "h": 80
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "btn_box",
+            "frame": {
+                "x": 1,
+                "y": 83,
+                "w": 561,
+                "h": 158
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "btn_guide",
+            "frame": {
+                "x": 1,
+                "y": 243,
+                "w": 80,
+                "h": 80
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "btn_hint",
+            "frame": {
+                "x": 1,
+                "y": 325,
+                "w": 80,
+                "h": 80
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "btn_label",
+            "frame": {
+                "x": 1,
+                "y": 407,
+                "w": 83,
+                "h": 26
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "btn_mute",
+            "frame": {
+                "x": 1,
+                "y": 435,
+                "w": 80,
+                "h": 80
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "btn_omit",
+            "frame": {
+                "x": 1,
+                "y": 517,
+                "w": 80,
+                "h": 80
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "btn_sound",
+            "frame": {
+                "x": 1,
+                "y": 599,
+                "w": 80,
+                "h": 80
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "carac",
+            "frame": {
+                "x": 1,
+                "y": 681,
+                "w": 130,
+                "h": 130
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "chakra",
+            "frame": {
+                "x": 1,
+                "y": 813,
+                "w": 89,
+                "h": 130
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "opt_body",
+            "frame": {
+                "x": 1,
+                "y": 945,
+                "w": 193,
+                "h": 413
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "opt_label",
+            "frame": {
+                "x": 1,
+                "y": 1360,
+                "w": 172,
+                "h": 98
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "opt_window",
+            "frame": {
+                "x": 1,
+                "y": 1460,
+                "w": 172,
+                "h": 265
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "ribbon_assistant",
+            "frame": {
+                "x": 1,
+                "y": 1727,
+                "w": 547,
+                "h": 105
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "ribbon_module",
+            "frame": {
+                "x": 1,
+                "y": 1834,
+                "w": 976,
+                "h": 146
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "tales",
+            "frame": {
+                "x": 1,
+                "y": 1982,
+                "w": 130,
+                "h": 130
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "window_assistant",
+            "frame": {
+                "x": 1,
+                "y": 2114,
+                "w": 649,
+                "h": 712
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "window_module",
+            "frame": {
+                "x": 1,
+                "y": 2828,
+                "w": 1232,
+                "h": 1195
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "window_options",
+            "frame": {
+                "x": 1,
+                "y": 4025,
+                "w": 639,
+                "h": 483
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        }
+    ],
+    "meta": {
+        "description": "Atlas generado con Atlas Packer Phaser3",
+        "web": "https://gammafp.github.io/atlas-packer-phaser/"
+    }
+}

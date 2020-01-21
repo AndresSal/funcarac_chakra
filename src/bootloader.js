@@ -1,4 +1,4 @@
-import { DEFAULT_WIDTH, DEFAULT_HEIGHT } from "./consts/mainuiLib.js";
+import { DEFAULT_WIDTH, DEFAULT_HEIGHT, AtlasInfo } from "./consts/mainuiLib.js";
 
 class BootLoader extends Phaser.Scene{
     constructor(){
@@ -167,10 +167,12 @@ class BootLoader extends Phaser.Scene{
         this.load.image('etiquetaParrafo','./assets/relatos/picture_page/paragraph_label.png');
 
 
-        //quiz atlas
-        this.load.atlas('quiz','./assets/atlas/quiz/quiz.png','./assets/atlas/quiz/quiz_atlas.json');
-        
-        
+        //loading atlas files
+        AtlasInfo.forEach((el)=>{
+            this.load.path = el.path;
+            this.load.atlas(el.key,el.texture,el.atlas);
+            console.log('cargado atlas',el.key);
+        });        
         
         //contenido principal
         this.load.image('ejemplo','./assets/contenido_principal/saberes/ejemplo.png');

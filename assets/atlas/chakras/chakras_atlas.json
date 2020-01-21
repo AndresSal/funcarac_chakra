@@ -1,0 +1,86 @@
+{
+    "frames": [
+        {
+            "filename": "cleaned_chakra",
+            "frame": {
+                "x": 1,
+                "y": 1,
+                "w": 119,
+                "h": 168
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "fertilized_chakra",
+            "frame": {
+                "x": 1,
+                "y": 171,
+                "w": 119,
+                "h": 168
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "grassed_chakra",
+            "frame": {
+                "x": 1,
+                "y": 341,
+                "w": 119,
+                "h": 168
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "lined_chakra",
+            "frame": {
+                "x": 1,
+                "y": 511,
+                "w": 119,
+                "h": 168
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "seeded_chakra",
+            "frame": {
+                "x": 1,
+                "y": 681,
+                "w": 119,
+                "h": 168
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "maleza",
+            "frame": {
+                "x": 1,
+                "y": 851,
+                "w": 61,
+                "h": 61
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        }
+    ],
+    "meta": {
+        "description": "Atlas generado con Atlas Packer Phaser3",
+        "web": "https://gammafp.github.io/atlas-packer-phaser/"
+    }
+}

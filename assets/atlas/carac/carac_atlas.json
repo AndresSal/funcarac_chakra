@@ -1,0 +1,203 @@
+{
+    "frames": [
+        {
+            "filename": "arrow",
+            "frame": {
+                "x": 1,
+                "y": 1,
+                "w": 79,
+                "h": 79
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "backgroundblue",
+            "frame": {
+                "x": 1,
+                "y": 82,
+                "w": 174,
+                "h": 102
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "backgroundgreen",
+            "frame": {
+                "x": 1,
+                "y": 186,
+                "w": 174,
+                "h": 102
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "backgroundred",
+            "frame": {
+                "x": 1,
+                "y": 290,
+                "w": 174,
+                "h": 102
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "backgroundyellow",
+            "frame": {
+                "x": 1,
+                "y": 394,
+                "w": 174,
+                "h": 102
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "boardbox",
+            "frame": {
+                "x": 1,
+                "y": 498,
+                "w": 750,
+                "h": 891
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "boardplaque",
+            "frame": {
+                "x": 1,
+                "y": 1391,
+                "w": 601,
+                "h": 98
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "pieceblue",
+            "frame": {
+                "x": 1,
+                "y": 1491,
+                "w": 166,
+                "h": 100
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "piecegreen",
+            "frame": {
+                "x": 1,
+                "y": 1593,
+                "w": 166,
+                "h": 100
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "piecelabel",
+            "frame": {
+                "x": 1,
+                "y": 1695,
+                "w": 95,
+                "h": 26
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "piecered",
+            "frame": {
+                "x": 1,
+                "y": 1723,
+                "w": 166,
+                "h": 100
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "piecesbox",
+            "frame": {
+                "x": 1,
+                "y": 1825,
+                "w": 390,
+                "h": 891
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "piecesplaque",
+            "frame": {
+                "x": 1,
+                "y": 2718,
+                "w": 307,
+                "h": 98
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "pieceyellow",
+            "frame": {
+                "x": 1,
+                "y": 2818,
+                "w": 166,
+                "h": 100
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "slotbody",
+            "frame": {
+                "x": 1,
+                "y": 2920,
+                "w": 179,
+                "h": 108
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        }
+    ],
+    "meta": {
+        "description": "Atlas generado con Atlas Packer Phaser3",
+        "web": "https://gammafp.github.io/atlas-packer-phaser/"
+    }
+}

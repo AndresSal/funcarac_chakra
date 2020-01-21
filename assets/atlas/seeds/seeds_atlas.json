@@ -1,0 +1,99 @@
+{
+    "frames": [
+        {
+            "filename": "box_plaque",
+            "frame": {
+                "x": 1,
+                "y": 1,
+                "w": 313,
+                "h": 148
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "inner_box",
+            "frame": {
+                "x": 1,
+                "y": 151,
+                "w": 780,
+                "h": 229
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "seed_basket",
+            "frame": {
+                "x": 1,
+                "y": 382,
+                "w": 59,
+                "h": 57
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "seed_board",
+            "frame": {
+                "x": 1,
+                "y": 441,
+                "w": 147,
+                "h": 101
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "seed_body",
+            "frame": {
+                "x": 1,
+                "y": 544,
+                "w": 137,
+                "h": 90
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "seed_label",
+            "frame": {
+                "x": 1,
+                "y": 636,
+                "w": 117,
+                "h": 15
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "seeds_box",
+            "frame": {
+                "x": 1,
+                "y": 653,
+                "w": 1143,
+                "h": 269
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        }
+    ],
+    "meta": {
+        "description": "Atlas generado con Atlas Packer Phaser3",
+        "web": "https://gammafp.github.io/atlas-packer-phaser/"
+    }
+}
