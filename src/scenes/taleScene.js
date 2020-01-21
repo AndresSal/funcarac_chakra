@@ -8,6 +8,7 @@ import TextLabel from "../gameObjects/library/components/textLabel.js";
 import TaleStoryPage from "../gameObjects/library/pages/taleStoryPage.js";
 import ModalWindow from "../gameObjects/mainUI/window/modalWindow.js";
 import PhotoBox from "../gameObjects/library/components/id-card-components/photo-box.js";
+import MapBox from "../gameObjects/library/components/id-card-components/map-box.js";
 
 class TaleScene extends Phaser.Scene{
     constructor(){
@@ -26,7 +27,7 @@ class TaleScene extends Phaser.Scene{
 
         //let modalWindow = new ModalWindow(this,1400,700);
 
-        let photoBox = new PhotoBox(this,1000,700);
+        let mapBox = new MapBox(this,1000,800,'SALACHE');
 
     }
 }

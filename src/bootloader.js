@@ -146,6 +146,12 @@ class BootLoader extends Phaser.Scene{
         this.load.image('cajaRetrato','./assets/carnet/photo-box/photo_box.png');
         this.load.image('retrato','./assets/carnet/photo-box/portrait.png');
 
+        //map-box
+        this.load.image('cuerpoMapa','./assets/carnet/map-box/map-body.png');
+        this.load.image('mapa','./assets/carnet/map-box/map-example.png');
+        this.load.image('cajaInternaMapa','./assets/carnet/map-box/map-inner-body.png');
+        this.load.image('etiquetaMapa','./assets/carnet/map-box/map-label.png');
+
 
        //contenido principal
         this.load.image('ejemplo','./assets/contenido_principal/saberes/ejemplo.png');
