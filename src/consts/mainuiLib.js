@@ -1,7 +1,43 @@
 export const moduleOptionsInfo=[
-    {id:1,title:'CALENDARIO\nAGROFESTIVO',icon:'iconoCarac'},
-    {id:2,title:'RELATOS\nVIVENCIALES',icon:'iconoRelatos'},
-    {id:3,title:'CHAKRA\nCOMUNITARIA',icon:'iconoChakra'}
+    {
+        id:1,
+        title:'CALENDARIO\nAGROFESTIVO',
+        icon:'carac',
+        style:{
+            fontFamily:'Helvetica',
+            fontSize: '16px',
+            color:'#000',
+            stroke:'#000',
+            strokeThickness:1,
+            align:'center'
+        }
+    },
+    {
+        id:2,
+        title:'RELATOS\nVIVENCIALES',
+        icon:'tales',
+        style:{
+            fontFamily:'Helvetica',
+            fontSize: '16px',
+            color:'#000',
+            stroke:'#000',
+            strokeThickness:1,
+            align:'center'
+        }
+    },
+    {
+        id:3,
+        title:'CHAKRA\nCOMUNITARIA',
+        icon:'chakra',
+        style:{
+            fontFamily:'Helvetica',
+            fontSize: '16px',
+            color:'#000',
+            stroke:'#000',
+            strokeThickness:1,
+            align:'center'
+        }
+    }
 ]
 
 export const assistantButtonsInfo=[
