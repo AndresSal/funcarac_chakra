@@ -44,7 +44,7 @@ class BootLoader extends Phaser.Scene{
             } 
         });
         assetText.setOrigin(0.5,0.5);
-        
+
         //tools
         // this.load.image('cajaHtas','./assets/herramientas/tools_box.png');
         // this.load.image('placaHtas','./assets/herramientas/plaque.png');
@@ -141,6 +141,18 @@ class BootLoader extends Phaser.Scene{
         this.load.image('etiquetaParrafo','./assets/relatos/picture_page/paragraph_label.png');
 
 
+        //carnet
+        //photo-box
+        this.load.image('cajaRetrato','./assets/carnet/photo-box/photo_box.png');
+        this.load.image('retrato','./assets/carnet/photo-box/portrait.png');
+
+
+       //contenido principal
+        this.load.image('ejemplo','./assets/contenido_principal/saberes/ejemplo.png');
+
+        this.load.image('ejemploCuento','./assets/contenido_principal/cuentos/ejemplo_cuento.png');
+
+
         //loading atlas files
         AtlasInfo.forEach((el)=>{
             this.load.path = el.path;
@@ -148,11 +160,6 @@ class BootLoader extends Phaser.Scene{
             console.log('cargado atlas',el.key);
         });        
         
-        //contenido principal
-        this.load.image('ejemplo','./assets/contenido_principal/saberes/ejemplo.png');
-
-        this.load.image('ejemploCuento','./assets/contenido_principal/cuentos/ejemplo_cuento.png');
-
 
         this.load.on('progress',(value)=>{
             progressBar.clear();
