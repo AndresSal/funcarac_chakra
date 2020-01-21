@@ -110,3 +110,4 @@ export const toolsInfo =[
 ]
 
 export const TOOLS_ATLAS = 'tools';
+export const SEEDS_ATLAS = 'seeds';

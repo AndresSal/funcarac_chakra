@@ -1,3 +1,5 @@
+import { SEEDS_ATLAS } from "../../consts/chakraLib.js";
+
 class SeedButton extends Phaser.GameObjects.Container{
     board;
     body;
@@ -6,10 +8,10 @@ class SeedButton extends Phaser.GameObjects.Container{
     label;
     constructor(scene,x,y){
         super(scene,x,y);
-        this.board = scene.add.image(0,0,'bordeSemilla');
-        this.body = scene.add.image(0,0,'cuerpoSemilla');
-        this.basket = scene.add.image(0,-10,'canasta');
-        this.label = scene.add.image(0,30,'etiquetaSemilla');
+        this.board = scene.add.image(0,0,SEEDS_ATLAS,'seed_board');
+        this.body = scene.add.image(0,0,SEEDS_ATLAS,'seed_body');
+        this.basket = scene.add.image(0,-10,SEEDS_ATLAS,'seed_basket');
+        this.label = scene.add.image(0,30,SEEDS_ATLAS,'seed_label');
         this.locked = false;
         this.add([this.board,this.body,this.basket,this.label]).setSize(this.board.width,this.board.height);
 

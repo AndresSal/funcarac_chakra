@@ -62,14 +62,14 @@ class BootLoader extends Phaser.Scene{
         // this.load.image('tijeras','./assets/herramientas/tijeras.png');
 
         //seeds
-        this.load.image('cajaSemillas','./assets/semillas/seeds_box.png');
-        this.load.image('placaSemillas','./assets/semillas/box_plaque.png');
-        this.load.image('cajaIntSemillas','./assets/semillas/inner_box.png');
-        this.load.image('bordeSemilla','./assets/semillas/seed_board.png');
-        this.load.image('cuerpoSemilla','./assets/semillas/seed_body.png');
-        this.load.image('canasta','./assets/semillas/seed_basket.png');
-        this.load.image('canastaBloqueada','./assets/semillas/unlocked_seed.png');
-        this.load.image('etiquetaSemilla','./assets/semillas/seed_label.png');
+        // this.load.image('cajaSemillas','./assets/semillas/seeds_box.png');
+        // this.load.image('placaSemillas','./assets/semillas/box_plaque.png');
+        // this.load.image('cajaIntSemillas','./assets/semillas/inner_box.png');
+        // this.load.image('bordeSemilla','./assets/semillas/seed_board.png');
+        // this.load.image('cuerpoSemilla','./assets/semillas/seed_body.png');
+        // this.load.image('canasta','./assets/semillas/seed_basket.png');
+        // this.load.image('canastaBloqueada','./assets/semillas/unlocked_seed.png');
+        // this.load.image('etiquetaSemilla','./assets/semillas/seed_label.png');
 
         //anden
         this.load.image('anden','./assets/anden/platform.png');

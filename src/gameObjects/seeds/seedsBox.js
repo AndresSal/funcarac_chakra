@@ -1,4 +1,5 @@
 import SeedButton from "./seedButton.js";
+import { SEEDS_ATLAS } from "../../consts/chakraLib.js";
 
 class SeedsBox extends Phaser.GameObjects.Container{
     box;
@@ -11,8 +12,9 @@ class SeedsBox extends Phaser.GameObjects.Container{
 
     constructor(scene,x,y){
         super(scene,x,y);
-        this.box = scene.add.image(0,0,'cajaSemillas');
-        this.plaque = scene.add.image(0,0,'placaSemillas');
+        this.box = scene.add.image(0,0,SEEDS_ATLAS,'seeds_box');
+        this.plaque = scene.add.image(0,0,SEEDS_ATLAS,'box_plaque');
+        //TODO MIGRAR A ARCHIVO JSON EL ESTILO DEL TEXTO
         let title = scene.add.text(-this.plaque.width/2+this.plaque.width/14,-this.plaque.height/4-this.plaque.height/20,'COLECCIÓN\nDE SEMILLAS',
         {fontFamily:'Helvetica',
         fontSize:'40px',
@@ -24,7 +26,7 @@ class SeedsBox extends Phaser.GameObjects.Container{
         let titleContent = scene.add.container(-this.box.width/3-this.box.width/80,0,[this.plaque,title]);
         titleContent.setSize(this.plaque.width,this.plaque.height);
 
-        this.innerBox = scene.add.image(160,0,'cajaIntSemillas');
+        this.innerBox = scene.add.image(160,0,SEEDS_ATLAS,'inner_box');
         this.add([this.box, titleContent,this.innerBox]).setSize(this.box.width,this.box.height);
         scene.add.existing(this);
         this.buildSeedsGrid(scene);
