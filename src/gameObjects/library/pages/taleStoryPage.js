@@ -13,14 +13,14 @@ export default class TaleStoryPage extends BasePage{
         this.contentGroup.add(textLabelB);
         this.contentGroup.add(textLabelC);
 
-
         Phaser.Actions.GridAlign(this.contentGroup.getChildren(),
         {width:1,
         height:3,
         cellWidth:100,
         cellHeight:150,
         x:this.page.width/7-this.page.width/2,
-        y:-70})
+        y:-70
+        });
         this.addGroupContent(scene);
     }
 
