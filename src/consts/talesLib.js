@@ -109,5 +109,6 @@ export const pagesInfo=[
     {id:3,name:'ILUSTRACIÓN\n GRÁFICA'},
     {id:4,name:'SABER TRADICIONAL'},
     {id:5,name:'LECTURA DEL RELATO'},
-    {id:6,name:'CARNET DEL TESORO\nVIVIENTE'}
+    {id:6,name:'CARNET DEL TESORO\nVIVIENTE'},
+    {id:7,name:'CARTILLA INFORMATIVA'}
 ]

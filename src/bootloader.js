@@ -162,8 +162,13 @@ class BootLoader extends Phaser.Scene{
 
        //contenido principal
         this.load.image('ejemplo','./assets/contenido_principal/saberes/ejemplo.png');
-
         this.load.image('ejemploCuento','./assets/contenido_principal/cuentos/ejemplo_cuento.png');
+
+        //info-cards
+        this.load.image('cuerpoCartilla','./assets/cartillas/modelo1/info-card-body.png');
+        this.load.image('etiquetaCartilla','./assets/cartillas/modelo1/info-card-label.png');
+        this.load.image('campoInformativo','./assets/cartillas/modelo1/info-card-field.png');
+        this.load.image('iconoCerebro','./assets/cartillas/modelo1/brain-icon.png');
 
 
         //loading atlas files
