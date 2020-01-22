@@ -15,6 +15,7 @@ import IdCardPage from "../gameObjects/library/pages/idCardPage.js";
 import InfoCardBig from "../gameObjects/library/components/info-card-components/info-card-big.js";
 import InfoCardSmall from "../gameObjects/library/components/info-card-components/info-card-small.js";
 import InfoCardPage from "../gameObjects/library/pages/infoCardPage.js";
+import UiButton from "../gameObjects/library/components/buttons/ui-button/ui-button.js";
 
 class TaleScene extends Phaser.Scene{
     constructor(){
@@ -29,7 +30,7 @@ class TaleScene extends Phaser.Scene{
         //let picturePage = new PicturePage(this,800,700);
 
         //let textLabelA = new TextLabel(this,700,700,'Lorem ipsum dolor sit amet,\n consectetur adipiscing elit.\n Nulla aliquet quam lacus,\n imperdiet hendrerit arcu porta vel.');
-        //let taleStoryPage = new TaleStoryPage(this,1400,700);
+        let taleStoryPage = new TaleStoryPage(this,1400,700);
 
         //let modalWindow = new ModalWindow(this,1400,700);
 
@@ -42,8 +43,10 @@ class TaleScene extends Phaser.Scene{
         };
         // let infoCard = new InfoCardSmall(this,1000,800,JSONdata);
 
-        let infoPageA = new InfoCardPage(this,800,800,1,JSONdata);
-        let infoPageB = new InfoCardPage(this,1200,800,2,JSONdata);
+        // let infoPageA = new InfoCardPage(this,800,800,1,JSONdata);
+        // let infoPageB = new InfoCardPage(this,1200,800,2,JSONdata);
+
+        let uiButton = new UiButton(this,500,500,'PRUEBA');
 
     }
 }
