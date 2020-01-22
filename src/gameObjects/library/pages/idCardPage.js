@@ -6,7 +6,7 @@ export default class IdCardPage extends BasePage{
         super(scene,x,y,6);
         this.buildPage(scene);
         
-        let idcard = new IdCard(scene,0,58);
+        let idcard = new IdCard(scene,0,58,1);
         this.contentGroup.add(idcard);
         this.addGroupContent(scene);
     }

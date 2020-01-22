@@ -112,3 +112,8 @@ export const pagesInfo=[
     {id:6,name:'CARNET DEL TESORO\nVIVIENTE'},
     {id:7,name:'CARTILLA INFORMATIVA'}
 ]
+
+export const photoTypes=[
+    {id:1,key:'retrato',scale:1},
+    {id:2,key:'ejemploIlustracion',scale:1.6},
+]

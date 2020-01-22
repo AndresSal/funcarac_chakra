@@ -13,6 +13,8 @@ import DataBox from "../gameObjects/library/components/id-card-components/data-b
 import IdCard from "../gameObjects/library/components/id-card-components/id-card.js";
 import IdCardPage from "../gameObjects/library/pages/idCardPage.js";
 import InfoCardBig from "../gameObjects/library/components/info-card-components/info-card-big.js";
+import InfoCardSmall from "../gameObjects/library/components/info-card-components/info-card-small.js";
+import InfoCardPage from "../gameObjects/library/pages/infoCardPage.js";
 
 class TaleScene extends Phaser.Scene{
     constructor(){
@@ -33,7 +35,16 @@ class TaleScene extends Phaser.Scene{
 
         // let idCardPage = new IdCardPage(this,1000,800);
 
-        let infoCard = new InfoCardBig(this,1000,800);
+        // let infoCard = new InfoCardBig(this,1000,800);
+        let JSONdata = {
+            title:'PERRO ALEGRE',
+            info:'Lorem ipsum dolor sit amet,\n consectetur adipiscing elit.\n Nulla aliquet quam lacus,\n imperdiet hendrerit arcu porta vel.'
+        };
+        // let infoCard = new InfoCardSmall(this,1000,800,JSONdata);
+
+        let infoPageA = new InfoCardPage(this,800,800,1,JSONdata);
+        let infoPageB = new InfoCardPage(this,1200,800,2,JSONdata);
+
     }
 }
 

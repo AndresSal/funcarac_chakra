@@ -1,12 +1,13 @@
 export default class InfoCardBig extends Phaser.GameObjects.Container{
-    constructor(scene,x,y){
+    constructor(scene,x,y,data){
         super(scene,x,y);
 
-        this.createInfoCard(scene,'Lorem ipsum dolor sit amet, consectetur adipiscing elit.\nVivamus elementum tincidunt tristique.\nDonec cursus elit et massa sollicitudin dapibus.');
+        this.createInfoCard(scene,data.info);
     }
 
     createDataField(scene,data){
         let field = scene.add.image(0,0,'campoInformativo');
+        field.setAlpha(0.5);
         let text = scene.add.text(0,0,data,{fontFamily:'Helvetica',fontSize:'14px',color:'#000'});
 
         let fieldContainer = scene.add.container(0,0,[field,text]);
@@ -41,7 +42,7 @@ export default class InfoCardBig extends Phaser.GameObjects.Container{
         let cellW;
         let cellH;
 
-        for(let i=0;i<4;i++){
+        for(let i=0;i<5;i++){
             let infoField = this.createDataField(scene,data);
             cellW = infoField.width;
             cellH = infoField.height;
@@ -50,11 +51,11 @@ export default class InfoCardBig extends Phaser.GameObjects.Container{
 
         Phaser.Actions.GridAlign(group.getChildren(),{
             width:1,
-            height:4,
+            height:5,
             cellWidth:cellW,
-            cellHeight:cellH+80,
+            cellHeight:cellH+75,
             x:-body.width/2+35,
-            y:-body.height/6
+            y:-body.height/6-10,
         });
 
         group.getChildren().forEach((el)=>{
