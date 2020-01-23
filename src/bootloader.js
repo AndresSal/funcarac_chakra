@@ -173,6 +173,8 @@ class BootLoader extends Phaser.Scene{
         this.load.image('cajaCartillaChica','./assets/cartillas/modelo2/info-card-box_smll.png');
         this.load.image('ejemploIlustracion','./assets/cartillas/modelo2/pic-example.png');
 
+        this.load.image('estrella','./assets/iconos/estrella.png');
+
 
         //loading atlas files
         AtlasInfo.forEach((el)=>{

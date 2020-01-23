@@ -9,7 +9,7 @@ export default class UiButton extends Phaser.GameObjects.Container{
         this.body = scene.add.image(0,0,'recompensa');
         this.body.angle=90;
         this.title = scene.add.text(0,0,this.buttonName,{fontFamily:'Helvetica',fontSize:'50px',stroke:'#E92929',
-        strokeThickness:2,color:'#E92929'});
+        strokeThickness:2,color:'#E92929',align:'center'});
         this.title.setOrigin(0.5);
 
         this.add([this.body,this.title]).setSize(this.body.width,this.body.height).setInteractive();
