@@ -17,6 +17,7 @@ import InfoCardSmall from "../gameObjects/library/components/info-card-component
 import InfoCardPage from "../gameObjects/library/pages/infoCardPage.js";
 import UiButton from "../gameObjects/library/components/buttons/ui-button/ui-button.js";
 import QuizCard from "../gameObjects/library/components/quiz-card.js";
+import QuizPage from "../gameObjects/library/pages/quizPage.js";
 
 class TaleScene extends Phaser.Scene{
     constructor(){
@@ -49,7 +50,9 @@ class TaleScene extends Phaser.Scene{
 
         // let uiButton = new UiButton(this,500,500,'PRUEBA');
 
-        let quizCard = new QuizCard(this,800,800,'TUKTU PALLAY PACHA');
+        // let quizCard = new QuizCard(this,800,800,'TUKTU PALLAY PACHA');
+
+        let quizPage = new QuizPage(this,800,600,'TUKTU PALLAY PACHA');
 
     }
 }

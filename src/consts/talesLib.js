@@ -110,7 +110,8 @@ export const pagesInfo=[
     {id:4,name:'SABER TRADICIONAL'},
     {id:5,name:'LECTURA DEL RELATO'},
     {id:6,name:'CARNET DEL TESORO\nVIVIENTE'},
-    {id:7,name:'CARTILLA INFORMATIVA'}
+    {id:7,name:'CARTILLA INFORMATIVA'},
+    {id:8,name:'TRIVIA ANCESTRAL'},
 ]
 
 export const photoTypes=[
