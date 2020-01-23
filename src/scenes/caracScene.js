@@ -119,6 +119,7 @@ class CaracScene extends Phaser.Scene{
         let radius;
         for (let i=0;i<12;i++){
             let slot = new PieceSlot(this,0,0,id);
+            slot.setDepth(100);
             this.add.existing(slot);
             radius = slot.slotData.radius;
             slotsGroup.add(slot);
@@ -184,6 +185,7 @@ class CaracScene extends Phaser.Scene{
                         piece.x = pieceSlot.x;
                         piece.y = pieceSlot.y;
                         piece.setScale(pieceSlot._scaleX-0.05,pieceSlot._scaleY-0.02)
+                        piece.setDepth(1);
                         piece.rotation = pieceSlot.rotation;
                         piece.input.enabled = false;
                         pieceSlot.input.dropZone = false;

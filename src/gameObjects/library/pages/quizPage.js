@@ -8,6 +8,8 @@ export default class QuizPage extends BasePage{
         super(scene,x,y,8);
         this.titleQuiz = titleQuiz;
         this.buildPage(scene);
+        this.leftCorner.visible = false;
+        this.rightCorner.visible = false;
         this.addQuizCard(scene);
     }
 

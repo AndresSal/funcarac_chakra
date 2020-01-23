@@ -12,8 +12,8 @@ class CoverPage extends BasePage{
     constructor(scene,x,y,titlePage){
         super(scene,x,y,1);
         this.buildPage(scene);
-        this.leftCorner.visible=false;
-        this.rightCorner.visible=false;
+        // this.leftCorner.visible=false;
+        // this.rightCorner.visible=false;
         this.taleTitle = titlePage;
 
 

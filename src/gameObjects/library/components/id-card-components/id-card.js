@@ -6,10 +6,13 @@ export default class IdCard extends Phaser.GameObjects.Container{
     photoBox;
     dataBox;
     mapBox;
-    constructor(scene,x,y){        
-        super(scene,x,y);
 
-        this.photoBox = new PhotoBox(scene,0,0);
+    idPhoto;
+    constructor(scene,x,y,idPhoto){        
+        super(scene,x,y);
+        this.idPhoto = idPhoto;
+
+        this.photoBox = new PhotoBox(scene,0,0,this.idPhoto);
         this.mapBox = new MapBox(scene,0,0,'SALACHE');
         this.dataBox = new DataBox(scene,0,0,'ROSA MARIA GUADALUPE ROSAS','SALACHE','COTOPAXI');
 

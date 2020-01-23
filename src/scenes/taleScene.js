@@ -18,42 +18,95 @@ import InfoCardPage from "../gameObjects/library/pages/infoCardPage.js";
 import UiButton from "../gameObjects/library/components/buttons/ui-button/ui-button.js";
 import QuizCard from "../gameObjects/library/components/quiz-card.js";
 import QuizPage from "../gameObjects/library/pages/quizPage.js";
+import { DEFAULT_WIDTH, DEFAULT_HEIGHT } from "../consts/mainuiLib.js";
 
 class TaleScene extends Phaser.Scene{
+    taleContainer;
+    pagesList=[];
+
+    pageLeft;
+    pageRight;
+    
     constructor(){
         super({key:'TaleScene'});
     }
 
     create(){
-        // let coverPage = new CoverPage(this,800,700,'TUKTU PALLAY PACHA');
-        // let knowledgePage = new TaleTitlePage(this,1350,700,'COMIDAS');
+        let bookPaste = this.add.image(0,0,'pastaLibro');
+        bookPaste.setOrigin(0.5);
 
-        // let piecesPage = new PiecesPage(this,1400,700);
-        //let picturePage = new PicturePage(this,800,700);
+        this.taleContainer = this.add.container(DEFAULT_WIDTH/2+DEFAULT_WIDTH/6,DEFAULT_HEIGHT/2+DEFAULT_HEIGHT/10,[bookPaste]);
+        this.taleContainer.setSize(bookPaste.width,bookPaste.height);
 
-        //let textLabelA = new TextLabel(this,700,700,'Lorem ipsum dolor sit amet,\n consectetur adipiscing elit.\n Nulla aliquet quam lacus,\n imperdiet hendrerit arcu porta vel.');
+
+        this.addPages();
+
+        //add two pages
+        this.setCurrentPages();
+
+    }
+
+    setCurrentPages(){
+        this.pageLeft.visible=true;
+        this.pageRight.visible=true;
+
+        console.log('primer elemento: ',this.pagesList[0]);
+        console.log('pagina left: ',this.pageLeft);
+
+        if(this.pageLeft===this.pagesList[0] || this.pageRight===this.pagesList[this.pagesList.length-1]){
+            console.log('abuuu');
+            
+            // this.pageLeft.leftCorner.visible=false;
+            // this.pageLeft.rightCorner.visible=false;
+
+            // this.pageRight.leftCorner.visible=false;
+            // this.pageRight.rightCorner.visible=false;
+        }else{
+            this.pageLeft.rightCorner.visible = false;
+            this.pageRight.leftCorner.visible = false;
+        }
+
+        let pagesShownGroup = this.add.group([this.pageLeft,this.pageRight]);
+
+        Phaser.Actions.GridAlign(pagesShownGroup.getChildren(),{
+            width:2,
+            height:1,
+            cellWidth:this.pageLeft.width,
+            x:-this.taleContainer.width/4+15,
+            y:-this.taleContainer.height/7+10
+        });
+
+
+        pagesShownGroup.getChildren().forEach((el)=>{
+            this.taleContainer.add(el);
+        })
+
+        this.add.existing(this.taleContainer);
+    }
+
+    addPages(){
+        let coverPage = new CoverPage(this,0,0,'TUKTU PALLAY PACHA');
+        let knowledgePage = new TaleTitlePage(this,0,0,'COMIDAS');
+        let piecesPage = new PiecesPage(this,1400,700);
+        let picturePage = new PicturePage(this,800,700);
         let taleStoryPage = new TaleStoryPage(this,1400,700);
-
-        //let modalWindow = new ModalWindow(this,1400,700);
-
-        // let idCardPage = new IdCardPage(this,1000,800);
-
-        // let infoCard = new InfoCardBig(this,1000,800);
+        let idCardPage = new IdCardPage(this,1000,800,1);
+        
         let JSONdata = {
             title:'PERRO ALEGRE',
             info:'Lorem ipsum dolor sit amet,\n consectetur adipiscing elit.\n Nulla aliquet quam lacus,\n imperdiet hendrerit arcu porta vel.'
         };
-        // let infoCard = new InfoCardSmall(this,1000,800,JSONdata);
 
-        // let infoPageA = new InfoCardPage(this,800,800,1,JSONdata);
-        // let infoPageB = new InfoCardPage(this,1200,800,2,JSONdata);
-
-        // let uiButton = new UiButton(this,500,500,'PRUEBA');
-
-        // let quizCard = new QuizCard(this,800,800,'TUKTU PALLAY PACHA');
-
+        let infoPageA = new InfoCardPage(this,800,800,1,JSONdata);
+        let infoPageB = new InfoCardPage(this,1200,800,2,JSONdata);
         let quizPage = new QuizPage(this,800,600,'TUKTU PALLAY PACHA');
+        this.pagesList = [coverPage,knowledgePage,piecesPage,picturePage,taleStoryPage,idCardPage,infoPageA,infoPageB,quizPage];
+        this.pagesList.forEach((el)=>{
+            el.visible=false;
+        })
 
+        this.pageRight = this.pagesList[0];
+        this.pageLeft = this.pagesList[1];
     }
 }
 

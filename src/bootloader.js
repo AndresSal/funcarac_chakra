@@ -126,6 +126,7 @@ class BootLoader extends Phaser.Scene{
         this.load.image('pagBase','./assets/relatos/base_page/blank_page.png');
         this.load.image('lazoPag','./assets/relatos/base_page/page_ribbon.png');
         this.load.image('esquinaPag','./assets/relatos/base_page/corner.png');
+        this.load.image('pastaLibro','./assets/relatos/base_page/book-paste.png')
 
         //cover-page
         this.load.image('tituloPortada','./assets/relatos/cover_page/label.png');
