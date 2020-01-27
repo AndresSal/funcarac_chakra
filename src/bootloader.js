@@ -181,7 +181,6 @@ class BootLoader extends Phaser.Scene{
         AtlasInfo.forEach((el)=>{
             this.load.path = el.path;
             this.load.atlas(el.key,el.texture,el.atlas);
-            console.log('cargado atlas',el.key);
         });        
         
 

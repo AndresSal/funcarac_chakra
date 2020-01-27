@@ -32,8 +32,6 @@ export default class TaleScene extends Phaser.Scene{
     }
 
     setCurrentPages(){
-        console.log('left: ',this.pageLeft.titlePage);
-        console.log('right: ',this.pageRight.titlePage);
         this.pageLeft.visible=true;
         this.pageRight.visible=true;
 

@@ -10,7 +10,8 @@ export const moduleOptionsInfo=[
             stroke:'#000',
             strokeThickness:1,
             align:'center'
-        }
+        },
+        scene:'CaracScene'
     },
     {
         id:2,
@@ -23,7 +24,8 @@ export const moduleOptionsInfo=[
             stroke:'#000',
             strokeThickness:1,
             align:'center'
-        }
+        },
+        scene:'LibraryScene'
     },
     {
         id:3,
@@ -36,7 +38,8 @@ export const moduleOptionsInfo=[
             stroke:'#000',
             strokeThickness:1,
             align:'center'
-        }
+        },
+        scene:'ChakraScene'
     }
 ]
 

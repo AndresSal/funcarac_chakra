@@ -21,7 +21,12 @@ class ModuleBtn extends Phaser.GameObjects.Container{
         this.icon = scene.add.image(0,0,MAIN_UI_ATLAS,this.data.icon);
         this.label = scene.add.image(0,0,MAIN_UI_ATLAS,'opt_label');
         this.text = scene.add.text(0,0,this.data.title,this.data.style);
-        
+
+        this.buildButton(scene);
+
+    }
+
+    buildButton(scene){
         let windowContainer = scene.add.container(0,0,[this.window,this.icon]);
         windowContainer.setSize(this.window.width,this.window.height);
         this.icon.setOrigin(0.5);
@@ -52,11 +57,13 @@ class ModuleBtn extends Phaser.GameObjects.Container{
     }
 
     selectButton(){
+        this.body.setTint(0xae091a);
         this.text.setColor('#ffffff');
         this.text.setStroke('#ffffff',1);
     }
 
     deselectButton(){
+        this.body.clearTint();
         this.text.setColor('#000000');
         this.text.setStroke('#000000',1);
     }
