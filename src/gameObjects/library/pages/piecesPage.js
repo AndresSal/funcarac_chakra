@@ -5,14 +5,7 @@ export default class PiecesPage extends BasePage{
     constructor(scene,x,y){
         super(scene,x,y,2);
         this.buildPage(scene);
-        this.nextPage();
-        this.prevPage();
-
-        
-        this.buildThePage(scene);
-
-
-
+        this.addContent(scene);
     }
 
     createPieceContent(scene, pieceId,x,y){
@@ -59,7 +52,7 @@ export default class PiecesPage extends BasePage{
         //  });
     }
 
-    buildThePage(scene){
+    addContent(scene){
         for (let i=1;i<4;i++){
             let row = this.createPieceContent(scene,i,0,0);
             this.contentGroup.add(row);

@@ -40,7 +40,9 @@ export const talesTitleConfig=[
         style:{
             fontFamily:'Helvetica',
             fontSize:'40px',
-            color:'#000'}
+            color:'#000',
+            align: 'justify'
+        }
     },
 
     {

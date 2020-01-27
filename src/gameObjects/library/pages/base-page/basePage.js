@@ -53,6 +53,9 @@ class BasePage extends Phaser.GameObjects.Container{
         this.add([this.page,titlePageContainer,this.rightCorner,this.leftCorner])
         .setSize(this.page.width,this.page.height);
         scene.add.existing(this);
+
+        this.leftCorner.setInteractive();
+        this.rightCorner.setInteractive();
     }
 
     addGroupContent(scene){
