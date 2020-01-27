@@ -28,6 +28,15 @@ class MainUIScene extends Phaser.Scene{
     init(){
         this.input.setDefaultCursor('url(assets/cursores/manita.cur),pointer');
         localStorage.setItem('currentCursor','url(assets/cursores/manita.cur),pointer');
+        let aux=[];
+        this.scenesList = [];
+        this.game.scene.scenes.forEach((scene)=>{
+            aux.push(scene.scene.key);
+        });
+        
+        for(let i=2;i<aux.length;i++){
+            this.scenesList.push(aux[i]);
+        };
     }
 
     create(){
@@ -39,10 +48,7 @@ class MainUIScene extends Phaser.Scene{
         this.alignUIElements();
         
         this.setInitialScene();
-
         this.setModuleBtnBehavior();
-
-        // this.scene.sleep('LibraryScene');
     }
 
     update(){
@@ -57,11 +63,27 @@ class MainUIScene extends Phaser.Scene{
         this.scene.sleep('CaracScene');
         this.scene.sleep('LibraryScene');
 
-        console.log(this.game.scene.scenes);
+        let initModule = this.scenesList.find((el)=>{
+            return el==='CaracScene';
+        });
 
-        this.selectedModuleBtn= this.btnGroup.getChildren()[0];
+        this.setModule(initModule);
+    }
+
+    setModule(option){
+        this.selectedModuleBtn = this.btnGroup.getChildren().find((el)=>{
+            return el.data.scene === option;
+        });
         this.selectedModuleBtn.selectButton();
-        this.scene.wake(this.selectedModuleBtn.data.scene);
+        this.scenesList.forEach((s)=>{
+            if(s!=option){
+                this.scene.sleep(s);
+            }else{
+                this.scene.wake(this.selectedModuleBtn.data.scene);
+                this.moduleTitle.setText(this.selectedModuleBtn.data.title).setFontSize(40);
+                this.input.setDefaultCursor('url(assets/cursores/manita.cur),pointer');
+            }
+        });
     }
 
 
@@ -190,40 +212,24 @@ class MainUIScene extends Phaser.Scene{
         });
     }
 
+    chooseModule(btn){
+        this.selectedModuleBtn = btn;
+        this.selectedModuleBtn.selectButton();
+        this.scenesList.forEach((s)=>{
+            if(s!=btn.data.scene){
+                this.scene.sleep(s);
+            }else{
+                this.scene.wake(this.selectedModuleBtn.data.scene);
+                this.moduleTitle.setText(this.selectedModuleBtn.data.title).setFontSize(40);
+                this.input.setDefaultCursor('url(assets/cursores/manita.cur),pointer');
+            }
+        });
+    }
+
     setModuleBtnBehavior(){
         this.btnGroup.getChildren().forEach((btn)=>{
             btn.on('pointerdown',()=>{
-                this.selectedModuleBtn = btn;
-                this.moduleTitle.setText(this.selectedModuleBtn.data.title).setFontSize(40);
-                this.input.setDefaultCursor('url(assets/cursores/manita.cur),pointer');
-                
-                let aux = [];
-                this.scene.manager.getScenes(true).forEach((s)=>{
-                    aux.push(s.scene.key);
-                });
-
-                if(btn.data.id===1){
-                    console.log('drop it: ',aux);
-                    this.scene.sleep('ChakraScene');
-                    this.scene.sleep('LibraryScene');
-                    this.scene.wake('CaracScene');
-                }
-                if(btn.data.id===2){
-                    
-                    
-                    console.log('drop it: ',aux);
-                    this.scene.sleep('CaracScene');
-                    this.scene.sleep('ChakraScene');
-                    this.scene.wake('LibraryScene');
-                }
-                if(btn.data.id===3){
-                    console.log('drop it: ',aux);
-                    this.scene.sleep('CaracScene');
-                    this.scene.sleep('LibraryScene');
-                    this.scene.wake('ChakraScene');
-                }
-                btn.selectButton();
-
+                this.chooseModule(btn);
             });
             btn.on('pointerup',()=>{
                 this.btnGroup.getChildren().forEach((b)=>{
