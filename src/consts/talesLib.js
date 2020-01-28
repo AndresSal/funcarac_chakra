@@ -33,13 +33,14 @@ export const talesStates= [
 
 export const talesTitleConfig=[
     {
+
         id:1,
         type:'cover-tale',
         x:-220,
         y:-20,
         style:{
             fontFamily:'Helvetica',
-            fontSize:'30px',
+            fontSize:'20px',
             color:'#000',
             align: 'justify'
         }
