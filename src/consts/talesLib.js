@@ -39,7 +39,7 @@ export const talesTitleConfig=[
         y:-20,
         style:{
             fontFamily:'Helvetica',
-            fontSize:'40px',
+            fontSize:'30px',
             color:'#000',
             align: 'justify'
         }

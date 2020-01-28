@@ -1,11 +1,14 @@
 export default class BaseChapter {
-    picturesJSON;
-    knowledgeJSON;
-    
+    picturesData;
+    knowledgeData;
     picturePagesList=[];
     infoPagesList=[];
-    constructor(picturesData,knowledgeData){
-        this.picturesJSON = picturesData;
-        this.knowledgeJSON = knowledgeData;
+
+    scene;
+
+    constructor(scene,dataInformation){
+        this.scene= scene;
+        this.picturesData = dataInformation.picturesData;
+        this.knowledgeData =dataInformation.informationData;
     }
 }

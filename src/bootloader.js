@@ -184,7 +184,6 @@ class BootLoader extends Phaser.Scene{
 
         //loading example-tale pics
         talePictures.forEach((pic)=>{
-            console.log(pic);
             this.load.image(pic.key,pic.path);
         })
 
@@ -207,25 +206,20 @@ class BootLoader extends Phaser.Scene{
 
         this.load.on('fileprogress',(file)=>{
             assetText.setText('Loading asset: '+file.key);
-            console.log('Loading asset: ',file.key);
         });
 
         this.load.on('complete',()=>{
-            console.log('complete');
             progressBar.destroy();
             progressBox.destroy();
             loadingText.destroy();
             percentText.destroy();
             assetText.destroy();
-            //this.scene.launch('ChakraScene');
         })
         
     }
 
     create(){
         var logo = this.add.image(400,300,'logo');
-        // this.scene.start('ChakraScene');
-        //this.scene.start('CaracScene');
         this.scene.start('MainUIScene');
     }
 }

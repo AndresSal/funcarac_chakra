@@ -7,6 +7,7 @@ import IdCardPage from "../gameObjects/library/pages/idCardPage.js";
 import InfoCardPage from "../gameObjects/library/pages/infoCardPage.js";
 import QuizPage from "../gameObjects/library/pages/quizPage.js";
 import { DEFAULT_WIDTH, DEFAULT_HEIGHT,separatorsInfo } from "../consts/mainuiLib.js";
+import TaleStoryChapter from "../classes/chapters/tale-story-chapter.js";
 
 export default class TaleScene extends Phaser.Scene{
     taleContainer;
@@ -28,14 +29,14 @@ export default class TaleScene extends Phaser.Scene{
         this.taleContainer = this.add.container(DEFAULT_WIDTH/2+DEFAULT_WIDTH/6,DEFAULT_HEIGHT/2+DEFAULT_HEIGHT/10,[bookPaste]);
         this.taleContainer.setSize(bookPaste.width,bookPaste.height);
         
+        //this.addPages();
 
-
-        this.addPages();
+        this.addChapter();
         this.passThePage();
 
-        this.addChapterSeparators();
+        
 
-        let aux = this.add.image(100,100,'examplePic01');
+        this.addChapterSeparators();
     }
 
     setCurrentPages(){
@@ -76,8 +77,8 @@ export default class TaleScene extends Phaser.Scene{
         let coverPage = new CoverPage(this,0,0,'TUKTU PALLAY PACHA');
         let knowledgePage = new TaleTitlePage(this,0,0,'COMIDAS');
         let piecesPage = new PiecesPage(this,1400,700);
-        let picturePage = new PicturePage(this,800,700);
-        let taleStoryPage = new TaleStoryPage(this,1400,700);
+        let picturePage = new PicturePage(this,800,700,'examplePic01',3,10);
+        let taleStoryPage = new TaleStoryPage(this,1400,700,'Lorem ipsum dolor sit amet,\n consectetur adipiscing elit.\n Nulla aliquet quam lacus,\n imperdiet hendrerit arcu porta vel.','Lorem ipsum dolor sit amet,\n consectetur adipiscing elit.\n Nulla aliquet quam lacus,\n imperdiet hendrerit arcu porta vel.','Lorem ipsum dolor sit amet,\n consectetur adipiscing elit.\n Nulla aliquet quam lacus,\n imperdiet hendrerit arcu porta vel.');
         let idCardPage = new IdCardPage(this,1000,800,1);
         
         let JSONdata = {
@@ -151,6 +152,20 @@ export default class TaleScene extends Phaser.Scene{
         this.separatorsGroup.angle(90).getChildren().forEach((separator)=>{
             this.taleContainer.add(separator);
         });
+    }
+
+    addChapter(){
+        let taleChapter = new TaleStoryChapter(this);
+        this.pagesList=taleChapter.infoPagesList;
+        this.pagesList.forEach((el)=>{
+            el.visible=false;
+        })
+        // this.pagesList=taleChapter.picturePagesList;
+
+        this.pageLeft = this.pagesList[0];
+        this.pageRight = this.pagesList[1];
+
+        this.setCurrentPages();
 
     }
 

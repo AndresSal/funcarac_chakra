@@ -5,19 +5,20 @@ export default class PicturePage extends BasePage{
     indexPage;
     picture;
     totalPage;
+    picKey;
     
-    constructor(scene,x,y){
+    constructor(scene,x,y,picKey,indexNum,totalNum){
         super(scene,x,y,3);
         this.buildPage(scene);
-        this.indexPage = 1;
-        this.totalPage = 10;
+        this.indexPage = indexNum;
+        this.totalPage = totalNum;
+        this.picKey= picKey;
         this.setContent(scene);
-
         
     }
 
     setContent(scene){
-        this.picture = scene.add.image(0,0,'ejemploCuento');
+        this.picture = scene.add.image(0,0,this.picKey);
         let taleStoryBox = new TaleStoryBox(scene,0,0,this.indexPage,this.totalPage);
         this.contentGroup.add(this.picture);
         this.contentGroup.add(taleStoryBox);
