@@ -1,4 +1,5 @@
 import { DEFAULT_WIDTH, DEFAULT_HEIGHT, AtlasInfo } from "./consts/mainuiLib.js";
+import { talePictures } from "./data/tales/talesInformation.js";
 
 class BootLoader extends Phaser.Scene{
     constructor(){
@@ -186,7 +187,13 @@ class BootLoader extends Phaser.Scene{
         AtlasInfo.forEach((el)=>{
             this.load.path = el.path;
             this.load.atlas(el.key,el.texture,el.atlas);
-        });        
+        });
+        
+        //loading example-tale pics
+        talePictures.pictures.forEach((pic)=>{
+            console.log(pic);
+            this.load.image(pic.key,pic.path_name);
+        })
         
 
         this.load.on('progress',(value)=>{
@@ -198,6 +205,7 @@ class BootLoader extends Phaser.Scene{
 
         this.load.on('fileprogress',(file)=>{
             assetText.setText('Loading asset: '+file.key);
+            console.log('Loading asset: ',file.key);
         });
 
         this.load.on('complete',()=>{
