@@ -1,35 +1,33 @@
-export const talePictures={
-    "pictures":[
+export const talePictures=[
         {
-            "path_name":"./assets/data/example-tale/cuentoEjemplo01.png",
-            "key":"taleExample-pic01",
+            'path':'./assets/data/example_tale/cuentoEjemplo01.png',
+            'key':'examplePic01',
         },
         {
-            "path_name":"./assets/data/example-tale/cuentoEjemplo02.png",
-            "key":"taleExample-pic02"
+            'path':'./assets/data/example_tale/cuentoEjemplo02.png',
+            'key':'examplePic02',
         },
         {
-            "path_name":"./assets/data/example-tale/cuentoEjemplo03.png",
-            "key":"taleExample-pic03"
+            'path':'./assets/data/example_tale/cuentoEjemplo03.png',
+            'key':'examplePic03',
         },
         {
-            "path_name":"./assets/data/example-tale/cuentoEjemplo04.png",
-            "key":"taleExample-pic04"
+            'path':'./assets/data/example_tale/cuentoEjemplo04.png',
+            'key':'examplePic04',
         },
         {
-            "path_name":"./assets/data/example-tale/cuentoEjemplo05.png",
-            "key":"taleExample-pic05"
+            'path':'./assets/data/example_tale/cuentoEjemplo05.png',
+            'key':'examplePic05',
         },
         {
-            "path_name":"./assets/data/example-tale/cuentoEjemplo06.png",
-            "key":"taleExample-pic06"
+            'path':'./assets/data/example_tale/cuentoEjemplo06.png',
+            'key':'examplePic06',
         },
         {
-            "path_name":"./assets/data/example-tale/cuentoEjemplo07.png",
-            "key":"taleExample-pic07"
-        }
-    ]
-}
+            'path':'./assets/data/example_tale/cuentoEjemplo07.png',
+            'key':'examplePic07',
+        },
+]
 
 
 export const taleExample={

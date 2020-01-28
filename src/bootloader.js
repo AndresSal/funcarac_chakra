@@ -182,6 +182,12 @@ class BootLoader extends Phaser.Scene{
 
         this.load.image('estrella','./assets/iconos/estrella.png');
 
+        //loading example-tale pics
+        talePictures.forEach((pic)=>{
+            console.log(pic);
+            this.load.image(pic.key,pic.path);
+        })
+
 
         //loading atlas files
         AtlasInfo.forEach((el)=>{
@@ -189,11 +195,7 @@ class BootLoader extends Phaser.Scene{
             this.load.atlas(el.key,el.texture,el.atlas);
         });
         
-        //loading example-tale pics
-        talePictures.pictures.forEach((pic)=>{
-            console.log(pic);
-            this.load.image(pic.key,pic.path_name);
-        })
+
         
 
         this.load.on('progress',(value)=>{

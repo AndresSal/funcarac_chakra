@@ -35,7 +35,7 @@ export default class TaleScene extends Phaser.Scene{
 
         this.addChapterSeparators();
 
-        let aux = this.add.image(100,100,'taleExample-pic01');
+        let aux = this.add.image(100,100,'examplePic01');
     }
 
     setCurrentPages(){
