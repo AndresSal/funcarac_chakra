@@ -139,6 +139,7 @@ class CaracScene extends Phaser.Scene{
         for(let i=1;i<=10;i++){
             let id = Math.floor(Math.random()*4)+1;
             let piece = new PuzzlePiece(this,   -DEFAULT_WIDTH/3+DEFAULT_WIDTH/35,YHTOP,id,`${i}`);
+            piece.setDepth(1000);
             this.piecesGroup.add(piece);
             this.piecesList.push(piece);
             piece.visible=false;

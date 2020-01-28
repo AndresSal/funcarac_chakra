@@ -227,3 +227,26 @@ export const AtlasInfo=[
         atlas:'tools_atlas.json'
     },
 ]
+
+export const separatorsInfo=[
+    {
+        id:1,
+        name:'cuento',
+        key:'separadorCuentos'
+    },
+    {
+        id:2,
+        name:'festivales',
+        key:'separadorFestividades'
+    },
+    {
+        id:3,
+        name:'comidas',
+        key:'separadorComidas'
+    },
+    {
+        id:4,
+        name:'señas',
+        key:'separadorSeñas'
+    }
+];

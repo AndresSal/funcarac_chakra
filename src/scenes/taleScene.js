@@ -6,11 +6,13 @@ import TaleStoryPage from "../gameObjects/library/pages/taleStoryPage.js";
 import IdCardPage from "../gameObjects/library/pages/idCardPage.js";
 import InfoCardPage from "../gameObjects/library/pages/infoCardPage.js";
 import QuizPage from "../gameObjects/library/pages/quizPage.js";
-import { DEFAULT_WIDTH, DEFAULT_HEIGHT } from "../consts/mainuiLib.js";
+import { DEFAULT_WIDTH, DEFAULT_HEIGHT,separatorsInfo } from "../consts/mainuiLib.js";
 
 export default class TaleScene extends Phaser.Scene{
     taleContainer;
     pagesList=[];
+
+    separatorsGroup;
 
     pageLeft;
     pageRight;
@@ -25,10 +27,13 @@ export default class TaleScene extends Phaser.Scene{
 
         this.taleContainer = this.add.container(DEFAULT_WIDTH/2+DEFAULT_WIDTH/6,DEFAULT_HEIGHT/2+DEFAULT_HEIGHT/10,[bookPaste]);
         this.taleContainer.setSize(bookPaste.width,bookPaste.height);
+        
 
 
         this.addPages();
         this.passThePage();
+
+        this.addChapterSeparators();
     }
 
     setCurrentPages(){
@@ -120,6 +125,31 @@ export default class TaleScene extends Phaser.Scene{
             };
             });        
         });
+    }
+
+    addChapterSeparators(){
+        this.separatorsGroup = this.add.group();
+        for(let i=1;i<=4;i++){
+            let separatorInfo = separatorsInfo.find((aux)=>{
+                return aux.id===i;
+            });
+            let chapterSeparator = this.add.image(0,0,separatorInfo.key);
+            chapterSeparator.setInteractive();
+            this.separatorsGroup.add(chapterSeparator);
+        }
+        Phaser.Actions.GridAlign(this.separatorsGroup.getChildren(),{
+            width:1,
+            height:4,
+            cellWidth:this.separatorsGroup.getChildren()[0].width,
+            cellHeight: this.separatorsGroup.getChildren()[0].height+80,
+            x:this.taleContainer.width/2,
+            y:-this.taleContainer.height/4
+        });
+
+        this.separatorsGroup.angle(90).getChildren().forEach((separator)=>{
+            this.taleContainer.add(separator);
+        });
+
     }
 
 }
