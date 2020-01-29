@@ -78,6 +78,7 @@ class BootLoader extends Phaser.Scene{
 
         this.load.on('fileprogress',(file)=>{
             assetText.setText('Loading asset: '+file.key);
+            console.log('Loading asset: '+file.key);
         });
 
         this.load.on('complete',()=>{

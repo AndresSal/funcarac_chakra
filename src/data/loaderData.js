@@ -82,7 +82,7 @@ export const mainUIResources=[
     {
         'key':'iconoChakra',
         'path':'./assets/mainUI/chakra.png',
-    }
+    },
 ]
 
 export const toolsResources=[
@@ -488,11 +488,11 @@ export const talePagesResources=[
         'key':'ejemploCuento',
         'path':'./assets/contenido_principal/cuento/ejemplo_cuento.png',
     },
+    {
+        'key':'mamaDulu',
+        'path':'./assets/mashi/mama_dulu.png'
+    },
     
-    
-
-
-
 ]
 
 

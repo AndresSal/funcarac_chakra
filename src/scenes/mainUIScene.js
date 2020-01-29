@@ -210,6 +210,10 @@ class MainUIScene extends Phaser.Scene{
         content.getChildren().forEach((item)=>{
             this.assistantBox.add(item);
         });
+
+        let oldLady = this.add.image(0,-40,'mamaDulu');
+        oldLady.setScale(0.30);
+        this.assistantBox.add(oldLady);
     }
 
     chooseModule(btn){
