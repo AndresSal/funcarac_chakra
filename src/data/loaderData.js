@@ -394,6 +394,104 @@ export const talePagesResources=[
         'key':'caja_para_piezas',
         'path':'./assets/relatos/pieces_page/piece_box.png',
     },
+    //picture-page
+    {
+        'key':'etiquetaIndice',
+        'path':'./assets/relatos/picture_page/index_label.png',
+    },
+    {
+        'key':'ventanaIndice',
+        'path':'./assets/relatos/picture_page/index_window.png',
+    },
+    {
+        'key':'etiquetaParrafo',
+        'path':'./assets/relatos/picture_page/paragraph_label.png',
+    },
+    //carnet
+    {
+        'key':'cuerpoIDCard',
+        'path':'./assets/carnet/id_card/id-card-body.png',
+    },
+    {
+        'key':'cajaRetrato',
+        'path':'./assets/carnet/photo-box/photo_box.png',
+    },
+    //TODO cambiar retrato temporal por una lista de fotografías
+    {
+        'key':'retrato',
+        'path':'./assets/carnet/photo-box/portrait.png',
+    },
+    {
+        'key':'cuerpoMapa',
+        'path':'./assets/carnet/map-box/map-box.png',
+    },
+    //TODO cambiar mapa temporal por la lista de mapas de las comunidades
+    {
+        'key':'mapa',
+        'path':'./assets/carnet/map-box/map-example.png',
+    },
+    {
+        'key':'cajaInternaMapa',
+        'path':'./assets/carnet/map-box/map-inner-body.png',
+    },
+    {
+        'key':'etiquetaMapa',
+        'path':'./assets/carnet/map-box/map-label.png',
+    },
+    {
+        'key':'cajaDatos',
+        'path':'./assets/carnet/data-box/data-box.png',
+    },
+    {
+        'key':'campoDatos',
+        'path':'./assets/carnet/data-box/field-data.png',
+    },
+    //info-cards
+    {
+        'key':'cuerpoCartilla',
+        'path':'./assets/cartillas/modelo1/info-card-body.png',
+    },
+    {
+        'key':'etiquetaCartilla',
+        'path':'./assets/cartillas/modelo1/info-card-label.png',
+    },
+    {
+        'key':'campoInformativo',
+        'path':'./assets/cartillas/modelo1/info-card-field.png',
+    },
+    {
+        'key':'iconoCerebro',
+        'path':'./assets/cartillas/modelo1/brain-icon.png',
+    },
+    {
+        'key':'cuerpoCartillaChica',
+        'path':'./assets/cartillas/modelo2/info-card-body_smll.png',
+    },
+    {
+        'key':'cajaCartillaChica',
+        'path':'./assets/cartillas/modelo2/info-card-box_smll.png',
+    },
+    {
+        'key':'estrella',
+        'path':'./assets/iconos/estrella.png',
+    },
+    //TODO reemplazar los ejemplos con los valores reales
+    {
+        'key':'ejemploIlustración',
+        'path':'./assets/cartillas/modelo2/pic-example.png',
+    },
+    {
+        'key':'ejemplo',
+        'path':'./assets/contenido_principal/saberes/ejemplo.png',
+    },
+    {
+        'key':'ejemploCuento',
+        'path':'./assets/contenido_principal/cuento/ejemplo_cuento.png',
+    },
+    
+    
+
+
 
 ]
 
