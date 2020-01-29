@@ -295,5 +295,107 @@ export const caracResources=[
     },
 ]
 
+export const libraryResources=[
+    {
+        'key':'libreria',
+        'path':'./assets/library/library.png',
+    },
+    {
+        'key':'placaLibreria',
+        'path':'./assets/library/library_plaque.png',
+    },
+    {
+        'key':'libro',
+        'path':'./assets/library/book.png',
+    },
+    {
+        'key':'cuerpoRelato',
+        'path':'./assets/library/tale_body.png',
+    },
+    {
+        'key':'ventanaRelato',
+        'path':'./assets/library/tale_window.png',
+    },
+    {
+        'key':'etiquetaRelato',
+        'path':'./assets/library/tale_label.png',
+    },
+    {
+        'key':'cuerpoRelato',
+        'path':'./assets/library/tale_body.png',
+    },
+    {
+        'key':'productoRelato',
+        'path':'./assets/library/tale_food_view.png',
+    },
+    {
+        'key':'nuevo',
+        'path':'./assets/library/icon_new.png',
+    },
+    {
+        'key':'liston',
+        'path':'./assets/library/icon_complete.png',
+    },
+    {
+        'key':'candado',
+        'path':'./assets/library/icon_blocked.png',
+    },
+]
 
-export const totalResources=[seedsResources,andenResources,chakrasResources,chakrasControlPanelResources,caracResources];
+export const talePagesResources=[
+    //base-page
+    {
+        'key':'pagBase',
+        'path':'./assets/relatos/base_page/blank_page.png',
+    },
+    {
+        'key':'lazoPag',
+        'path':'./assets/relatos/base_page/page_ribbon.png',
+    },
+    {
+        'key':'esquinaPag',
+        'path':'./assets/relatos/base_page/corner.png',
+    },
+    {
+        'key':'pastaLibro',
+        'path':'./assets/relatos/base_page/book-paste.png',
+    },
+    {
+        'key':'separadorCuentos',
+        'path':'./assets/relatos/base_page/separator_ch01.png',
+    },
+    {
+        'key':'separadorFestividades',
+        'path':'./assets/relatos/base_page/separator_ch02.png',
+    },
+    {
+        'key':'separadorComidas',
+        'path':'./assets/relatos/base_page/separator_ch03.png',
+    },
+    {
+        'key':'separadorSeñas',
+        'path':'./assets/relatos/base_page/separator_ch04.png',
+    },
+    //cover-page
+    {
+        'key':'tituloPortada',
+        'path':'./assets/relatos/cover_page/label.png',
+    },
+    {
+        'key':'recompensa',
+        'path':'./assets/relatos/cover_page/priceBox.png',
+    },
+    //pieces-page
+    {
+        'key':'etiquetaGrande',
+        'path':'./assets/relatos/pieces_page/big_label.png',
+    },
+    {
+        'key':'caja_para_piezas',
+        'path':'./assets/relatos/pieces_page/piece_box.png',
+    },
+
+]
+
+
+export const totalResources=[seedsResources,andenResources,chakrasResources,chakrasControlPanelResources,caracResources,libraryResources,talePagesResources];
