@@ -119,11 +119,12 @@ class CaracScene extends Phaser.Scene{
         let radius;
         for (let i=0;i<12;i++){
             let slot = new PieceSlot(this,0,0,id);
-            slot.setDepth(100);
             this.add.existing(slot);
             radius = slot.slotData.radius;
             slotsGroup.add(slot);
         }
+
+
         Phaser.Actions.SetRotation(slotsGroup.getChildren(),ROTATION_VALUE,STEP_VALUE);
         // let ringShape = new Phaser.Geom.Circle(DEFAULT_WIDTH/2+DEFAULT_WIDTH/6+DEFAULT_WIDTH/9-10,DEFAULT_HEIGHT/2+DEFAULT_HEIGHT/8,radius);
         let ringShape = new Phaser.Geom.Circle(0,0,radius);
@@ -139,21 +140,11 @@ class CaracScene extends Phaser.Scene{
         for(let i=1;i<=10;i++){
             let id = Math.floor(Math.random()*4)+1;
             let piece = new PuzzlePiece(this,   -DEFAULT_WIDTH/3+DEFAULT_WIDTH/35,YHTOP,id,`${i}`);
-            piece.setDepth(1000);
+            piece.type.setZ(1000);
             this.piecesGroup.add(piece);
             this.piecesList.push(piece);
             piece.visible=false;
         }
-
-        // Phaser.Actions.GridAlign(this.piecesGroup.getChildren(),{
-        //     width:1,
-        //     height:4,
-        //     cellWidth:100,
-        //     cellHeight:120,
-        //     x:-610,
-        //     y:-150
-        // });
-
         this.piecesGroup.getChildren().forEach((el)=>{
             this.gameContainer.add(el);
         })
@@ -165,6 +156,7 @@ class CaracScene extends Phaser.Scene{
             piece.on('drag',(pointer,dragX,dragY)=>{
                 piece.x = dragX;
                 piece.y = dragY;
+                piece.z = 10000;
             });
 
             piece.on('dragenter',(pointer,pieceSlot)=>{
@@ -186,7 +178,7 @@ class CaracScene extends Phaser.Scene{
                         piece.x = pieceSlot.x;
                         piece.y = pieceSlot.y;
                         piece.setScale(pieceSlot._scaleX-0.05,pieceSlot._scaleY-0.02)
-                        piece.setDepth(1);
+                        piece.setZ(-100);
                         piece.rotation = pieceSlot.rotation;
                         piece.input.enabled = false;
                         pieceSlot.input.dropZone = false;

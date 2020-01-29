@@ -2,6 +2,7 @@ import ModuleBtn from "../gameObjects/mainUI/moduleBtn.js";
 import AssistantBtn from "../gameObjects/mainUI/assistantBtn.js";
 import { DEFAULT_WIDTH, DEFAULT_HEIGHT, MAIN_UI_ATLAS } from "../consts/mainuiLib.js";
 import FpsText from "../gameObjects/fpsText.js";
+import AssistantWindow from "../gameObjects/mainUI/assistant-window/assistant-window.js";
 
 class MainUIScene extends Phaser.Scene{
     contentGroup;
@@ -152,68 +153,7 @@ class MainUIScene extends Phaser.Scene{
     }
 
     addAsistantContent(){
-        this.assistantBox = this.add.container(0,0);
-        let content = this.add.group();
-        this.menuBtnGroup = this.add.group();
-        let window = this.add.image(0,0,MAIN_UI_ATLAS,'window_assistant');
-        let ribbon = this.add.image(0,0,MAIN_UI_ATLAS,'ribbon_assistant');
-        
-        //TODO migrar el estilo a archivo JSON
-        let asistantName = this.add.text(-ribbon.width/4+ribbon.width/40,-ribbon.height/4,'MAMA DULU',
-            {fontFamily:'Helvetica',
-            fontSize:'40px',
-            color:'#000',
-            stroke:'#000',
-            strokeThickness:1,
-            align:'center'
-            });
-
-        let btnPanel = this.add.image(0,0,MAIN_UI_ATLAS,'btn_box');
-        
-        let ribbonBox = this.add.container(0,0);
-        let btnBox = this.add.container(0,0);
-
-        this.assistantBox.add(window).setSize(window.width,window.height);
-
-        ribbonBox.add([ribbon,asistantName]).setSize(ribbon.width,ribbon.height);
-        
-        for (let i=1;i<=5;i++){
-            let btn = new AssistantBtn(this,0,0,i);
-            this.menuBtnGroup.add(btn);
-        }
-        Phaser.Actions.GridAlign(this.menuBtnGroup.getChildren(),{
-            width:5,
-            height:1,
-            cellWidth:100,
-            cellHeight:20,
-            x:-180,
-            y:-55
-        })
-        
-        btnBox.add(btnPanel).setSize(btnPanel.width,btnPanel.height);
-        this.menuBtnGroup.getChildren().forEach((item)=>{
-            btnBox.add(item);
-        });
-
-        content.add(ribbonBox);
-        content.add(btnBox);
-
-        Phaser.Actions.GridAlign(content.getChildren(),{
-            width:1,
-            height:2,
-            cellwidth:200,
-            cellHeight:470,
-            x:-280,
-            y:-80
-        });
-
-        content.getChildren().forEach((item)=>{
-            this.assistantBox.add(item);
-        });
-
-        let oldLady = this.add.image(0,-40,'mamaDulu');
-        oldLady.setScale(0.30);
-        this.assistantBox.add(oldLady);
+        this.assistantBox = new AssistantWindow(this,0,0);
     }
 
     chooseModule(btn){
