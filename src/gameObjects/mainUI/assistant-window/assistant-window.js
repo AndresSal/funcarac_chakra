@@ -1,6 +1,7 @@
 import AssistantBtn from "../assistantBtn.js";
 import { MAIN_UI_ATLAS } from "../../../consts/mainuiLib.js";
 
+//TODO cambiar a archivo JSON
 const ribbon_style={
     x:0,
     y:0,
@@ -40,6 +41,7 @@ export default class AssistantWindow extends Phaser.GameObjects.Container{
 
         this.createWindow(scene);
         this.setBtnBehavior(scene);
+        this.createModalDialog(scene);
     }
 
 
@@ -109,7 +111,7 @@ export default class AssistantWindow extends Phaser.GameObjects.Container{
     }
 
 
-
+//TODO temp code, remove later
     moveCharacter(scene){
         let xPosition = this.assistantCharacter.x;
         var assistantXMovement = {
@@ -136,12 +138,10 @@ export default class AssistantWindow extends Phaser.GameObjects.Container{
 
         scene.tweens.add(assistantXMovement)
     }
-
-
-
-
-
-
-
     
+    createModalDialog(scene){
+        scene.add.modalPlugin(this.width,this.height);
+    }
+
+
 }

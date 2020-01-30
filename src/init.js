@@ -5,6 +5,7 @@ import MainUIScene from "./scenes/mainUIScene.js";
 import LibraryScene from "./scenes/libraryScene.js";
 import { DEFAULT_WIDTH, DEFAULT_HEIGHT } from "./consts/mainuiLib.js";
 import TaleScene from "./scenes/taleScene.js";
+import DialogPLugin from "./plugins/dialog-plugin/dialog_plugin.js";
 
 
 
@@ -17,7 +18,11 @@ const config = {
         height:DEFAULT_HEIGHT,
         // width:window.innerWidth,
         // height:window.innerHeight
-
+    },
+    plugins: {
+        global: [
+            { key: 'DialogModal', plugin: DialogPLugin, start: true }
+        ]
     },
 
     scene:[BootLoader,MainUIScene,CaracScene,ChakraScene,LibraryScene,TaleScene]
